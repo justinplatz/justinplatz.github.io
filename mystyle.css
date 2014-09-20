@@ -8,7 +8,7 @@ body{
 	height: 100vh;
 	background: #00cce1;
 	opacity: .9;
-	border: .1em solid black;
+	border: .1em solid #eee;
 	text-align: center;
 	font-family: 'Lobster', sans-serif;
 	line-height: 30vh;
@@ -23,8 +23,11 @@ body{
 	-webkit-column-count: 3; /* Chrome, Safari, Opera */
     -moz-column-count: 3; /* Firefox */
     column-count: 3;
-    line-height: 5vh;
+    font-size: 3vh;
+    line-height: 3vh;
 
 }
 
-
+.column-left{ float: left; width: 33%; }
+.column-right{ float: right; width: 33%; }
+.column-center{ display: inline-block; width: 33%; }
