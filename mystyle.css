@@ -1,0 +1,30 @@
+body{
+	background-image: url('back1.jpg');
+}
+
+
+#info,#work,#contact{
+	width: 100%;
+	height: 100vh;
+	background: #00cce1;
+	opacity: .9;
+	border: .1em solid black;
+	text-align: center;
+	font-family: 'Lobster', sans-serif;
+	line-height: 30vh;
+	font-size: 5vh;
+}
+
+.title{
+	font-size: 10vh;
+}
+
+.columns{
+	-webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+    line-height: 5vh;
+
+}
+
+
