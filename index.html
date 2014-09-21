@@ -23,7 +23,20 @@
       }
     }
   });
-});</script>
+});
+</script>
+<script type="text/javascript">$(function(){
+	  var viewPortWidth = $(window).width();
+
+	  if (viewPortWidth > 1900) {$('body').addClass('extraWide')}
+	  else if (viewPortWidth > 1400) {$('body').addClass('wide')}
+	  else if (viewPortWidth > 1000) {$('body').addClass('standard')}
+	  else if (viewPortWidth > 700) {$('body').addClass('narrow')}
+	  else {$('body').addClass('extraNarrow')}
+
+});
+</script>
+
 
 
 
@@ -34,7 +47,7 @@
 	<nav class="navbar navbar-default navbar-fixed-top" role="tablist">
 	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <a class="navbar-brand pull-right" href="http://www.linkedin.com/in/justinplatz/" style="font-family: 'Lobster'; color: #00cce1; font-size: 5vh;">Justin Michael Platz</a>
+	    <a class="navbar-brand pull-right" href="http://www.linkedin.com/in/justinplatz/" style="font-family: 'Lobster'; color: #00cce1;">Justin Michael Platz</a>
 <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 	        <span class="sr-only">Toggle navigation</span>
@@ -47,7 +60,7 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	    	<div id="myScrollspy"> 
-			 	<ul class="nav navbar-nav navbar-left" data-spy="affix"  style = "font-family: 'Lobster', sans-serif; font-size: 5vh;">
+			 	<ul class="nav navbar-nav navbar-left" data-spy="affix"  style = "font-family: 'Lobster', sans-serif; font-size: 90%;">
 					<li><a href="#info">Info</a></li>
 					<li><a href="#work">Work</a></li>
 					<li><a href="#contact">Contact</a></li>
@@ -57,40 +70,44 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 
-	<div id="info"> 
+
+	<div id = "top" style = "background-image: url('sunset.jpg'); background-size: 100vw 100vh;
+"></div>
+
+	<div id="info" style = "background: #965D62"> 
 		<p class = "title">Info</p>
-		<div class="jumbotron" style = "height: 60%; width:75%; margin-left: 12.5%; overflow: scroll;line-height: 3vh;font-size:3vh;">
+		<div class="jumbotron" style = "height: 60%; width:75%; margin-left: 12.5%; overflow: scroll;line-height: 3vh;">
 					<div class = "column-left">
 						<h2>Education</h2>
-						<br>Univeristy Of Michigan</br>
-						<br>Major: Computer Science</br>
-						<br>Minor: Entrepreneurship</br>
+						<br><p>Univeristy Of Michigan</p></br>
+						<br><p>Major: Computer Science</p></br>
+						<br><p>Minor: Entrepreneurship</p></br>
 					</div>
 					<div class = "column-center">
 						<h2>Interests</h2>
-						<br>Apps. Tech. Humor.</br>
-						<br>Bagels. Pizza. Football.</br>
-						<br>Music. Code. Apple.</br>
+						<br><p>Apps. Tech. Humor.</p></br>
+						<br><p>Bagels. Pizza. Football.</p></br>
+						<br><p>Music. Code. Apple.</p></br>
 					</div>
 					<div class = "column-right">
 						<h2>Personal</h2>
-						<br>Made in New York.</br>
-						<br>Left Handed. Color Blind.</br>
-						<br>Woke Up Like This.</br>
+						<br><p>Made in New York.</p></br>
+						<br><p>Left Handed. Color Blind.</p></br>
+						<br><p>Woke Up Like This.</p></br>
 					</div>
 		</div>
 
 	</div>
-	<div id="work"> 
+	<div id="work" style = "background: #C7956D"> 
 		<p class = "title">Work</p>
-		<div class="jumbotron" style = "height: 60%; width:75%; margin-left: 12.5%; overflow: scroll;line-height: 3vh;font-size:3vh;">
+		<div class="jumbotron" style = "height: 60%; width:75%; margin-left: 12.5%; overflow: scroll;line-height: 3vh;">
 				<div class = "column-left">
 					<h2>Whosat</h2>
 					<a href="http://www.getwhosat.com">
 						<img src="whosat.png" style="height: 20vh; width: 25vh;">
 					</a>
-					<br>Founder</br>
-					<br>The Social Map Created By You And Your Friends</br>
+					<br><p>Founder</p></br>
+					<br><p>The Social Map Created By You And Your Friends</p></br>
 
 				</div>
 				<div class = "column-center">
@@ -98,20 +115,20 @@
 					<a href="http://www.getyogurt.me">
 						<img src="yogurt.png" style="height: 20vh; width: 25vh;">
 					</a>
-					<br>Creator</br>
-					<br>Anonymous Classroom Chat for Michigan Students</br>					
+					<br><p>Creator</p></br>
+					<br><p>Anonymous Classroom Chat for Michigan Students</p></br>					
 				</div>
 				<div class = "column-right">
 					<h2>Yik-Yak</h2>
 					<a href="http://www.yikyakapp.com">
 						<img src="yak-head.svg" style="height: 20vh; width: 25vh;">
 					</a>
-					<br>Campus Rep</br>
-					<br>Easily Chat With Anyone Near You</br>							
+					<br><p>Campus Rep</p></br>
+					<br><p>Easily Chat With Anyone Near You</p></br>							
 				</div>		
 			</div>
 	</div>
-	<div id="contact"> 
+	<div id="contact" style = "background: #F2D974"> 
 		<p class = "title">Contact</p>
 		<div class="jumbotron" style = "height: 60%; width:75%; margin-left: 12.5%;">
 					<div class = "column-left">
