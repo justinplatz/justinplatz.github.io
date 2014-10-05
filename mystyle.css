@@ -38,3 +38,35 @@ div p{
 h2{
 	font-size: 8.0vw;
 }
+
+h1{ 
+    width:450px; 
+    font-size: 12.0vw;
+    letter-spacing:-1px; 
+    color:#000; 
+}
+
+
+.wrap {
+    box-shadow: -10px 0 0 10px #FFF, 10px 0 0 10px #FFF;
+}
+
+.inner {
+    background: #FFF;
+    position:relative;
+    line-height: 40vh;
+}
+
+::-moz-selection { 
+    color: white;
+    color: rgba(254,255,255,0.80); 
+    background: #4c8980;
+
+}
+
+::selection {
+    color: white;
+    color: rgba(254,255,255,0.80); 
+    background: #4c8980;
+
+}
