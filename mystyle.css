@@ -11,12 +11,13 @@ body{
 	border: .1em solid #eee;
 	text-align: center;
 	font-family: 'Lobster', sans-serif;
-	line-height: 30vh;
+	line-height: 15vh;
 	
 }
 
 .title{
 	font-size: 10vh;
+  margin-top: 10vh;
 }
 
 .columns{
@@ -27,9 +28,9 @@ body{
 
 }
 
-.column-left{ float: left; width: 33%; padding: 1em; margin-top: 3em;}
-.column-right{ float: right; width: 33%; padding: 1em; margin-top: 3em;}
-.column-center{ display: inline-block; width: 33%; padding: 1em; margin-top: 3em;}
+.column-left{ float: left; width: 33%; padding: 1em; margin-top: 1em;}
+.column-right{ float: right; width: 33%; padding: 1em; margin-top: 1em;}
+.column-center{ display: inline-block; width: 33%; padding: 1em; margin-top: 1em;}
 
 div p{
 	font-size: 5.0vw;
@@ -37,6 +38,7 @@ div p{
 
 h2{
 	font-size: 8.0vw;
+
 }
 
 h1{ 
@@ -93,7 +95,7 @@ section{
     -ms-transition: all 1s ease;
     transition: all 1s ease;
 }
-.footer #button:hover{
+.footer #button:hover,#button.click{
 	width:35px;
 	height:35px;
 	border: #3A3A3A 12px solid;
