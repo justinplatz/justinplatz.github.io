@@ -191,10 +191,6 @@ footer a{
   
 }
 
-footer a:hover{
-  border-bottom:2px dotted #22A7F0;
-}
-
 footer{
   clear: both;
   height: 5px;
@@ -208,6 +204,7 @@ footer{
   bottom:0;
   width:100%;
   margin:0 auto;
+  opacity: .5;
 }
 
 .text-footer{
@@ -249,3 +246,38 @@ footer{
 }
 
 /* end footer ---------------------------------------------------------------*/
+
+
+/* style custom navigation */
+.container2 ul { padding: 0; margin: 0; }
+.container2 li { list-style: none; float: left; margin-right: .25em; font-family: monospace; }
+.container2 li a { display: block; background: #399; padding: .25em 1em; color: #fff; text-decoration: none; border-radius: 0 0 .25em .25em; }
+
+/* style slideshow */
+#slides { display: none }
+.container2 { 
+  margin-top: 12.5em;
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+  opacity: .5;
+  background-color: white;
+  display: inline-block;
+ }
+
+#slides div{
+  width = 100%; 
+  height: 37.5em;
+  white-space: none;
+}
+
+#slides div p{
+  text-align: center;
+  vertical-align: middle;
+  font-size: 2vw;
+  color: blue;
+}
+
+@media (max-width: 600px) {
+.container2 { width: auto }
+}
