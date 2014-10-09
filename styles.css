@@ -102,14 +102,8 @@ nav ul li a:hover {
   transition: all .3s;
 }
 
-nav ul li:nth-child(3) {
-  margin-right: 16em;
-}
-@media (max-width: 1000px) {
-  nav ul li:nth-child(3) {
-    margin-right: 180px;
-  }
-}
+
+
 
 
 
