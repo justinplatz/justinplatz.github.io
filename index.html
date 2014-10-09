@@ -1,7 +1,11 @@
 <!DOCTYPE HTML>
 <head>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="icon" 
+      type="image/png" 
+      href="logo.png">
+  <title>Justin Platz</title>
 
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -22,7 +26,6 @@
           <li><a href="#" class="custom-item" data-item="1">Present</a></li>
           <li><a href="#" class="custom-item" data-item="2">Future</a></li>
           <li><a href="#" class="custom-item" data-item="3">Portfolio</a></li>
-          <li><a href="#" class="custom-item" data-item="4">Contact</a></li>
         </ul>
       </nav>
    
@@ -79,16 +82,6 @@ jQuery(window).on('resize', function(){
         Portfolio
       </div>
 
-      <!-- Social -->
-      <div>
-        Social
-      </div>
-
-      <!-- Contact -->
-      <div>
-        Contact
-      </div>
-
     </div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -111,17 +104,7 @@ jQuery(window).on('resize', function(){
     // use data-item value when triggering default pagination link
     $('a[data-slidesjs-item="' + $(this).attr("data-item") + '"]').trigger('click');
   });
-  $('.custom-next').click(function(e) {
-    e.preventDefault();
-    // emulate next click
-    $('.slidesjs-next').click();
-  });
-  $('.custom-prev').click(function(e) {
-    e.preventDefault();
-    // emulate previous click
-    $('.slidesjs-previous').click();
-  });
-    //@ sourceURL=pen.js
+ 
 </script>
 <script src="http://codepen.io/assets/editor/live/css_live_reload_init.js"></script>
 
@@ -143,10 +126,11 @@ jQuery(window).on('resize', function(){
     <footer>
       <ul class="social-ul">
           <li class="social" title="moi"><a href="mailto:jplatz@umich.edu">&#9993;</a></li>
-          <li class="social" title="Twitter"><a href="https://twitter.com/new_platzberg">&#62217;</a></li>
-          <li class="social" title="Instagram"><a href="http://instagram.com/platzyj">&#62253;</a></li>
+          <li class="social" title="Cell"><a href="tel:+5164763716">&#128241;</a></li>
           <li class="social" title="Linkedin"><a href="https://www.linkedin.com/in/justinplatz">&#62232;</a></li>
+          <li class="social" title="Instagram"><a href="http://instagram.com/platzyj">&#62253;</a></li>
           <li class="social" title="Facebook"><a href="http://www.facebook.com/jplatz">&#62222;</a></li>
+
       </ul>
     </footer>
 
