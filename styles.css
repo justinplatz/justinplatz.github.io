@@ -1,0 +1,248 @@
+@import url(http://fonts.googleapis.com/css?family=Rokkitt);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+  color: #666;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: Rokkitt;
+  background-color: #e4e4e4;
+  height: 500px;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  min-height: 100px;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100001;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 1000px) {
+  header {
+    position: relative;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1050px;
+  padding: 0 20px;
+  clear: both;
+  position: relative;
+}
+@media (max-width: 1000px) {
+  .container {
+    padding: 100px 0 0;
+  }
+}
+
+nav {
+  display: block;
+  position: relative;
+}
+@media (max-width: 1000px) {
+  nav {
+    display: none;
+    left: 0;
+  }
+}
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+@media (max-width: 1000px) {
+  nav ul {
+    background-color: #eee;
+  }
+}
+nav ul li {
+  display: inline-block;
+  margin: 40px 30px;
+}
+@media (max-width: 1000px) {
+  nav ul li {
+    width: 100%;
+    border-top: 1px solid #ddd;
+    margin: 0 !important;
+    /* Sorry */
+  }
+}
+nav ul li a {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #aaa;
+  letter-spacing: 1px;
+  transition: all .3s;
+}
+@media (max-width: 1000px) {
+  nav ul li a {
+    padding: 1em 0;
+    display: block;
+  }
+  nav ul li a:hover {
+    background-color: #ddd;
+  }
+}
+nav ul li a:hover {
+  color: #000;
+  transition: all .3s;
+}
+
+nav ul li:nth-child(3) {
+  margin-right: 16em;
+}
+@media (max-width: 1000px) {
+  nav ul li:nth-child(3) {
+    margin-right: 180px;
+  }
+}
+
+
+
+.logo {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  line-height: 70px;
+  text-align: center;
+  margin-left: -35px;
+  background-color: #333;
+  color: white;
+  font-size: 2em;
+
+}
+.logo img{
+  width: 70px;
+  height: 70px;
+
+}
+
+.mobile {
+  display: none;
+  position: absolute;
+  right: 5%;
+  top: 0;
+  width: 40px;
+  margin: 36px 0;
+  cursor: pointer;
+}
+@media (max-width: 1000px) {
+  .mobile {
+    display: block;
+  }
+}
+.mobile span {
+  height: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 100%;
+  display: block;
+  background-color: #aaa;
+  margin: 3px 0;
+}
+
+
+
+@media all and (max-width: 1150px) {
+  nav ul li {
+    margin: 40px 10px;
+  }
+
+  .social {
+    left: 5%;
+  }
+
+  .sign {
+    right: 20px;
+  }
+}
+
+
+/* footer ---------------------------------------------------------------*/
+
+@import url('http://weloveiconfonts.com/api/?family=entypo');
+
+footer a{
+  color: inherit;
+  text-decoration: none;
+  border-bottom:3px solid #22A7F0;
+  padding-bottom: 1px;
+  cursor: pointer;
+  
+}
+
+footer a:hover{
+  border-bottom:2px dotted #22A7F0;
+}
+
+footer{
+  clear: both;
+  height: 5px;
+  background-color: #22A7F0;
+  padding: 1%;
+  padding-left:0;
+  padding-right:0;
+  position: relative;
+  margin-top:200px;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  margin:0 auto;
+}
+
+.text-footer{
+  margin: 1% auto;
+  width: 183px;
+  color: white;
+}
+
+  footer ul li a{
+    border: none;
+  }
+
+.social-ul{
+  margin: 0 auto;
+  width: 317px;
+  margin-top: -39px;
+}
+
+.social {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+  line-height: 40px;
+  font-family: Entypo;
+  font-size: 20px;
+  text-align: center;
+  color: #555;
+  border-radius: 50%;
+  background: #fff;
+  overflow: hidden;
+  transition: color .3s;
+}
+
+.social:hover {
+  color: #22A7F0;
+  cursor: pointer;
+
+}
+
+/* end footer ---------------------------------------------------------------*/
