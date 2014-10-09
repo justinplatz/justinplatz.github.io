@@ -128,7 +128,13 @@ nav ul li a:hover {
 .logo img{
   width: 70px;
   height: 70px;
+  opacity:1.0;
+  filter:alpha(opacity=100);
 
+}
+.logo img:hover{
+  opacity:0.4;
+  filter:alpha(opacity=40); 
 }
 
 .mobile {
