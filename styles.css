@@ -276,6 +276,9 @@ footer{
 }
 
 @media (max-width: 600px) {
-.container2 { width: auto }
+  .container2 { 
+    width: auto 
+    height: 50vh;
+  } 
 }
 /* end slider ---------------------------------------------------------------*/
