@@ -6,6 +6,8 @@
   <title>Justin Platz </title>
 
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -79,9 +81,54 @@ jQuery(window).on('resize', function(){
         Future
       </div>
 
+
+
+
       <!-- Portfolio -->
       <div>
-        Portfolio
+
+          <div class="boxes">
+          <div class="one box">
+            <h1>Love me some bacon</h1>
+            <h4>Bacon ipsum dolor sit amet leberkas ham sirloin, tenderloin pig pork chop spare ribs prosciutto tri-tip ball tip. Corned beef pork shank, shoulder swine capicola short loin pork loin.</h4>
+          </div> 
+          <div class="two box">
+            <h1>I love Pigs</h1>
+            <h4>Kevin salami andouille, pancetta tenderloin ball tip corned beef flank short ribs bresaola filet mignon boudin. Pork loin hamburger pancetta beef.</h4>
+          </div> 
+          <div class="three box">
+            <h1>Cows are Good Too!</h1>
+            <h4>Beef ribs ham hock spare ribs filet mignon boudin chicken sirloin biltong bacon drumstick. Tongue boudin andouille shankle, shank salami tri-tip kevin prosciutto pork belly sirloin bresaola cow pork.</h4>
+          </div> 
+          <div class="four box">
+            <h1>Surf & Turf is best</h1>
+            <h4>Drumstick landjaeger capicola, andouille pig filet mignon porchetta kevin tail tri-tip ham hock sausage venison. Ham hock ribeye ham cow doner. </h4>
+          </div> 
+        </div>
+        <script>
+function equalHeight(group) {
+   tallest = 0;
+   group.each(function() {
+      thisHeight = $(this).height();
+      if(thisHeight > tallest) {
+         tallest = thisHeight;
+      }
+   });
+   group.height(tallest);
+}
+
+$(document).ready(function() {
+   equalHeight($(".box"));
+});
+
+$(window).resize(function() {
+   $('.box').css('height','auto');
+   equalHeight($(".box"));
+});//@ sourceURL=pen.js
+
+
+        </script>       
+
       </div>
 
     </div>
