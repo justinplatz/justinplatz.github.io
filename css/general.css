@@ -285,7 +285,7 @@ footer{
   padding: 1%;
   padding-left:0;
   padding-right:0;
-  position:relative;
+  position:absolute;
   bottom:0;
   width:100%;
   margin:0 auto;
