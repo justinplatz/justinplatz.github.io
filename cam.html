@@ -3,17 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link href="http://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet" type="text/css">
 <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 <style>
 
 
 
-
+h1{
+  font-size: 1em;
+  font-family: 'Homemade Apple', sans-serif;
+}
 
 
 body {
   background: #d9d9d9;
+  text-align: center;
 }
 
 @import url("//fonts.googleapis.com/css?family=Lato:400");
@@ -23,28 +27,41 @@ body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;  
 }
 
-.container {
+/*.container {
   background: #494949;
   padding:1.5em 2em;
   margin:2em;
 
-}
+}*/
 
-img.polaroid {
-  background:#000; /*Change this to a background image or remove*/
+img.polaroid{
+  /*background:#000; 
   border:solid #fff;
   border-width:6px 6px 40px 6px;
-  box-shadow:1px 1px 5px #333; /* Standard blur at 5px. Increase for more depth */
+  box-shadow:1px 1px 5px #333; 
   -webkit-box-shadow:1px 1px 5px #333;
-  -moz-box-shadow:1px 1px 5px #333;
+  -moz-box-shadow:1px 1px 5px #333;*/
   height:auto; /*Set to height of your image or desired div*/
   width:25vw; /*Set to width of your image or desired div*/
-  margin-top: 1em;
-  margin-left: 1vw;
-  margin-right: 2vw;
 }
 
+.frame{
 
+  background:#000; 
+  border:solid #fff;
+  border-width:6px 6px 6px 6px;
+  box-shadow:1px 1px 5px #333; 
+  width: 25vw;
+  height: auto;
+  background-color: white;
+  -webkit-box-shadow:1px 1px 5px #333;
+  -moz-box-shadow:1px 1px 5px #333;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 1em;
+  display: inline-block;
+
+}
 
 .fade {
   transition: all 0.4s ease-out;
@@ -53,6 +70,74 @@ img.polaroid {
 .fade .show {
   opacity: 1;
 }
+
+
+
+button {
+  overflow: hidden;
+  position: relative; 
+  margin-left: 45vw; 
+  margin-right: 45vw; 
+
+  cursor: pointer;
+  padding: 12px 48px;
+  background: #8AC007;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  color: white;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  margin-bottom:1em;
+  width: 8em;
+}
+button:hover {
+  background: #95cf08;
+}
+
+.circle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-radius: 50%;
+  -webkit-animation: scale-circle 2.5s;
+          animation: scale-circle 2.5s;
+}
+
+@-webkit-keyframes scale-circle {
+  from {
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+    opacity: 0.6;
+  }
+  to {
+    -webkit-transform: scale(100);
+            transform: scale(100);
+    opacity: 0;
+  }
+}
+
+@keyframes scale-circle {
+  from {
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+    opacity: 0.6;
+  }
+  to {
+    -webkit-transform: scale(100);
+            transform: scale(100);
+    opacity: 0;
+  }
+}
+
+h2{
+  font-size: 3em;
+  color: white;
+}
+
+</style>
 
 </style>
 
@@ -64,6 +149,54 @@ img.polaroid {
   <script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>  
   <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<h2 class="occupancy"> </h2>
+
+  <button>
+    Take a Photo!
+  </button>
+
+<script>
+(function (window, $) {
+  
+  $(function() {
+    
+    $('button').on('click', function (event) {
+      event.preventDefault();
+      
+      var $div = $('<div/>'),
+          btnOffset = $(this).offset(),
+          xPos = event.pageX - btnOffset.left,
+          yPos = event.pageY - btnOffset.top;
+
+      $div
+        .addClass('circle')
+        .css({
+          top: yPos - 15,
+          left: xPos - 15
+        }) 
+        .appendTo($(this));
+
+      window.setTimeout(function(){
+        $div.remove();
+      }, 2000);
+
+      console.log("Button click")
+
+      pubnub.publish({
+        channel: 'liveCamClick',        
+        message: 'take a photo!'
+      });
+
+    });
+    
+  });
+
+
+  
+})(window, jQuery);
+
+</script>
 
   <div id="placehere" class ="container" class="fade-in">
 
@@ -81,18 +214,28 @@ img.polaroid {
         Parse.initialize("S7cS6MQyMb7eMjWRWsC32owq9cDx0zyrM58MSevK", "oPxXssH0RekqywNWC4Y56a2fJNCxWpoEtOzFuvRZ");
         var Selfie = Parse.Object.extend("Selfie");
         var query = new Parse.Query(Selfie);
+        query.addDescending('createdAt');
         query.find({
         success: function(results) {
           // Do something with the returned Parse.Object values
-          for (var i = results.length-1; i > -1; i--) { 
+          for (var i = 0; i < 9; i++) { 
             var object = results[i];
             var filedata = "data:image/png;base64," + object.get('fileData')
-
+            var frame =  document.createElement("div");
+            frame.setAttribute("class", "frame");
             var elem = document.createElement("img");
             elem.setAttribute("src", filedata);
             elem.setAttribute("class", "polaroid");
 
-            document.getElementById("placehere").appendChild(elem);
+            var filename = object.createdAt.toString();
+            var text = document.createElement("h1");
+            text.innerHTML = filename.split("GMT")[0];
+            frame.appendChild(elem);
+            frame.appendChild(text)
+            // document.getElementById("placehere").appendChild(text);
+
+
+            document.getElementById("placehere").appendChild(frame);
           }
         },
         error: function(error) {
@@ -105,21 +248,29 @@ img.polaroid {
     message: function(m){
       var Selfie = Parse.Object.extend("Selfie");
       var query = new Parse.Query(Selfie);
+      query.addDescending('createdAt');
       query.equalTo("fileName", m);
       query.find({
         success: function(results) {
           // Do something with the returned Parse.Object values
-          for (var i = 0; i < 9; i++) { 
+          for (var i = 0; i < results.length; i++) { 
             var object = results[i];
-            console.log("Just found " + object.get('fileName'));
-            var filedata = "data:image/jpg;base64," + object.get('fileData');
-
+            var filedata = "data:image/png;base64," + object.get('fileData')
+            var frame =  document.createElement("div");
+            frame.setAttribute("class", "frame");
             var elem = document.createElement("img");
             elem.setAttribute("src", filedata);
             elem.setAttribute("class", "polaroid");
-          
+
+            var filename = object.createdAt.toString();
+            var text = document.createElement("h1");
+            text.innerHTML = filename.split("GMT")[0];
+            frame.appendChild(elem);
+            frame.appendChild(text)
+
+            document.getElementById("placehere").appendChild(frame);
             var container = document.getElementById('placehere');
-            container.insertBefore(document.getElementById("placehere").appendChild(elem), container.firstChild);
+            container.insertBefore(document.getElementById("placehere").appendChild(frame), container.firstChild);
           }        
         
 
@@ -137,12 +288,21 @@ img.polaroid {
   });
 
 
-  function sendPub(){
-      pubnub.publish({
-        channel: 'iotchannel',        
-        message: 'Hello from the PubNub Javascript SDK'
-      });
-  }
+  var pubnub = PUBNUB.init({
+      publish_key: 'pub-c-f83b8b34-5dbc-4502-ac34-5073f2382d96',
+      subscribe_key: 'sub-c-34be47b2-f776-11e4-b559-0619f8945a4f'
+  });
+   
+  pubnub.subscribe({
+     channel: "liveCam",
+     presence: function(m){
+      console.log(m)
+      $(".occupancy").text("There are " + m['occupancy'] + " viewers here right now");
+
+    },
+     message: function(m){console.log(m)}
+
+  });
 
 </script>
 
