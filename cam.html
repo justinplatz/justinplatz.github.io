@@ -109,7 +109,7 @@ img.polaroid {
       query.find({
         success: function(results) {
           // Do something with the returned Parse.Object values
-          for (var i = 0; i < results.length; i++) { 
+          for (var i = 0; i < 9; i++) { 
             var object = results[i];
             console.log("Just found " + object.get('fileName'));
             var filedata = "data:image/jpg;base64," + object.get('fileData');
