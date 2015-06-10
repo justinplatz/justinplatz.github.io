@@ -204,8 +204,8 @@ h2{
 <script>
 
     var pubnub = PUBNUB.init({
-      publish_key: 'demo',
-      subscribe_key: 'demo'
+      publish_key: 'pub-c-f83b8b34-5dbc-4502-ac34-5073f2382d96',
+      subscribe_key: 'sub-c-34be47b2-f776-11e4-b559-0619f8945a4f'
     });
 
         Parse.initialize("S7cS6MQyMb7eMjWRWsC32owq9cDx0zyrM58MSevK", "oPxXssH0RekqywNWC4Y56a2fJNCxWpoEtOzFuvRZ");
@@ -282,12 +282,6 @@ h2{
       // Handle error here
       console.log(JSON.stringify(error));
     }
-  });
-
-
-  var pubnub = PUBNUB.init({
-      publish_key: 'pub-c-f83b8b34-5dbc-4502-ac34-5073f2382d96',
-      subscribe_key: 'sub-c-34be47b2-f776-11e4-b559-0619f8945a4f'
   });
    
   pubnub.subscribe({
