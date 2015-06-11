@@ -316,11 +316,12 @@ h2{
 
   });
 
-   pubnub.subscribe({
-     channel: "liveCamClick",
-     presence: function(m){
-      console.log("liveCamClick is " + m['occupancy'])
-      if(m['occupancy'] > 1){
+
+   pubnub.here_now({
+     channel : 'liveCamClick',
+     callback : function(m){
+       console.log("liveCamClick is " + m['occupancy'])
+      if(m['occupancy']){
         document.getElementById("status").className = "cameraON";
         document.getElementById("status").innerHTML = "On";
       }
@@ -330,10 +331,8 @@ h2{
 
       }
 
-    },
-     message: function(m){console.log(m)}
-
-  });
+    }
+ });
 
 </script>
 
