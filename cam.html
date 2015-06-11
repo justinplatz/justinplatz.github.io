@@ -85,10 +85,11 @@ button {
   color: white;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
-  font-size: 22px;
+  font-size: 18px;
   margin-bottom:1em;
   width: 8em;
 }
+
 button:hover {
   background: #95cf08;
 }
@@ -134,6 +135,14 @@ h2{
   color: white;
 }
 
+.cameraON{
+  color: green;
+}
+.cameraOff{
+  color: red;
+}
+
+
 </style>
 
 </style>
@@ -149,15 +158,24 @@ h2{
 
 <h2 class="occupancy"> </h2>
 
-  <button>
+  <h2>Camera is <span class="cameraOff"> Off </span></h2>
+
+
+
+  <form>
+    <label for="photoNum" style = "color:white;">Photos per Page: </label>
+    <input  id="photoNum" name="photos" size="3"> 
+    <button onclick="submit();">Enter</button>
+    <br>
+  </form>
+<!--   <button>
     Take a Photo!
-  </button>
+  </button> -->
 
 <script>
+
 (function (window, $) {
-  
   $(function() {
-    
     $('button').on('click', function (event) {
       event.preventDefault();
       
@@ -184,13 +202,8 @@ h2{
         channel: 'liveCamClick',        
         message: 'take a photo!'
       });
-
     });
-    
   });
-
-
-  
 })(window, jQuery);
 
 </script>
@@ -202,6 +215,14 @@ h2{
 
 
 <script>
+  function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+  var strLimit = getParameterByName('photos');
+  var queryLimit = strLimit === "" ? 9 : parseInt(strLimit);
 
     var pubnub = PUBNUB.init({
       publish_key: 'pub-c-f83b8b34-5dbc-4502-ac34-5073f2382d96',
@@ -215,7 +236,7 @@ h2{
         query.find({
         success: function(results) {
           // Do something with the returned Parse.Object values
-          for (var i = 0; i < 9; i++) { 
+          for (var i = 0; i < queryLimit; i++) { 
             var object = results[i];
             var filedata = "data:image/png;base64," + object.get('fileData')
             var frame =  document.createElement("div");
