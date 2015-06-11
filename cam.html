@@ -190,6 +190,8 @@ h2{
 
 
 
+
+
 </style>
 
 </style>
@@ -205,9 +207,8 @@ h2{
 
 <h2 class="occupancy"> </h2>
 
-  <h2>Camera is <span id="status" class="cameraOff"> Off </span></h2>
-
-
+  <h2>Camera is <span id="status" class="cameraOff"> </span></h2>
+ 
 
   <form>
     <label for="photoNum" style = "color:white; font-family: 'Bangers', cursive; font-size: 18px;">Photos per Page: </label>
@@ -341,6 +342,7 @@ h2{
             elem.setAttribute("src", filedata);
             elem.setAttribute("class", "polaroid");
 
+
             var filename = object.createdAt.toString();
             var text = document.createElement("h1");
             text.innerHTML = filename.split("GMT")[0];
@@ -389,6 +391,7 @@ h2{
         if (m['action']=="join"){
           document.getElementById("status").className = "cameraON";
           document.getElementById("status").innerHTML = "On";
+
         } 
         else {
           document.getElementById("status").className = "cameraOff";
