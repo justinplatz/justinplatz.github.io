@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="http://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
 <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 <style>
 
@@ -133,6 +134,7 @@ button:hover {
 h2{
   font-size: 3em;
   color: white;
+  font-family: 'Bangers', cursive;
 }
 
 .cameraON{
@@ -141,6 +143,51 @@ h2{
 .cameraOff{
   color: red;
 }
+
+.boxGreen{
+  width: 2vw;
+  height: 2vw;
+  border:2px solid #00FF00;
+  display: inline-table;
+  font-size: 18px;
+  color: #00FF00;
+  font-family: 'Bangers', cursive;
+}
+.boxRed{
+  width: 2vw;
+  height: 2vw;
+  border:2px solid #FF0000;
+  display: inline-table;
+  font-size: 18px;
+  color: #FF0000;
+  font-family: 'Bangers', cursive;
+
+
+
+}
+.boxBlue{
+  width: 2vw;
+  height: 2vw;
+  border:2px solid #0000FF;
+  display: inline-table;
+  font-size: 18px;
+  color: #0000FF;
+  font-family: 'Bangers', cursive;
+
+
+}
+.boxTeal{
+  width: 2vw;
+  height: 2vw;
+  border:2px solid #00FFFF;
+  display: inline-table;
+  font-size: 18px;
+  color: #00FFFF;
+  font-family: 'Bangers', cursive;
+
+
+}
+
 
 
 </style>
@@ -163,11 +210,25 @@ h2{
 
 
   <form>
-    <label for="photoNum" style = "color:white;">Photos per Page: </label>
-    <input  id="photoNum" name="photos" size="3"> 
-    <button onclick="submit();">Enter</button>
+    <label for="photoNum" style = "color:white; font-family: 'Bangers', cursive; font-size: 18px;">Photos per Page: </label>
+    <input  id="photoNum" name="photos" size="5"> 
+    <button onclick="submit();" style="font-family: 'Bangers', cursive;">Enter</button>
     <br>
   </form>
+
+  <div class="boxGreen">
+    <div>Upperbody Detection</div>
+  </div>
+  <div class="boxBlue">
+    <div>Facial Detection</div>
+  </div>
+  <div class="boxRed">
+    <div>Full Body Detection</div>
+  </div>
+  <div class="boxTeal">
+    <div>Pedestrian Detection</div>
+  </div>
+
 <!--   <button>
     Take a Photo!
   </button> -->
@@ -208,7 +269,7 @@ h2{
 
 // </script>
 
-  <div id="placehere" class ="container" class="fade-in">
+  <div id="placehere" class ="container" style="margin-top:2vh;">
 
   </div>
 
