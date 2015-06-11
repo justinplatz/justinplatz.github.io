@@ -174,39 +174,39 @@ h2{
 
 <script>
 
-(function (window, $) {
-  $(function() {
-    $('button').on('click', function (event) {
-      event.preventDefault();
+// (function (window, $) {
+//   $(function() {
+//     $('button').on('click', function (event) {
+//       event.preventDefault();
       
-      var $div = $('<div/>'),
-          btnOffset = $(this).offset(),
-          xPos = event.pageX - btnOffset.left,
-          yPos = event.pageY - btnOffset.top;
+//       var $div = $('<div/>'),
+//           btnOffset = $(this).offset(),
+//           xPos = event.pageX - btnOffset.left,
+//           yPos = event.pageY - btnOffset.top;
 
-      $div
-        .addClass('circle')
-        .css({
-          top: yPos - 15,
-          left: xPos - 15
-        }) 
-        .appendTo($(this));
+//       $div
+//         .addClass('circle')
+//         .css({
+//           top: yPos - 15,
+//           left: xPos - 15
+//         }) 
+//         .appendTo($(this));
 
-      window.setTimeout(function(){
-        $div.remove();
-      }, 2000);
+//       window.setTimeout(function(){
+//         $div.remove();
+//       }, 2000);
 
-      console.log("Button click")
+//       console.log("Button click")
 
-      pubnub.publish({
-        channel: 'liveCamClick',        
-        message: 'take a photo!'
-      });
-    });
-  });
-})(window, jQuery);
+//       pubnub.publish({
+//         channel: 'liveCamClick',        
+//         message: 'take a photo!'
+//       });
+//     });
+//   });
+// })(window, jQuery);
 
-</script>
+// </script>
 
   <div id="placehere" class ="container" class="fade-in">
 
@@ -317,22 +317,29 @@ h2{
   });
 
 
-   pubnub.here_now({
-     channel : 'liveCamClick',
-     callback : function(m){
-       console.log("liveCamClick is " + m['occupancy'])
-      if(m['occupancy']){
-        document.getElementById("status").className = "cameraON";
-        document.getElementById("status").innerHTML = "On";
-      }
-      else{
-        document.getElementById("status").className = "cameraOff";
-        document.getElementById("status").innerHTML = "Off";
 
-      }
 
-    }
- });
+
+  pubnub.subscribe({
+     channel: "liveCamStatus",
+     presence: function(m){
+      console.log(m)
+      if(m['uuid'] == "pi"){
+        if (m['action']=="join"){
+          document.getElementById("status").className = "cameraON";
+          document.getElementById("status").innerHTML = "On";
+        } 
+        else {
+          document.getElementById("status").className = "cameraOff";
+          document.getElementById("status").innerHTML = "Off";
+        }
+      } 
+    },
+     message: function(m){console.log(m);}
+   
+  });
+
+
 
 </script>
 
