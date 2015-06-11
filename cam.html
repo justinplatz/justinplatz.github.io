@@ -158,7 +158,7 @@ h2{
 
 <h2 class="occupancy"> </h2>
 
-  <h2>Camera is <span class="cameraOff"> Off </span></h2>
+  <h2>Camera is <span id="status" class="cameraOff"> Off </span></h2>
 
 
 
@@ -310,6 +310,25 @@ h2{
      presence: function(m){
       console.log(m)
       $(".occupancy").text("There are " + m['occupancy'] + " viewers here right now");
+
+    },
+     message: function(m){console.log(m)}
+
+  });
+
+   pubnub.subscribe({
+     channel: "liveCamClick",
+     presence: function(m){
+      console.log("liveCamClick is " + m['occupancy'])
+      if(m['occupancy'] > 1){
+        document.getElementById("status").className = "cameraON";
+        document.getElementById("status").innerHTML = "On";
+      }
+      else{
+        document.getElementById("status").className = "cameraOff";
+        document.getElementById("status").innerHTML = "Off";
+
+      }
 
     },
      message: function(m){console.log(m)}
