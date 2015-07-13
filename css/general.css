@@ -283,7 +283,7 @@ p{
         color: ghostwhite;
     }
     #container{
-        margin-left: calc(25%);
+        margin-left: calc(20%);
         margin-right: 25px;
     }
     #container .circle{
@@ -315,6 +315,10 @@ p{
     .case-study__overlay{
         visibility: hidden;
     }
+    .iconcontainer{
+        margin-left: 25%;
+    }
+    
 }
 
 /* footer ---------------------------------------------------------------*/
