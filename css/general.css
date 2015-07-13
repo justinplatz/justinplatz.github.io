@@ -303,6 +303,10 @@ p{
     .dates{
         visibility: hidden;
     }
+    nav{
+        width: 60px;
+        text-align: center;
+    }
 }
 
 /* footer ---------------------------------------------------------------*/
