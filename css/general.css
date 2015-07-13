@@ -297,7 +297,11 @@ p{
     }
     .event{
         width: auto;
+        height: auto;
         margin-right: 25px;
+    }
+    .dates{
+        visibility: hidden    
     }
 }
 
