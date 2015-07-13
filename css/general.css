@@ -280,6 +280,7 @@ p{
     }
     #container p{
         font-size: .5em;
+        color: ghostwhite;
     }
     #container{
         margin-left: calc(25%);
