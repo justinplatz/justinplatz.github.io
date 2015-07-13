@@ -309,8 +309,8 @@ p{
     }
     
     .case-study-gallery div{
-        margin-left: calc(25% + 60px);
-        width: 50%;
+        margin-left: calc(5% + 60px);
+        width: 90%;
     }
     .case-study__overlay{
         visibility: hidden;
