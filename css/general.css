@@ -278,6 +278,12 @@ p{
       left: calc(35.5%);
       top: 0;
     }
+    #container p{
+        font-size: .75em;
+    }
+    #container{
+        width: 300px;
+    }
 }
 
 /* footer ---------------------------------------------------------------*/
