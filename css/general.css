@@ -244,8 +244,8 @@ p{
 #logo:after {
   content:"justinplatz";
   position: absolute;
-  left: 25.5%;
-  top: 1%;
+  left: calc(25.5% - 75px);
+  top: 0;
 }
 #logo:after {
   /*background: url(http://subtlepatterns.com/patterns/crossed_stripes.png) repeat;*/
@@ -261,11 +261,24 @@ p{
 
 .logocontainer{
     width: 50%; 
-    margin-left: 25%;
+    margin-left: calc(25% - 75px);
     margin-right: 25%;
 }
 
+@media screen and (max-width:700px){
+    .logocontainer{
+        width: 50%; 
+        margin-left: calc(35%);
+        margin-right: 25%;
+    }
 
+    #logo:after {
+      content:"justinplatz";
+      position: absolute;
+      left: calc(35.5%);
+      top: 0;
+    }
+}
 
 /* footer ---------------------------------------------------------------*/
 
