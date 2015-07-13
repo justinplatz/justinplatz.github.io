@@ -284,7 +284,10 @@ p{
     }
     #container{
         margin-left: calc(25%);
-        margin-right: 20px;
+        margin-right: 25px;
+    }
+    #container .circle{
+        margin-top: auto;
     }
 }
 
