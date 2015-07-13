@@ -289,6 +289,12 @@ p{
     #container .circle{
         margin-top: auto;
     }
+    ul{
+        font-size: .5em;
+    }
+    p{
+        font-size: .5em;
+    }
 }
 
 /* footer ---------------------------------------------------------------*/
