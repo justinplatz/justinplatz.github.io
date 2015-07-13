@@ -307,6 +307,14 @@ p{
         width: 60px;
         text-align: center;
     }
+    
+    .case-study-gallery div{
+        margin-left: calc(25% + 60px);
+        width: 50%;
+    }
+    .case-study__overlay{
+        visibility: hidden;
+    }
 }
 
 /* footer ---------------------------------------------------------------*/
@@ -934,16 +942,21 @@ to {
 }
 
 .study4 {
-  background-image: url("yak.png");
+  background-image: url("PubNub.png");
 }
 
 .study5 {
-  background-image: url("http://publicdomainarchive.com/wp-content/uploads/2014/06/public-domain-images-free-stock-photos-high-quality-resolution-downloads-unsplash0067-1000x666.jpg");
+  background-image: url("RPi-Camera.png");
 }
 
 .study6 {
-  background-image: url("http://www.bedlammag.com/wp-content/uploads/2014/04/unsplash-love-yourself-article-e1397699812178.jpg");
+  background-image: url("realtime-music.png");
 }
+
+.study7 {
+  background-image: url("adlarm.png");
+}
+
 
 
 
