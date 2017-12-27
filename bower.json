@@ -1,0 +1,11 @@
+{
+  "name": "jp-ui",
+  "description": "jp-ui app",
+  "main": "index.html",
+  "dependencies": {
+    "polymer": "^2.0.0",
+  },
+  "resolutions": {
+   
+  }
+}
