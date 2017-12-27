@@ -1,0 +1,113 @@
+<dom-module id="jp-home">
+  <template>
+    <style is="custom-style">
+      :host {
+        
+      }
+
+      .imagecontainer{
+        position: relative;
+        width: 100%;
+        text-align: center;
+      }
+
+      img.img{
+        /*border: 1vw solid #161621;*/
+      }
+
+      skeleton-carousel.slider{
+        width: 50vh;
+        height: 50vh;
+        margin-top: calc(25vh - 6vh);
+        display: inline-flex;
+        --skeleton-carousel-controls{
+          margin-top: 1vh;
+        }
+      }
+
+
+    </style>
+
+     <div class="imagecontainer">
+       <skeleton-carousel 
+       class="slider"
+       nav 
+       loop>
+        <img 
+        class="img"
+        data-src="../css/images/jp1.JPG"
+        sizing="cover"
+        preload
+        fade> 
+        </img>
+        <img
+        class="img"
+        data-src="../css/images/jp3.JPG"
+        sizing="cover"
+        preload
+        fade> 
+        </img>
+        <img
+        class="img"
+        data-src="../css/images/jp2.JPG"
+        sizing="cover"
+        preload
+        fade> 
+        </img>
+        <img
+        class="img"
+        data-src="../css/images/jp4.JPG"
+        sizing="cover"
+        preload
+        fade> 
+        </img>
+        </skeleton-carousel>
+     </div>
+  </template>
+
+  <script>
+    class JpHome extends Polymer.Element {
+      
+      static get is() { return 'jp-home'; }
+      
+      static get properties() {
+        return {
+          title: {
+            type: String
+          },
+
+        };
+      }
+
+      ready(){    
+        var self = this;  
+        
+        super.ready();
+
+        this._addSubscribers();
+
+      }
+
+      connectedCallback(){
+        super.connectedCallback();
+        console.log(this.getAttribute("name") + " connected");
+      }
+
+      _addSubscribers(){
+        var self = this;
+        // $.subscribe("setLoadingText", function(event, data) {
+        //     self.loadingText = data;
+        // });
+
+      }
+
+      
+     
+    }
+
+
+
+
+    window.customElements.define(JpHome.is, JpHome);
+  </script>
+</dom-module>
