@@ -1,0 +1,57 @@
+<dom-module id="jp-template">
+  <template>
+    <style is="custom-style">
+      :host {
+        
+      }
+    </style>
+
+     
+  </template>
+
+  <script>
+    class JpTemplate extends Polymer.Element {
+      
+      static get is() { return 'jp-template'; }
+      
+      static get properties() {
+        return {
+          title: {
+            type: String
+          },
+
+        };
+      }
+
+      ready(){    
+        var self = this;  
+        
+        super.ready();
+
+        this._addSubscribers();
+
+      }
+
+      connectedCallback(){
+        super.connectedCallback();
+        console.log(this.getAttribute("name") + " connected");
+      }
+
+      _addSubscribers(){
+        var self = this;
+        // $.subscribe("setLoadingText", function(event, data) {
+        //     self.loadingText = data;
+        // });
+
+      }
+
+      
+     
+    }
+
+
+
+
+    window.customElements.define(JpTemplate.is, JpTemplate);
+  </script>
+</dom-module>
