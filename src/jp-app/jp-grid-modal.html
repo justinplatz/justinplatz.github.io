@@ -1,0 +1,99 @@
+<dom-module id="jp-grid-modal">
+  <template>
+    <style is="custom-style">
+      :host {
+       
+      }
+
+      paper-dialog#modal{
+        width: 80vw !important;
+        height: 88vh !important;
+        max-width: none !important;
+        max-height: none !important;
+        left: 10vw !important;
+        top: 8vh !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border: 1px solid var(--jp-black) !important;
+      }
+
+      paper-button.gridModalCloseButton{
+
+      }
+
+    </style>
+
+    <paper-dialog 
+      id="modal" 
+      no-overlap 
+      horizontal-align="auto" 
+      vertical-align="auto"
+      entry-animation="fade-in-animation"
+      exit-animation="fade-out-animation"
+      no-cancel-on-outside-click
+      no-cancel-on-esc-key>
+     
+      <paper-button 
+        on-tap="_close" 
+        class="gridModalCloseButton">
+          <iron-icon 
+          icon="close">
+          </iron-icon>
+      </paper-button>
+
+    </paper-dialog>
+     
+  </template>
+
+  <script>
+    class JpGridModal extends Polymer.Element {
+      
+      static get is() { return 'jp-grid-modal'; }
+      
+      static get properties() {
+        return {
+          title: {
+            type: String
+          },
+
+        };
+      }
+
+      ready(){    
+        var self = this;  
+        
+        super.ready();
+
+        this._addSubscribers();
+
+      }
+
+      connectedCallback(){
+        super.connectedCallback();
+        console.log(this.getAttribute("name") + " connected");
+      }
+
+      _addSubscribers(){
+        var self = this;
+        $.subscribe("setGridModal", function(event, data) {
+            if(!data){return;}
+            self.set("modaldata",data);
+            self.$.modal.open();
+        });
+
+      }
+
+      _close(){
+        this.$.modal.close();
+      }
+      
+     
+    }
+
+
+
+
+    window.customElements.define(JpGridModal.is, JpGridModal);
+  </script>
+</dom-module>

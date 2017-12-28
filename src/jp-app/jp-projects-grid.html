@@ -5,6 +5,10 @@
         display: inline-block;
         width: 80vw;
         height: 88vh;
+        position: fixed;
+        left: 10%;
+        overflow-y: scroll;
+        margin-top: 2vh;
       }
 
       .grid {
@@ -25,61 +29,45 @@
         width: calc((100% / 3) - 2*(1.75vw / 3));
       }
 
-      .grid li a,
-      .grid li a img {
+
+      paper-button.gridbutton{
         display: block;
         width: 100%;
         cursor: pointer;
+        margin: 0;
+        padding: 0;
+        color: transparent;
+        -webkit-transition: all 350ms ease;
+        -moz-transition: all 350ms ease;
+        -ms-transition: all 350ms ease;
+        -o-transition: all 350ms ease;
+        transition: all 350ms ease;
       }
 
-      .grid li a img {
+      paper-button.gridbutton:hover{
+        color: var(--jp-black);
+        -webkit-transition: all 350ms ease;
+        -moz-transition: all 350ms ease;
+        -ms-transition: all 350ms ease;
+        -o-transition: all 350ms ease;
+        transition: all 350ms ease;
+      }
+
+      paper-button.gridbutton img {
         max-width: 100%;
       }
 
-      /* Flexbox is used for centering the heading */
-      .grid li a div {
-        position: absolute;
-        left: 20px;
-        top: 20px;
-        right: 20px;
-        bottom: 20px;
-        background: rgba(71,163,218,0.2);
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flex;
-        display: flex;
-        -webkit-align-items: center;
-        -moz-align-items: center;
-        -ms-align-items: center;
-          align-items: center;
-          text-align: center;
-          opacity: 0;
-
-        -webkit-transition: all 350ms ease;
-        -moz-transition: all 350ms ease;
-        -ms-transition: all 350ms ease;
-        -o-transition: all 350ms ease;
-        transition: all 350ms ease;
-      }
-
-      .grid li a:hover div {
-        opacity: 1;
-        -webkit-transition: all 350ms ease;
-        -moz-transition: all 350ms ease;
-        -ms-transition: all 350ms ease;
-        -o-transition: all 350ms ease;
-        transition: all 350ms ease;
-      }
-
-      .grid li a div h3 {
+      .griddiv{
         width: 100%;
-        color: #fff;
         text-transform: uppercase;
-        font-size: 1.4em;
-        letter-spacing: 2px;
-        padding: 0 10px;
-        font-family: IBMLight;
+        font-size: 1em;
+        font-family: IBMBold;
+        position: absolute;
+        top: 45%;
+        text-align: center;
       }
+
+     
 
       @media screen and (max-width: 1190px) {
         .grid li {
@@ -116,46 +104,62 @@
 
     <ul class="grid">
       <li>
-        <a href="#"><img src="../css/images/jp1.JPG" />
-          <div>
-            <h3>Felis catus</h3>
+        <paper-button 
+        class="gridbutton">
+          <img src="../css/images/jp1.JPG" />
+          <div class="griddiv">
+            Felis catus
           </div>
-        </a>
+        </paper-button>
       </li>
       <li>
-        <a href="#"><img src="../css/images/jp2.JPG" />
-          <div>
-            <h3>Felis catus</h3>
+       <paper-button
+        class="gridbutton"
+        on-tap="_openModal"
+        value="qa">
+          <img src="../css/images/watson2.gif" />
+          <div class="griddiv">
+            Natural Language Q&A System
           </div>
-        </a>
+        </paper-button>
       </li>
       <li>
-        <a href="#"><img src="../css/images/jp1.JPG" />
-          <div>
-            <h3>Felis catus</h3>
+        <paper-button
+        class="gridbutton"
+        on-tap="_openModal"
+        value="xx">
+          <img src="../css/images/jp1.JPG" />
+          <div class="griddiv">
+            Felis catus
           </div>
-        </a>
+        </paper-button>
       </li>
       <li>
-        <a href="#"><img src="../css/images/jp1.JPG" />
-          <div>
-            <h3>Felis catus</h3>
+        <paper-button 
+        class="gridbutton">
+          <img src="../css/images/jp1.JPG" />
+          <div class="griddiv">
+            Felis catus
           </div>
-        </a>
+        </paper-button>
       </li>
       <li>
-        <a href="#"><img src="../css/images/jp1.JPG" />
-          <div>
-            <h3>Felis catus</h3>
+        <paper-button
+        class="gridbutton">
+          <img src="../css/images/jp1.JPG" />
+          <div class="griddiv">
+            Felis catus
           </div>
-        </a>
+        </paper-button>
       </li>
       <li>
-        <a href="#"><img src="../css/images/jp2.JPG" />
-          <div>
-            <h3>Felis catus</h3>
+        <paper-button
+        class="gridbutton">
+          <img src="../css/images/jp2.JPG" />
+          <div class="griddiv">
+            Felis catus
           </div>
-        </a>
+        </paper-button>
       </li>
     </ul>
   </template>
@@ -196,6 +200,11 @@
 
       }
 
+      _openModal(event){
+        var value = event.target.getAttribute("value") ? event.target.getAttribute("value") : event.target.parentElement.getAttribute("value");
+
+        $.publish("setGridModal", value);
+      }
       
      
     }
