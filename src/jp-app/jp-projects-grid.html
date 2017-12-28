@@ -1,0 +1,208 @@
+<dom-module id="jp-projects-grid">
+  <template>
+    <style is="custom-style">
+      :host {
+        display: inline-block;
+        width: 80vw;
+        height: 88vh;
+      }
+
+      .grid {
+        padding: 1vw;
+        list-style: none;
+        position: relative;
+        width: 100%;
+        margin-top: 0em !important;
+      }
+
+      .grid li {
+        position: relative;
+        float: left;
+        overflow: hidden;
+        margin: .25vw;
+        width: calc(33.34% - 2*(1.75vw / 3)); /* Fallback */
+        width: -webkit-calc((100% / 3) - 2*(1.75vw / 3));
+        width: calc((100% / 3) - 2*(1.75vw / 3));
+      }
+
+      .grid li a,
+      .grid li a img {
+        display: block;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .grid li a img {
+        max-width: 100%;
+      }
+
+      /* Flexbox is used for centering the heading */
+      .grid li a div {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        right: 20px;
+        bottom: 20px;
+        background: rgba(71,163,218,0.2);
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+          align-items: center;
+          text-align: center;
+          opacity: 0;
+
+        -webkit-transition: all 350ms ease;
+        -moz-transition: all 350ms ease;
+        -ms-transition: all 350ms ease;
+        -o-transition: all 350ms ease;
+        transition: all 350ms ease;
+      }
+
+      .grid li a:hover div {
+        opacity: 1;
+        -webkit-transition: all 350ms ease;
+        -moz-transition: all 350ms ease;
+        -ms-transition: all 350ms ease;
+        -o-transition: all 350ms ease;
+        transition: all 350ms ease;
+      }
+
+      .grid li a div h3 {
+        width: 100%;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 1.4em;
+        letter-spacing: 2px;
+        padding: 0 10px;
+        font-family: IBMLight;
+      }
+
+      @media screen and (max-width: 1190px) {
+        .grid li {
+          width: calc(33.34% - 2*(1.75vw / 3)); /* Fallback */
+          width: -webkit-calc((100% / 3) - 2*(1.75vw / 3));
+          width: calc((100% / 3) - 2*(1.75vw / 3));
+        }
+      }
+
+      @media screen and (max-width: 945px) {
+        .grid li {
+          width: calc(33.34% - 2*(1.75vw / 3)); /* Fallback */
+          width: -webkit-calc((100% / 3) - 2*(1.75vw / 3));
+          width: calc((100% / 3) - 2*(1.75vw / 3));
+        }
+      }
+
+      @media screen and (max-width: 660px) {
+        .grid li {
+          width: calc(50% - 2*(1.5vw / 2)); /* Fallback */
+          width: -webkit-calc((100% / 2) - 2*(1.5vw / 2));
+          width: calc((100% / 2) - 2*(1.5vw / 2));
+        }
+      }
+
+      
+      @media screen and (max-width: 400px) {
+        .grid li {
+          width: calc(100% - 2.5vw);
+        }
+      }
+
+    </style>
+
+    <ul class="grid">
+      <li>
+        <a href="#"><img src="../css/images/jp1.JPG" />
+          <div>
+            <h3>Felis catus</h3>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#"><img src="../css/images/jp2.JPG" />
+          <div>
+            <h3>Felis catus</h3>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#"><img src="../css/images/jp1.JPG" />
+          <div>
+            <h3>Felis catus</h3>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#"><img src="../css/images/jp1.JPG" />
+          <div>
+            <h3>Felis catus</h3>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#"><img src="../css/images/jp1.JPG" />
+          <div>
+            <h3>Felis catus</h3>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#"><img src="../css/images/jp2.JPG" />
+          <div>
+            <h3>Felis catus</h3>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </template>
+
+  <script>
+    class JpProjectsGrid extends Polymer.Element {
+      
+      static get is() { return 'jp-projects-grid'; }
+      
+      static get properties() {
+        return {
+          title: {
+            type: String
+          },
+
+        };
+      }
+
+      ready(){    
+        var self = this;  
+        
+        super.ready();
+
+        this._addSubscribers();
+
+      }
+
+      connectedCallback(){
+        super.connectedCallback();
+        console.log(this.getAttribute("name") + " connected");
+      }
+
+      _addSubscribers(){
+        var self = this;
+        // $.subscribe("setLoadingText", function(event, data) {
+        //     self.loadingText = data;
+        // });
+
+      }
+
+      
+     
+    }
+
+
+
+
+    window.customElements.define(JpProjectsGrid.is, JpProjectsGrid);
+  </script>
+</dom-module>

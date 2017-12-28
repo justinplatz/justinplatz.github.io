@@ -19,6 +19,9 @@
 <link rel="import" href="jp-top-nav.html">
 <link rel="import" href="jp-about.html">
 <link rel="import" href="jp-home.html">
+<link rel="import" href="jp-projects.html">
+<link rel="import" href="jp-projects-grid.html">
+<link rel="import" href="jp-resume.html">
 
 <dom-module id="jp-app">
   <template>
@@ -34,18 +37,31 @@
     name="jp-top-nav">
     </jp-top-nav>
 
-    <template is="dom-if" if="_isAboutSelected">
+    <template is="dom-if" if="[[_isAboutSelected(selected)]]">
       <jp-about
       name="jp-about">
       </jp-about>
     </template>
 
-    <template is="dom-if" if="_isHomeSelected">
+    <template is="dom-if" if="[[_isHomeSelected(selected)]]">
       <jp-home
       name="jp-home">
       </jp-home>
     </template>
 
+    <template is="dom-if" if="[[_isProjectsSelected(selected)]]">
+      <jp-projects
+      name="jp-projects">
+      </jp-projects>
+    </template>
+
+    <template is="dom-if" if="[[_isResumeSelected(selected)]]">
+      <jp-resume
+      name="jp-resume">
+      </jp-resume>
+    </template>
+
+    
   </template> 
 
   <script>
@@ -55,7 +71,10 @@
 
       static get properties() {
         return {
-        
+          selected:{
+            value : "home",
+            observer: "_selectedChanged"
+          }
         };
       }
 
@@ -63,8 +82,6 @@
         super.ready();
 
         this._addSubscribers();
-
-        this.set("selected", "home");
       }
 
       connectedCallback() {
@@ -92,14 +109,30 @@
 
         $.subscribe("_navIconPressed", function(event, value) {
           if(value){
-            console.log(value);
+            self.set("selected", value);
           }
         });
 
       }
 
-      _isAboutSelected(){
+      _selectedChanged(){
+
+      }
+
+      _isAboutSelected(selected){
         return (this.selected == "about");
+      }
+
+      _isHomeSelected(selected){
+        return (this.selected == "home");
+      }
+
+      _isProjectsSelected(selected){
+        return (this.selected == "projects");
+      }
+
+      _isResumeSelected(selected){
+        return (this.selected == "resume");
       }
 
     }

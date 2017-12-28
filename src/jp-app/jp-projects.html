@@ -1,20 +1,29 @@
-<dom-module id="jp-about">
+<dom-module id="jp-projects">
   <template>
     <style is="custom-style">
       :host {
         
       }
-
-
+      .gridcontainer{
+        text-align: center;
+        width: 100%;
+        overflow-y: scroll;
+      }
     </style>
-    ABOUT
-    
+
+     Projects
+
+     <div class="gridcontainer">
+       <jp-projects-grid
+       name="jp-projects-grid">
+       </jp-projects-grid>
+     </div>
   </template>
 
   <script>
-    class JpAbout extends Polymer.Element {
+    class JpProjects extends Polymer.Element {
       
-      static get is() { return 'jp-about'; }
+      static get is() { return 'jp-projects'; }
       
       static get properties() {
         return {
@@ -54,6 +63,6 @@
 
 
 
-    window.customElements.define(JpAbout.is, JpAbout);
+    window.customElements.define(JpProjects.is, JpProjects);
   </script>
 </dom-module>
