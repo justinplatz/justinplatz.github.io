@@ -115,7 +115,7 @@
       <li>
        <paper-button
         class="gridbutton"
-        on-tap="_openModal"
+        on-tap="_openModalQa"
         value="qa">
           <img src="../css/images/watson2.gif" />
           <div class="griddiv">
@@ -200,6 +200,9 @@
 
       }
 
+      _openModalQa(event){
+        $.publish("setGridModalQa");
+      }
       _openModal(event){
         var value = event.target.getAttribute("value") ? event.target.getAttribute("value") : event.target.parentElement.getAttribute("value");
 

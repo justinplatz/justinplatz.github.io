@@ -1,5 +1,5 @@
 <link rel="import" href="../shared-styles/grid-modal-shared-styles.html">
-<dom-module id="jp-grid-modal">
+<dom-module id="jp-grid-modal-qa">
   <template>
     <style include="grid-modal-shared-styles"></style>
     <style is="custom-style">
@@ -21,13 +21,17 @@
       <paper-button 
         on-tap="_close" 
         class="gridModalCloseButton">
-          <iron-icon 
+          <iron-icon
+          class="gridModalCloseButtonIcon" 
           icon="close">
           </iron-icon>
       </paper-button>
 
       <div class="modalcontainer">
-        
+        <video width="100%" height="100%" controls controlsList="nodownload">
+          <source src="../css/videos/qa.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
       </div>
 
     </paper-dialog>
@@ -35,9 +39,9 @@
   </template>
 
   <script>
-    class JpGridModal extends Polymer.Element {
+    class JpGridModalQa extends Polymer.Element {
       
-      static get is() { return 'jp-grid-modal'; }
+      static get is() { return 'jp-grid-modal-qa'; }
       
       static get properties() {
         return {
@@ -64,6 +68,9 @@
 
       _addSubscribers(){
         var self = this;
+        $.subscribe("setGridModalQa", function(event, data) {
+            self.$.modal.open();
+        });
       }
 
       _close(){
@@ -76,6 +83,6 @@
 
 
 
-    window.customElements.define(JpGridModal.is, JpGridModal);
+    window.customElements.define(JpGridModalQa.is, JpGridModalQa);
   </script>
 </dom-module>
