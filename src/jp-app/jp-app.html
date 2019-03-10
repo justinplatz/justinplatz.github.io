@@ -3,6 +3,9 @@
 <!-- Paper Imports -->
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-menu-button/paper-menu-button.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+
 <!-- Irom Imports -->
 <link rel="import" href="../../bower_components/iron-image/iron-image.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
@@ -25,6 +28,7 @@
 <link rel="import" href="../../bower_components/skeleton-carousel/skeleton-carousel.html">
 <!-- JP Components -->
 <link rel="import" href="jp-top-nav.html">
+<link rel="import" href="jp-nav.html">
 <link rel="import" href="jp-about.html">
 <link rel="import" href="jp-home.html">
 <link rel="import" href="jp-projects.html">
@@ -43,9 +47,14 @@
 
     </style>
     
-    <jp-top-nav
+    <!-- <jp-top-nav
     name="jp-top-nav">
-    </jp-top-nav>
+    </jp-top-nav> -->
+    
+    <jp-nav
+    name="jp-nav">
+    </jp-nav>
+
 
     <template is="dom-if" if="[[_isAboutSelected(selected)]]">
       <jp-about
