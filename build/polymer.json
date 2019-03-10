@@ -16,10 +16,13 @@
   ],
   "builds": [
     {
-      "name": "es5-bundled",
+      "name": "es6-bundled",
+      "browserCapabilities": [
+        "es2015"
+      ],
       "js": {
         "minify": true,
-        "compile": "es5",
+        "compile": "es2015",
         "transformModulesToAmd": true
       },
       "css": {
@@ -31,7 +34,7 @@
       "bundle": true,
       "addServiceWorker": true,
       "addPushManifest": false,
-      "preset": "es5-bundled"
+      "preset": "es6-bundled"
     }
   ],
   "moduleResolution": "node"

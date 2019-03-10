@@ -10,5 +10,5 @@
     "manifest.json",
     "node_modules/@webcomponents/webcomponentsjs/bundles/**"
   ],
-  "builds": [{ "preset": "es5-bundled" }]
+  "builds": [{ "preset": "es6-bundled" }]
 }
