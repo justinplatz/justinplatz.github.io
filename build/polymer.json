@@ -1,19 +1,38 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/start-polymer3.js",
+  "shell": "src/jp-site-app/jp-site-app.js",
   "fragments": [],
   "sources": [
-    "src/start-polymer3.js",
+    "src/jp-site-app/jp-site-app.js",
     "manifest/**",
     "package.json",
     "index.html",
-    "src/start-polymer3.js"
+    "src/jp-site-app/jp-site-app.js"
   ],
   "extraDependencies": [
     "bower_components/webcomponentsjs/*.js",
     "manifest.json",
     "node_modules/@webcomponents/webcomponentsjs/bundles/**"
   ],
-  "builds": [],
+  "builds": [
+    {
+      "name": "es5-bundled",
+      "js": {
+        "minify": true,
+        "compile": "es5",
+        "transformModulesToAmd": true
+      },
+      "css": {
+        "minify": true
+      },
+      "html": {
+        "minify": true
+      },
+      "bundle": true,
+      "addServiceWorker": true,
+      "addPushManifest": false,
+      "preset": "es5-bundled"
+    }
+  ],
   "moduleResolution": "node"
 }

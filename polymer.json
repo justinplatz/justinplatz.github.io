@@ -1,8 +1,8 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/start-polymer3.js",
+  "shell": "src/jp-site-app/jp-site-app.js",
   "sources": [
-    "src/start-polymer3.js",
+    "src/jp-site-app/jp-site-app.js",
     "manifest/**",
     "package.json"
   ],
@@ -10,5 +10,5 @@
     "manifest.json",
     "node_modules/@webcomponents/webcomponentsjs/bundles/**"
   ],
-  "builds": []
+  "builds": [{ "preset": "es5-bundled" }]
 }
