@@ -37,5 +37,7 @@
       "preset": "es6-bundled"
     }
   ],
+  "npm": true,
+  "componentDir": "node_modules/",
   "moduleResolution": "node"
 }
