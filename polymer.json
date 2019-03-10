@@ -5,13 +5,15 @@
     "src/jp-site-app/*",
     "package.json",
     "css/*",
-    "js/*"
+    "js/*",
+    "node_modules/*"
   ],
   "moduleResolution": "node",
   "npm": true,
-  "extraDependencies": [
-    "manifest.json",
-    "node_modules/@webcomponents/webcomponentsjs/bundles/**"
-  ],
+  "lint": {
+    "rules": [
+      "polymer-3"
+    ]
+  },
   "builds": [{ "preset": "es6-bundled" }]
 }
