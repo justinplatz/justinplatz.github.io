@@ -3,10 +3,11 @@
   "shell": "src/jp-site-app/jp-site-app.js",
   "fragments": [],
   "sources": [
-    "src/jp-site-app/*",
+    "src/jp-site-app/jp-site-app.js",
+    "src/jp-site-app/**",
     "package.json",
-    "css/*",
-    "js/*",
+    "css/**",
+    "js/**",
     "index.html",
     "src/jp-site-app/jp-site-app.js"
   ],
@@ -20,25 +21,7 @@
   ],
   "builds": [
     {
-      "name": "es6-bundled",
-      "browserCapabilities": [
-        "es2015"
-      ],
-      "js": {
-        "minify": true,
-        "compile": "es2015",
-        "transformModulesToAmd": true
-      },
-      "css": {
-        "minify": true
-      },
-      "html": {
-        "minify": true
-      },
-      "bundle": true,
-      "addServiceWorker": true,
-      "addPushManifest": false,
-      "preset": "es6-bundled"
+      "name": "dev"
     }
   ],
   "lint": {

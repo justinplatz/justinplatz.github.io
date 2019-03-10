@@ -2,10 +2,11 @@
   "entrypoint": "index.html",
   "shell": "src/jp-site-app/jp-site-app.js",
   "sources": [
-    "src/jp-site-app/*",
+    "src/jp-site-app/jp-site-app.js",
+    "src/jp-site-app/**",
     "package.json",
-    "css/*",
-    "js/*"
+    "css/**",
+    "js/**"
   ],
   "extraDependencies": [
     "manifest.json",
@@ -21,5 +22,5 @@
       "polymer-3"
     ]
   },
-  "builds": [{ "preset": "es6-bundled" }]
+  "builds": [{"name": "dev"}]
 }
