@@ -21,7 +21,8 @@
   ],
   "builds": [
     {
-      "name": "dev"
+      "name": "prod",
+      "addServiceWorker": true
     }
   ],
   "lint": {

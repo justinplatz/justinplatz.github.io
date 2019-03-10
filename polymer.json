@@ -22,5 +22,8 @@
       "polymer-3"
     ]
   },
-  "builds": [{"name": "dev"}]
+  "builds": [{
+    "name": "prod",
+    "addServiceWorker": true
+  }]
 }
