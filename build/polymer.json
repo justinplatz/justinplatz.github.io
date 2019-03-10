@@ -4,7 +4,6 @@
   "fragments": [],
   "sources": [
     "src/jp-site-app/*",
-    "manifest/**",
     "package.json",
     "css/*",
     "js/*",
