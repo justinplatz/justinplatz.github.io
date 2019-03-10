@@ -7,12 +7,15 @@
     "package.json",
     "css/*",
     "js/*",
-    "node_modules/*",
     "index.html",
     "src/jp-site-app/jp-site-app.js"
   ],
   "extraDependencies": [
-    "bower_components/webcomponentsjs/*.js"
+    "bower_components/webcomponentsjs/*.js",
+    "manifest.json",
+    "node_modules/@webcomponents/**",
+    "node_modules/@polymer/**",
+    "node_modules/@fabricelements/**"
   ],
   "builds": [
     {
