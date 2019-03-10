@@ -1,0 +1,18 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/jp-site-app/jp-site-app.js",
+  "sources": [
+    "src/jp-site-app/*",
+    "manifest/**",
+    "package.json",
+    "css/*",
+    "js/*"
+  ],
+  "moduleResolution": "node",
+  "npm": true,
+  "extraDependencies": [
+    "manifest.json",
+    "node_modules/@webcomponents/webcomponentsjs/bundles/**"
+  ],
+  "builds": [{ "preset": "es6-bundled" }]
+}

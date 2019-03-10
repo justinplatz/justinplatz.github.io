@@ -1,0 +1,6 @@
+{
+  "name": "jp-site",
+  "short_name": "jp-site",
+  "start_url": "/",
+  "display": "standalone"
+}

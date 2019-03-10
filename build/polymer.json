@@ -1,0 +1,45 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/jp-site-app/jp-site-app.js",
+  "fragments": [],
+  "sources": [
+    "src/jp-site-app/*",
+    "manifest/**",
+    "package.json",
+    "css/*",
+    "js/*",
+    "index.html",
+    "src/jp-site-app/jp-site-app.js"
+  ],
+  "extraDependencies": [
+    "bower_components/webcomponentsjs/*.js",
+    "manifest.json",
+    "node_modules/@webcomponents/webcomponentsjs/bundles/**"
+  ],
+  "builds": [
+    {
+      "name": "es6-bundled",
+      "browserCapabilities": [
+        "es2015"
+      ],
+      "js": {
+        "minify": true,
+        "compile": "es2015",
+        "transformModulesToAmd": true
+      },
+      "css": {
+        "minify": true
+      },
+      "html": {
+        "minify": true
+      },
+      "bundle": true,
+      "addServiceWorker": true,
+      "addPushManifest": false,
+      "preset": "es6-bundled"
+    }
+  ],
+  "npm": true,
+  "componentDir": "node_modules/",
+  "moduleResolution": "node"
+}
