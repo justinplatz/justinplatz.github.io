@@ -1,10 +1,11 @@
 {
-  "fragments": [
- 
-  ],
+  "npm": true,
   "lint": {
     "rules": [
-      "polymer-2"
+      "polymer-3"
     ]
-  }
+  },
+  "extraDependencies":[
+  	"node_modules/web-animations-js/*.js"
+  ]
 }
