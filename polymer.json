@@ -23,7 +23,6 @@
     ]
   },
   "builds": [{
-    "name": "prod",
-    "addServiceWorker": true
+    "preset": "uncompiled-unbundled"
   }]
 }

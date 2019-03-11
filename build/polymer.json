@@ -21,8 +21,25 @@
   ],
   "builds": [
     {
-      "name": "prod",
-      "addServiceWorker": true
+      "name": "uncompiled-unbundled",
+      "browserCapabilities": [
+        "es2018",
+        "modules",
+        "push"
+      ],
+      "js": {
+        "minify": true
+      },
+      "css": {
+        "minify": true
+      },
+      "html": {
+        "minify": true
+      },
+      "bundle": false,
+      "addServiceWorker": true,
+      "addPushManifest": true,
+      "preset": "uncompiled-unbundled"
     }
   ],
   "lint": {
