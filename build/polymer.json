@@ -21,14 +21,15 @@
   ],
   "builds": [
     {
-      "name": "uncompiled-unbundled",
+      "name": "es6-unbundled",
       "browserCapabilities": [
-        "es2018",
-        "modules",
+        "es2015",
         "push"
       ],
       "js": {
-        "minify": true
+        "minify": true,
+        "compile": "es2015",
+        "transformModulesToAmd": true
       },
       "css": {
         "minify": true
@@ -39,7 +40,7 @@
       "bundle": false,
       "addServiceWorker": true,
       "addPushManifest": true,
-      "preset": "uncompiled-unbundled"
+      "preset": "es6-unbundled"
     }
   ],
   "lint": {
