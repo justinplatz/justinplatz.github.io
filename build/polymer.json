@@ -3,7 +3,6 @@
   "shell": "src/jp-site-app/jp-site-app.js",
   "fragments": [],
   "sources": [
-    "src/jp-site-app/jp-site-app.js",
     "src/jp-site-app/**",
     "package.json",
     "css/**",
