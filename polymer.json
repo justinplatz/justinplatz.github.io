@@ -8,7 +8,10 @@
     "js/**"
   ],
   "extraDependencies": [
-    "manifest.json"
+    "manifest.json",
+    "node_modules/@webcomponents/**",
+    "node_modules/@fabricelements/**",
+    "node_modules/web-animations-js/**"
   ],
   "moduleResolution": "node",
   "npm": true,
