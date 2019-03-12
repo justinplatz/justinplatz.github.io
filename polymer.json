@@ -11,7 +11,8 @@
     "manifest.json",
     "node_modules/@webcomponents/**",
     "node_modules/@fabricelements/**",
-    "node_modules/web-animations-js/**"
+    "node_modules/web-animations-js/**",
+    "node_modules/@polymer/**"
   ],
   "moduleResolution": "node",
   "npm": true,
