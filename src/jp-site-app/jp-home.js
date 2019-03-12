@@ -1,13 +1,4 @@
-import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import '@fabricelements/skeleton-carousel/skeleton-carousel.js';
-
-/**
- * @customElement
- * @polymer
- */
-class JpHome extends PolymerElement {
-  static get template() {
-    return html`
+define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_modules/@fabricelements/skeleton-carousel/skeleton-carousel.js"],function(_polymerElement,_skeletonCarousel){"use strict";class JpHome extends _polymerElement.PolymerElement{static get template(){return _polymerElement.html`
       <style>
         :host {
           display: block;
@@ -94,16 +85,4 @@ class JpHome extends PolymerElement {
       </div>
 
      
-    `;
-  }
-  static get properties() {
-    return {
-      prop1: {
-        type: String,
-        value: 'jp-home'
-      }
-    };
-  }
-}
-
-window.customElements.define('jp-home', JpHome);
+    `}static get properties(){return{prop1:{type:String,value:"jp-home"}}}}window.customElements.define("jp-home",JpHome)});

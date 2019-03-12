@@ -1,12 +1,4 @@
-import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-
-/**
- * @customElement
- * @polymer
- */
-class JpProjectsGrid extends PolymerElement {
-  static get template() {
-    return html`
+define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_polymerElement){"use strict";class JpProjectsGrid extends _polymerElement.PolymerElement{static get template(){return _polymerElement.html`
       <style>
         :host {
           display: inline-block;
@@ -174,25 +166,4 @@ class JpProjectsGrid extends PolymerElement {
       </ul>
 
       
-    `;
-  }
-  static get properties() {
-    return {
-      
-    };
-  }
-
-  _openModalQa(event){
-    $.publish("_openModalQa");
-  }
-
-  _openModalSim(event){
-    $.publish("_openModalSim");
-  }
-
-  _openModalCo(event){
-    $.publish("_openModalCo");
-  }
-}
-
-window.customElements.define('jp-projects-grid', JpProjectsGrid);
+    `}static get properties(){return{}}_openModalQa(event){$.publish("_openModalQa")}_openModalSim(event){$.publish("_openModalSim")}_openModalCo(event){$.publish("_openModalCo")}}window.customElements.define("jp-projects-grid",JpProjectsGrid)});

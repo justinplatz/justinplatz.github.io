@@ -1,13 +1,4 @@
-import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import '@polymer/paper-dialog/paper-dialog.js';
-
-/**
- * @customElement
- * @polymer
- */
-class JpGridModalQa extends PolymerElement {
-  static get template() {
-    return html`
+define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_modules/@polymer/paper-dialog/paper-dialog.js"],function(_polymerElement,_paperDialog){"use strict";class JpGridModalQa extends _polymerElement.PolymerElement{static get template(){return _polymerElement.html`
       <style>
         :host {
           
@@ -109,44 +100,4 @@ class JpGridModalQa extends PolymerElement {
         </div>
 
       </paper-dialog>
-    `;
-  }
-  static get properties() {
-    return {
-      name: {
-        type: String,
-        value: 'jp-grid-modal-qa'
-      }
-    };
-  }
-
-   ready() {
-      super.ready();
-      this.set("selected", "home");
-      this._addSubscribers();
-    }
-
-    connectedCallback() {
-      super.connectedCallback();
-      console.log(this.getAttribute("name") + " connected");
-    }
-
-    _addSubscribers(){
-      var self = this;
-      $.subscribe("_openModalQa", function(event, data) {
-          self.$.modal.open();
-      });
-      $.subscribe("_closeModal", function(event, data) {
-          self._close();
-      });
-    }
-
-    _close(){
-      this.$.modal.close();
-    }
-      
- 
-
-}
-
-window.customElements.define('jp-grid-modal-qa', JpGridModalQa);
+    `}static get properties(){return{name:{type:String,value:"jp-grid-modal-qa"}}}ready(){super.ready();this.set("selected","home");this._addSubscribers()}connectedCallback(){super.connectedCallback();console.log(this.getAttribute("name")+" connected")}_addSubscribers(){var self=this;$.subscribe("_openModalQa",function(event,data){self.$.modal.open()});$.subscribe("_closeModal",function(event,data){self._close()})}_close(){this.$.modal.close()}}window.customElements.define("jp-grid-modal-qa",JpGridModalQa)});
