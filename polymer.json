@@ -1,22 +1,22 @@
 {
-  "entrypoint": "index.html",
-  "shell": "src/jp-site-app/jp-site-app.js",
+  "entrypoint": "es6-unbundled/index.html",
+  "shell": "es6-unbundled/src/jp-site-app/jp-site-app.js",
   "fragments": [],
   "sources": [
-    "src/jp-site-app/**",
-    "package.json",
-    "css/**",
-    "js/**",
-    "index.html",
-    "src/jp-site-app/jp-site-app.js"
+    "es6-unbundled/src/jp-site-app/**",
+    "es6-unbundled/package.json",
+    "es6-unbundled/css/**",
+    "es6-unbundled/js/**",
+    "es6-unbundled/index.html",
+    "es6-unbundled/src/jp-site-app/jp-site-app.js"
   ],
   "extraDependencies": [
-    "bower_components/webcomponentsjs/*.js",
-    "manifest.json",
-    "node_modules/@webcomponents/**",
-    "node_modules/@polymer/**",
-    "node_modules/@fabricelements/**",
-    "node_modules/web-animations-js/**"
+    "es6-unbundled/bower_components/webcomponentsjs/*.js",
+    "es6-unbundled/manifest.json",
+    "es6-unbundled/node_modules/@webcomponents/**",
+    "es6-unbundled/node_modules/@polymer/**",
+    "es6-unbundled/node_modules/@fabricelements/**",
+    "es6-unbundled/node_modules/web-animations-js/**"
   ],
   "builds": [
     {
