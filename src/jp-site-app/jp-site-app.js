@@ -1,4 +1,12 @@
-define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_polymerElement){"use strict";class JpSiteApp extends _polymerElement.PolymerElement{static get template(){return _polymerElement.html`
+import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+
+/**
+ * @customElement
+ * @polymer
+ */
+class JpSiteApp extends PolymerElement {
+  static get template() {
+    return html`
       <style>
         :host {
           
@@ -28,4 +36,55 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
         </jp-projects>
       </template>
 
-    `}static get properties(){return{name:{type:String,value:"jp-site-app"}}}ready(){super.ready();this.set("selected","home");this._addSubscribers()}connectedCallback(){super.connectedCallback();console.log(this.getAttribute("name")+" connected")}_addSubscribers(){var self=this;$.subscribe("_goto",function(event,value){if(value){self.set("selected",value)}})}_isAboutSelected(selected){return"about"==this.selected}_isHomeSelected(selected){return"home"==this.selected}_isProjectsSelected(selected){return"projects"==this.selected}_isResumeSelected(selected){return"resume"==this.selected}}window.customElements.define("jp-site-app",JpSiteApp)});
+    `;
+  }
+  static get properties() {
+    return {
+      name: {
+        type: String,
+        value: 'jp-site-app'
+      }
+    };
+  }
+
+   ready() {
+      super.ready();
+      this.set("selected", "home");
+      this._addSubscribers();
+    }
+
+    connectedCallback() {
+      super.connectedCallback();
+      console.log(this.getAttribute("name") + " connected");
+    }
+
+    _addSubscribers(){
+      var self = this;
+
+      $.subscribe("_goto", function(event, value) {
+        if(value){
+          self.set("selected", value);
+        }
+      });
+
+    }
+
+    _isAboutSelected(selected){
+      return (this.selected == "about");
+    }
+
+    _isHomeSelected(selected){
+      return (this.selected == "home");
+    }
+
+    _isProjectsSelected(selected){
+      return (this.selected == "projects");
+    }
+
+    _isResumeSelected(selected){
+      return (this.selected == "resume");
+    }
+
+}
+
+window.customElements.define('jp-site-app', JpSiteApp);

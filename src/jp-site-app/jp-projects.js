@@ -1,4 +1,12 @@
-define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_polymerElement){"use strict";class JpProjects extends _polymerElement.PolymerElement{static get template(){return _polymerElement.html`
+import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+
+/**
+ * @customElement
+ * @polymer
+ */
+class JpProjects extends PolymerElement {
+  static get template() {
+    return html`
       <style>
         :host{
           display: block;
@@ -36,4 +44,13 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
       </jp-grid-modal-co>
 
       
-    `}static get properties(){return{}}}window.customElements.define("jp-projects",JpProjects)});
+    `;
+  }
+  static get properties() {
+    return {
+      
+    };
+  }
+}
+
+window.customElements.define('jp-projects', JpProjects);

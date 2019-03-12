@@ -1,1 +1,74 @@
-:root{--jp-light-blue:#00b2ef;--jp-dark-blue:#4982c3;--jp-white:#f9f9f9;--jp-offwhite:rgba(242, 242, 242, 0.5);--jp-offwhite-solid:rgba(242, 242, 242, 1);--jp-black:black;--jp-grey:#cccbcb;--jp-purple:#7679ee;--jp-light-grey:#e4e1e1;--jp-light-border:#e8e8e8;--jp-dark-border:#e3e2e2;--jp-grey-hover:rgba(204, 203, 203, 0.65);--jp-primary-light-blue:#00b0da;--jp-primary-dark-blue:#0083bc;--jp-secondary-dark-blue:#023155;--jp-secondary-light-blue:#6987b2;--jp-green:#8cc63f;--jp-red:#f04e37;--jp-dark-grey:#1b1b1b;--jp-pink:#f8d7e3;}@font-face{font-family:IBMBold;src:url('fonts/IBMPlexSans-Bold-V01.1.otf');}@font-face{font-family:IBMBoldItalic;src:url('fonts/IBMPlexSans-BoldItalic-V01.1.otf');}@font-face{font-family:IBMCondensed;src:url('fonts/HelvNeueCondforIBM.otf');}@font-face{font-family:IBMLight;src:url('fonts/IBMPlexSans-Light-V01.1.otf');}@font-face{font-family:IBMLightCondensed;src:url('fonts/HelvNeueLightCondforIBM.otf');}@font-face{font-family:IBMLightItalic;src:url('fonts/IBMPlexSans-LightItalic-V01.1.otf');}@font-face{font-family:IBMMedium;src:url('fonts/IBMPlexSans-Medium-V01.1.otf');}@font-face{font-family:IBMMediumItalic;src:url('fonts/IBMPlexSans-MediumItalic-V01.1.otf');}@font-face{font-family:IBMRoman;src:url('fonts/IBMPlexSans-Regular-V01.1.otf');}@font-face{font-family:IBMRomanItalic;src:url('fonts/IBMPlexSans-Italic-V01.1.otf');}
+:root{
+    /* Global Colors */
+    --jp-light-blue: #00b2ef;
+    --jp-dark-blue: #4982c3;
+    --jp-white: #f9f9f9;
+    --jp-offwhite: rgba(242, 242, 242, 0.5);
+    --jp-offwhite-solid: rgba(242, 242, 242, 1);
+    --jp-black: black;
+    --jp-grey: #cccbcb;
+    --jp-purple: #7679ee;
+    --jp-light-grey: #e4e1e1;
+    --jp-light-border: #e8e8e8;
+    --jp-dark-border: #e3e2e2;
+    --jp-grey-hover: rgba(204, 203, 203, 0.65);
+    --jp-primary-light-blue: #00b0da;
+    --jp-primary-dark-blue: #0083bc;
+    --jp-secondary-dark-blue: #023155;
+    --jp-secondary-light-blue: #6987b2;
+    --jp-green: #8cc63f;
+    --jp-red: #f04e37;
+    --jp-dark-grey: #1b1b1b;
+    --jp-pink: #f8d7e3;
+}
+
+@font-face {
+    font-family: IBMBold;
+    src: url('fonts/IBMPlexSans-Bold-V01.1.otf');
+}
+
+@font-face {
+    font-family: IBMBoldItalic;
+    src: url('fonts/IBMPlexSans-BoldItalic-V01.1.otf');
+}
+
+@font-face {
+    font-family: IBMCondensed;
+    src: url('fonts/HelvNeueCondforIBM.otf');
+}
+
+@font-face {
+    font-family: IBMLight;
+    src: url('fonts/IBMPlexSans-Light-V01.1.otf');
+}
+
+@font-face {
+    font-family: IBMLightCondensed;
+    src: url('fonts/HelvNeueLightCondforIBM.otf');
+}
+
+@font-face {
+    font-family: IBMLightItalic;
+    src: url('fonts/IBMPlexSans-LightItalic-V01.1.otf');
+}
+
+@font-face {
+    font-family: IBMMedium;
+    src: url('fonts/IBMPlexSans-Medium-V01.1.otf');
+}
+
+@font-face {
+    font-family: IBMMediumItalic;
+    src: url('fonts/IBMPlexSans-MediumItalic-V01.1.otf');
+}
+
+@font-face {
+    font-family: IBMRoman;
+    src: url('fonts/IBMPlexSans-Regular-V01.1.otf');
+}
+
+
+@font-face {
+    font-family: IBMRomanItalic;
+    src: url('fonts/IBMPlexSans-Italic-V01.1.otf');
+}

@@ -1,0 +1,27 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/jp-site-app/jp-site-app.js",
+  "sources": [
+    "src/jp-site-app/**",
+    "package.json",
+    "css/**",
+    "js/**"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "node_modules/@webcomponents/**",
+    "node_modules/@polymer/**",
+    "node_modules/@fabricelements/**",
+    "node_modules/web-animations-js/**"
+  ],
+  "moduleResolution": "node",
+  "npm": true,
+  "lint": {
+    "rules": [
+      "polymer-3"
+    ]
+  },
+  "builds": [{
+    "preset": "es6-unbundled"
+  }]
+}
