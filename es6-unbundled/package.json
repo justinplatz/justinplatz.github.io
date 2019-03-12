@@ -23,10 +23,10 @@
     "wct-mocha": "^1.0.0"
   },
   "scripts": {
-    "start": "polymer serve",
-    "build": "polymer build",
-    "serve": "npm run start",
-    "test": "polymer test",
-    "deploy": "npm run build && touch build/.nojekyll && gh-pages -d build/es6-unbundled -b master"
+    "start"  : "polymer serve",
+    "build"  : "polymer build",
+    "serve"  : "npm run start",
+    "test"   : "polymer test",
+    "deploy" : "npm run build && touch build/.nojekyll && gh-pages -d build -b master"
   }
 }
