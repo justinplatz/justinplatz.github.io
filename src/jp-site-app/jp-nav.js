@@ -123,6 +123,8 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           #navbar {
             padding: 20px 10px !important;
           }
+
+
           #navbar a {
             float: none;
             display: block;
@@ -165,7 +167,6 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           padding: 0;
           margin: 0;
           min-width: 0 !important;
-          margin-top: .5vh;
           -webkit-transition: all 350ms ease;
           -moz-transition: all 350ms ease;
           -ms-transition: all 350ms ease;
@@ -196,7 +197,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
             <paper-button
             class="logo"
             on-tap="_gohome" 
-            value="home">
+            value="carousel">
               <div class="logodiv">
                 JP
               </div>
@@ -233,4 +234,4 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         </div>
       </div>
       
-    `}static get properties(){return{mobile:{notfiy:!0},expanded:{notfiy:!0}}}ready(){super.ready();this._addScrollListener();this.set("expanded",!0);this.set("dropdownexpanded",!1);var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;if(w){this.set("expanded",!1)}}_addScrollListener(){var self=this;self._resizeWindowFunction();window.onresize=function(){self._resizeWindowFunction()};self._scrollFunction();window.onscroll=function(){self._scrollFunction()}}_resizeWindowFunction(){var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;this.set("mobile",w);if(w){this.set("expanded",!1)}}_scrollFunction(){var self=this;if(this.mobile){return}if(80<document.body.scrollTop||80<document.documentElement.scrollTop){self.set("expanded",!1)}else{self.set("expanded",!0)}}_menuClicked(){$.publish("_closeModal");if(this.dropdownexpanded){this.set("dropdownexpanded",!1)}else{this.set("dropdownexpanded",!0)}}_gohome(){$.publish("_goto","home");$.publish("_closeModal")}_goto(e){var val=e.target.getAttribute("value");$.publish("_goto",val);$.publish("_closeModal")}}window.customElements.define("jp-nav",JpNav)});
+    `}static get properties(){return{mobile:{notfiy:!0},expanded:{notfiy:!0}}}ready(){super.ready();this._addScrollListener();this.set("expanded",!0);this.set("dropdownexpanded",!1);var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;if(w){this.set("expanded",!1)}}_addScrollListener(){var self=this;self._resizeWindowFunction();window.onresize=function(){self._resizeWindowFunction()};self._scrollFunction();window.onscroll=function(){self._scrollFunction()}}_resizeWindowFunction(){var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;this.set("mobile",w);if(w){this.set("expanded",!1)}}_scrollFunction(){var self=this;if(this.mobile){return}if(80<document.body.scrollTop||80<document.documentElement.scrollTop){self.set("expanded",!1)}else{self.set("expanded",!0)}}_menuClicked(){$.publish("_closeModal");if(this.dropdownexpanded){this.set("dropdownexpanded",!1)}else{this.set("dropdownexpanded",!0)}}_gohome(){$.publish("_goto","carousel");$.publish("_closeModal")}_goto(e){var val=e.target.getAttribute("value");$.publish("_goto",val);$.publish("_closeModal")}}window.customElements.define("jp-nav",JpNav)});

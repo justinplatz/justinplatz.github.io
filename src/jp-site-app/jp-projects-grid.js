@@ -1,21 +1,24 @@
 define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_polymerElement){"use strict";class JpProjectsGrid extends _polymerElement.PolymerElement{static get template(){return _polymerElement.html`
       <style>
         :host {
-          display: inline-block;
-          width: 80vw;
-          height: 88vh;
-          position: fixed;
-          left: 10%;
-          overflow-y: scroll;
-          margin-top: 2vh;
+          
         }
 
         .grid {
-          padding: 1vw;
           list-style: none;
-          position: relative;
-          width: 100%;
-          margin-top: 0em !important;
+          width: 75vw;
+        }
+
+        @media screen and (max-width: 580px) {
+          .grid {
+            list-style: none;
+            width: 75vw;
+            position: absolute;
+            top: 2.5vh;
+            left: 12.5vw;
+            margin: 0 !important;
+            padding: 0 !important;
+          }
         }
 
         .grid li {
@@ -41,10 +44,22 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
           -ms-transition: all 350ms ease;
           -o-transition: all 350ms ease;
           transition: all 350ms ease;
+          border: 3px solid var(--jp-default-white);
+          border-radius: 0;
         }
 
         paper-button.gridbutton:hover{
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
+          border: 3px solid var(--jp-black);
           color: var(--jp-black);
+        }
+
+        paper-button.blue:hover{
+          color: var(--jp-light-blue);
           -webkit-transition: all 350ms ease;
           -moz-transition: all 350ms ease;
           -ms-transition: all 350ms ease;
@@ -52,18 +67,66 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
           transition: all 350ms ease;
         }
 
+        paper-button.darkblue:hover{
+          color: var(--jp-dark-blue);
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
+        }
+
+        paper-button.green:hover{
+          color: var(--jp-green);
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
+        }
+
+        paper-button.red:hover{
+          color: var(--jp-red);
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
+        }
+
+        paper-button.purple:hover{
+          color: var(--jp-purple);
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
+        }
+
+        paper-button.gridbutton:hover img{
+          visibility: hidden;
+        }
+
         paper-button.gridbutton img {
           max-width: 100%;
         }
 
         .griddiv{
-          width: 100%;
           text-transform: uppercase;
           font-size: 1.25em;
           font-family: IBMBold;
-          position: absolute;
-          top: 45%;
           text-align: center;
+          
+          clear: both;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+          position: absolute;
+          top: 0;
+          height: 100%;
+          width: 80%;
+          left: 10%;
         }
 
          @media screen and (max-width: 1190px) {
@@ -104,18 +167,20 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
 
         <li>
           <paper-button 
-          class="gridbutton"
+          class="gridbutton blue"
           on-tap="_openModalSim">
             <img src="../css/images/animat-compass-color.gif" />
             <div class="griddiv">
-              AI Driven Company Discovery
+              <div class="buttonlabel">
+                AI Driven Company Discovery
+              </div>
             </div>
           </paper-button>
         </li>
 
         <li>
          <paper-button
-          class="gridbutton"
+          class="gridbutton red"
           on-tap="_openModalQa"
           value="qa">
             <img src="../css/images/watson2.gif" />
@@ -127,7 +192,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
         
         <li>
           <paper-button
-          class="gridbutton"
+          class="gridbutton green"
           on-tap="_openModalCo"
           value="xx">
             <img src="../css/images/animat-rocket-color.gif" />
@@ -138,7 +203,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
         </li>
         <li>
           <paper-button 
-          class="gridbutton">
+          class="gridbutton purple">
             <img src="../css/images/jp1.JPG" />
             <div class="griddiv">
               Felis catus
@@ -147,7 +212,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
         </li>
         <li>
           <paper-button
-          class="gridbutton">
+          class="gridbutton green">
             <img src="../css/images/jp1.JPG" />
             <div class="griddiv">
               Felis catus
@@ -156,7 +221,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
         </li>
         <li>
           <paper-button
-          class="gridbutton">
+          class="gridbutton red">
             <img src="../css/images/jp2.JPG" />
             <div class="griddiv">
               Felis catus
