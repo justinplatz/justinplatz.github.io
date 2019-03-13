@@ -27,6 +27,6 @@
     "build"  : "polymer build",
     "serve"  : "npm run start",
     "test"   : "polymer test",
-    "deploy": "npm run build && touch build/.nojekyll && gh-pages -d build -b master"
+    "deploy": "npm run build && gh-pages -d build/es6-unbundled -b master"
   }
 }
