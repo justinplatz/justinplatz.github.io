@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["index.html","3ca1b5a25319fe3d09c5674c86ba93ea"],["src/jp-site-app/jp-site-app.js","a7d338059d9aae6d7eda079ed258aa69"]];
+var precacheConfig = [["index.html","bea0afb4469015f7775089534584af1a"],["src/jp-site-app/jp-site-app.js","a7d338059d9aae6d7eda079ed258aa69"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 
