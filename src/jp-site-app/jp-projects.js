@@ -15,9 +15,10 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
         }
 
       </style>  
+      
       <jp-projects-grid
-        name="jp-projects-grid">
-        </jp-projects-grid>
+      name="jp-projects-grid">
+      </jp-projects-grid>
 
 
       <jp-grid-modal-qa

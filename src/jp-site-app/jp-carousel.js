@@ -9,12 +9,17 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         }
 
         img.img{
+          height: 100%;
+          width: 100%;
         }
 
         skeleton-carousel.slider{
           width: 50vw;
           height: 50vw;
+          max-height: 50vh;
+          max-width: 50vh;
           display: inline-flex;
+          border: 3px solid var(--jp-light-border);
         }
 
 
@@ -38,7 +43,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         disable-keys>
           <img 
           class="img"
-          data-src="../css/images/jp1.JPG"
+          data-src="../css/images/jp1.jpg"
           sizing="cover"
           preload
           fade> 
@@ -46,7 +51,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
 
           <img
           class="img"
-          data-src="../css/images/jp2.JPG"
+          data-src="../css/images/jp2.jpg"
           sizing="cover"
           preload
           fade> 
@@ -54,7 +59,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
 
           <img
           class="img"
-          data-src="../css/images/jp3.JPG"
+          data-src="../css/images/jp3.jpg"
           sizing="cover"
           preload
           fade> 
@@ -62,7 +67,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
 
           <img
           class="img"
-          data-src="../css/images/jp4.JPG"
+          data-src="../css/images/jp4.jpg"
           sizing="cover"
           preload
           fade> 
@@ -70,7 +75,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
 
           <img
           class="img"
-          data-src="../css/images/jp6.JPG"
+          data-src="../css/images/jp6.jpg"
           sizing="cover"
           preload
           fade> 
