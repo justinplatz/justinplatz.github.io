@@ -4,16 +4,6 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
           
         }
 
-        .panel{
-          font-family: IBMLight;
-          font-size: 1em;
-          align-items: center;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-        }
-
       </style>  
       
       <jp-projects-grid
@@ -32,6 +22,10 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
       <jp-grid-modal-co
       name="jp-grid-modal-co">
       </jp-grid-modal-co>
+
+      <jp-grid-modal-pnco
+      name="jp-grid-modal-pnco">
+      </jp-grid-modal-pnco>
 
       
     `}static get properties(){return{}}}window.customElements.define("jp-projects",JpProjects)});

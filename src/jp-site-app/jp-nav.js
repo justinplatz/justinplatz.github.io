@@ -208,7 +208,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
             <template is="dom-if" if="[[!mobile]]">
               <paper-button class="navbutton green" on-tap="_goto" value="projects">Projects</paper-button>
               <paper-button class="navbutton red" on-tap="_goto" value="resume">Resume</paper-button>
-              <paper-button class="navbutton purple" on-tap="_goto" value="about">Contact</paper-button>
+              <paper-button class="navbutton purple" on-tap="_goto" value="contact">Contact</paper-button>
             </template>
             <template is="dom-if" if="[[mobile]]">
 
@@ -224,7 +224,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
                 <paper-listbox slot="dropdown-content" class="listbox">
                   <paper-button class="dropdownbutton" on-tap="_goto" value="projects">Projects</paper-button>
                   <paper-button class="dropdownbutton" on-tap="_goto" value="resume">Resume</paper-button>
-                  <paper-button class="dropdownbutton bottom" on-tap="_goto" value="ontact">Contact</paper-button>
+                  <paper-button class="dropdownbutton bottom" on-tap="_goto" value="contact">Contact</paper-button>
                 </paper-listbox>
               </paper-menu-button>
 

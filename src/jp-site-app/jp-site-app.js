@@ -9,6 +9,6 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
 
       <jp-nav></jp-nav>
       <jp-home></jp-home>
-      
 
-    `}static get properties(){return{name:{type:String,value:"jp-site-app"}}}ready(){super.ready()}connectedCallback(){super.connectedCallback();console.log(this.getAttribute("name")+" connected")}_addSubscribers(){var self=this}}window.customElements.define("jp-site-app",JpSiteApp)});
+
+    `}static get properties(){return{name:{type:String,value:"jp-site-app"}}}ready(){super.ready()}connectedCallback(){super.connectedCallback();console.log(this.name+" connected")}_addSubscribers(){var self=this}}window.customElements.define("jp-site-app",JpSiteApp)});

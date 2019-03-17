@@ -172,11 +172,24 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
             <img src="../css/images/animat-compass-color.gif" />
             <div class="griddiv">
               <div class="buttonlabel">
-                AI Driven Company Discovery
+                AI Driven Company Discovery (2019)
               </div>
             </div>
           </paper-button>
         </li>
+
+        <li>
+          <paper-button
+          class="gridbutton green"
+          on-tap="_openModalCo"
+          value="xx">
+            <img src="../css/images/animat-rocket-color.gif" />
+            <div class="griddiv">
+              AI Decision Support Co-Pilot (2018)
+            </div>
+          </paper-button>
+        </li>
+
 
         <li>
          <paper-button
@@ -185,50 +198,24 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
           value="qa">
             <img src="../css/images/watson2.gif" />
             <div class="griddiv">
-              Natural Language Q&A System
+              Natural Language Q&A System (2017)
+            </div>
+          </paper-button>
+        </li>
+
+        <li>
+         <paper-button
+          class="gridbutton red"
+          on-tap="_openModalPnCo"
+          value="qa">
+            <img src="../css/images/cobeats.gif" />
+            <div class="griddiv">
+              Music Sync Collab. App (2015)
             </div>
           </paper-button>
         </li>
         
-        <li>
-          <paper-button
-          class="gridbutton green"
-          on-tap="_openModalCo"
-          value="xx">
-            <img src="../css/images/animat-rocket-color.gif" />
-            <div class="griddiv">
-              AI Decision Support Co-Pilot
-            </div>
-          </paper-button>
-        </li>
-        <li>
-          <paper-button 
-          class="gridbutton purple">
-            <img src="../css/images/jp1.JPG" />
-            <div class="griddiv">
-              Felis catus
-            </div>
-          </paper-button>
-        </li>
-        <li>
-          <paper-button
-          class="gridbutton green">
-            <img src="../css/images/jp1.JPG" />
-            <div class="griddiv">
-              Felis catus
-            </div>
-          </paper-button>
-        </li>
-        <li>
-          <paper-button
-          class="gridbutton red">
-            <img src="../css/images/jp2.JPG" />
-            <div class="griddiv">
-              Felis catus
-            </div>
-          </paper-button>
-        </li>
       </ul>
 
       
-    `}static get properties(){return{}}_openModalQa(event){$.publish("_openModalQa")}_openModalSim(event){$.publish("_openModalSim")}_openModalCo(event){$.publish("_openModalCo")}}window.customElements.define("jp-projects-grid",JpProjectsGrid)});
+    `}static get properties(){return{}}_openModalQa(event){$.publish("_openModalQa")}_openModalSim(event){$.publish("_openModalSim")}_openModalCo(event){$.publish("_openModalCo")}_openModalPnCo(event){$.publish("_openModalPnCo")}}window.customElements.define("jp-projects-grid",JpProjectsGrid)});

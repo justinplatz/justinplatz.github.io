@@ -1,0 +1,1 @@
+(function(){if("undefined"===typeof self||!self.Prism||!self.document){return}Prism.hooks.add("before-sanity-check",function(env){if(env.code){var pre=env.element.parentNode,clsReg=/\s*\bkeep-initial-line-feed\b\s*/;if(pre&&"pre"===pre.nodeName.toLowerCase()&&!clsReg.test(pre.className)&&!clsReg.test(env.element.className)){env.code=env.code.replace(/^(?:\r?\n|\r)/,"")}}})})();

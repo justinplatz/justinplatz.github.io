@@ -40,6 +40,18 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           name="jp-projects">
           </jp-projects>
         </template>
+
+        <template is="dom-if" if="[[_isContactSelected(selected)]]">
+          <jp-contact
+          name="jp-contact">
+          </jp-contact>
+        </template>
+
+        <template is="dom-if" if="[[_isResumeSelected(selected)]]">
+          <jp-resume
+          name="jp-resume">
+          </jp-resume>
+        </template>
       </div>
      
-    `}static get properties(){return{name:{type:String,value:"jp-home"}}}ready(){super.ready();this.set("selected","carousel");this._addSubscribers()}connectedCallback(){super.connectedCallback();console.log(this.getAttribute("name")+" connected")}_addSubscribers(){var self=this;$.subscribe("_goto",function(event,value){if(value){self.set("selected",value)}})}_isAboutSelected(selected){return"about"==this.selected}_isCarouselSelected(selected){return"carousel"==this.selected}_isProjectsSelected(selected){return"projects"==this.selected}_isResumeSelected(selected){return"resume"==this.selected}}window.customElements.define("jp-home",JpHome)});
+    `}static get properties(){return{name:{type:String,value:"jp-home"}}}ready(){super.ready();this.set("selected","carousel");this._addSubscribers()}connectedCallback(){super.connectedCallback();console.log(this.name+" connected")}_addSubscribers(){var self=this;$.subscribe("_goto",function(event,value){if(value){self.set("selected",value)}})}_isCarouselSelected(selected){return"carousel"==this.selected}_isProjectsSelected(selected){return"projects"==this.selected}_isResumeSelected(selected){return"resume"==this.selected}_isContactSelected(selected){return"contact"==this.selected}}window.customElements.define("jp-home",JpHome)});
