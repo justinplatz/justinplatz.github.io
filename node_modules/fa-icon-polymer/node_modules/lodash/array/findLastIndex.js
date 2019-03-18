@@ -1,1 +1,0 @@
-var createFindIndex=require("../internal/createFindIndex"),findLastIndex=createFindIndex(!0);module.exports=findLastIndex;
