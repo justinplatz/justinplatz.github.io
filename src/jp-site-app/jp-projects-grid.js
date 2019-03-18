@@ -108,7 +108,10 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
         }
 
         paper-button.gridbutton img {
-          max-width: 100%;
+          background-position: 50% 50%;
+          background-repeat: no-repeat;
+          background-size: cover;
+          width: 20vw;
         }
 
         .griddiv{

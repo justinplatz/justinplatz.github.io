@@ -1,1 +1,0 @@
-var baseForOwn=require("../internal/baseForOwn"),createFindKey=require("../internal/createFindKey"),findKey=createFindKey(baseForOwn);module.exports=findKey;

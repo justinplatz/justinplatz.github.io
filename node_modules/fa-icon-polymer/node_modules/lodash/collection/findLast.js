@@ -1,1 +1,0 @@
-var baseEachRight=require("../internal/baseEachRight"),createFind=require("../internal/createFind"),findLast=createFind(baseEachRight,!0);module.exports=findLast;
