@@ -15,6 +15,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           position: fixed !important;
           top: 0 !important;
           left: 0 !important;
+          font-size: calc(8px + 1vw);
         }
 
         video.vid{
@@ -71,6 +72,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           font-size: 1.25em;
           display: block;
           padding-bottom: 2.5vh;
+          padding-top: 1vh;
         }
 
         .text{
