@@ -73,6 +73,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           display: block;
           padding-bottom: 2.5vh;
           padding-top: 1vh;
+          line-height: calc(16px + 1.25em);
         }
 
         .text{
@@ -80,6 +81,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           text-align: justify;
           color: var(--jp-black);
           padding-bottom: 2.5vh;
+          line-height: calc(16px + 1em);
         }
 
         .frame{
