@@ -153,6 +153,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         paper-listbox.listbox{
           position: fixed;
           left: 0;
+          top: calc(5vh + 43px);
           width: 100vw;
           margin-top: 0 !important;
           padding-top: 0 !important;
@@ -225,7 +226,6 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
                 on-tap="_menuClicked" 
                 alt="menu">
                 </paper-icon-button>
-               
                 <paper-listbox slot="dropdown-content" class="listbox">
                   <paper-button class="dropdownbutton" on-tap="_goto" value="projects">Projects</paper-button>
                   <paper-button class="dropdownbutton" on-tap="_goto" value="resume">Resume</paper-button>
