@@ -133,7 +133,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           
         }
 
-        paper-button.dropdownbutton{
+        paper-button.dropdownbutton, paper-item.dropdownbutton{
           display: block;
           font-family: IBMBold;
           text-align: center;
@@ -144,12 +144,19 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           padding-right: 0;
           margin-left: 0;
           margin-right: 0;
+
+          padding: calc(.5vh + 4px) 0;
+          text-transform: uppercase;
         }
 
-        paper-button.bottom{
+        paper-button.bottom, paper-item.bottom{
           border-bottom: 2px solid var(--jp-dark-border);
         }
 
+
+        paper-menu-button.papermenubutton{
+          --paper-menu-button-dropdown:{}
+        }
         paper-listbox.listbox{
           position: fixed;
           left: 0;
@@ -218,7 +225,8 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
               <paper-menu-button
               horizontalAlign="left"
               verticalAlign="bottom"
-              no-overlap="true">
+              no-overlap="true"
+              class="papermenubutton">
 
                 <paper-icon-button 
                 slot="dropdown-trigger" 
@@ -227,9 +235,9 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
                 alt="menu">
                 </paper-icon-button>
                 <paper-listbox slot="dropdown-content" class="listbox">
-                  <paper-button class="dropdownbutton" on-tap="_goto" value="projects">Projects</paper-button>
-                  <paper-button class="dropdownbutton" on-tap="_goto" value="resume">Resume</paper-button>
-                  <paper-button class="dropdownbutton bottom" on-tap="_goto" value="contact">Contact</paper-button>
+                  <paper-item class="dropdownbutton" on-tap="_goto" value="projects">Projects</paper-item>
+                  <paper-item class="dropdownbutton" on-tap="_goto" value="resume">Resume</paper-item>
+                  <paper-item class="dropdownbutton bottom" on-tap="_goto" value="contact">Contact</paper-item>
                 </paper-listbox>
 
               </paper-menu-button>
