@@ -1,5 +1,6 @@
 define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_modules/@polymer/paper-icon-button/paper-icon-button.js","../../node_modules/@polymer/iron-icons/iron-icons.js","../../node_modules/@polymer/paper-button/paper-button.js","../../node_modules/@polymer/iron-dropdown/iron-dropdown.js","../../node_modules/@polymer/neon-animation/neon-animation.js","../../node_modules/@polymer/paper-listbox/paper-listbox.js","../../node_modules/@polymer/paper-menu-button/paper-menu-button.js"],function(_polymerElement,_paperIconButton,_ironIcons,_paperButton,_ironDropdown,_neonAnimation,_paperListbox,_paperMenuButton){"use strict";class JpNav extends _polymerElement.PolymerElement{static get template(){return _polymerElement.html`
       <style>
+
         :host {
           display: block;
           width: auto;
@@ -124,7 +125,6 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
             padding: 20px 10px !important;
           }
 
-
           #navbar a {
             float: none;
             display: block;
@@ -156,6 +156,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           width: 100vw;
           margin-top: 0 !important;
           padding-top: 0 !important;
+          z-index: 9;
         }
 
         .logo{
@@ -237,7 +238,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           </div>
 
         </div>
-        
+
       </div>
       
     `}static get properties(){return{mobile:{notfiy:!0},expanded:{notfiy:!0}}}ready(){super.ready();this._addScrollListener();this.set("expanded",!0);var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;if(w){this.set("expanded",!1)}}_addScrollListener(){var self=this;self._resizeWindowFunction();window.onresize=function(){self._resizeWindowFunction()};self._scrollFunction();window.onscroll=function(){self._scrollFunction()}}_resizeWindowFunction(){var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;this.set("mobile",w);if(w){this.set("expanded",!1)}}_scrollFunction(){var self=this;if(this.mobile){return}if(80<document.body.scrollTop||80<document.documentElement.scrollTop){self.set("expanded",!1)}else{self.set("expanded",!0)}}_menuClicked(){$.publish("_closeModal")}_gohome(){$.publish("_goto","carousel");$.publish("_closeModal")}_goto(e){var val=e.target.getAttribute("value");$.publish("_goto",val);$.publish("_closeModal")}}window.customElements.define("jp-nav",JpNav)});
