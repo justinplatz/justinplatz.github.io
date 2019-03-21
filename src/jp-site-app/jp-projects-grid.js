@@ -46,6 +46,10 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
           transition: all 350ms ease;
           border: 3px solid var(--jp-default-white);
           border-radius: 0;
+          
+          text-align: center;
+          display: table-cell;
+          vertical-align: middle;
         }
 
         paper-button.gridbutton:hover{
@@ -208,7 +212,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
 
         <li>
          <paper-button
-          class="gridbutton red"
+          class="gridbutton blue"
           on-tap="_openModalPnCo"
           value="qa">
             <img src="../css/images/cobeats.gif" />
@@ -217,8 +221,20 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
             </div>
           </paper-button>
         </li>
+
+        <li>
+         <paper-button
+          class="gridbutton green"
+          on-tap="_openModalLm"
+          value="lm">
+            <img src="../css/images/leap.gif" />
+            <div class="griddiv">
+              IoT Motion Controlled Servos (2015)
+            </div>
+          </paper-button>
+        </li>
         
       </ul>
 
       
-    `}static get properties(){return{}}_openModalQa(event){$.publish("_openModalQa")}_openModalSim(event){$.publish("_openModalSim")}_openModalCo(event){$.publish("_openModalCo")}_openModalPnCo(event){$.publish("_openModalPnCo")}}window.customElements.define("jp-projects-grid",JpProjectsGrid)});
+    `}static get properties(){return{}}_openModalQa(event){$.publish("_openModalQa")}_openModalSim(event){$.publish("_openModalSim")}_openModalCo(event){$.publish("_openModalCo")}_openModalPnCo(event){$.publish("_openModalPnCo")}_openModalLm(event){$.publish("_openModalLm")}}window.customElements.define("jp-projects-grid",JpProjectsGrid)});

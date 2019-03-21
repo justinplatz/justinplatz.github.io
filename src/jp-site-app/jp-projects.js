@@ -27,5 +27,9 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
       name="jp-grid-modal-pnco">
       </jp-grid-modal-pnco>
 
+      <jp-grid-modal-lm
+      name="jp-grid-modal-lm">
+      </jp-grid-modal-lm>
+
       
     `}static get properties(){return{}}}window.customElements.define("jp-projects",JpProjects)});

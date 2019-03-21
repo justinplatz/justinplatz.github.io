@@ -8,6 +8,11 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
           height: 95vh;
         }
 
+        embed.pdf{
+          width: 80vw;
+          height: 80vh;
+        }
+
         @media screen and (max-width: 580px) {
           #canvas{
             height: auto;
@@ -16,7 +21,10 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
         }
       </style>
 
-      <canvas id="canvas"></canvas>
+      <!-- <canvas id="canvas"></canvas> -->
+
+      <embed class="pdf" src="css/images/JustinPlatzResume2018.pdf" type="application/pdf" width="100%" height="600px" />
+
    
 
 
