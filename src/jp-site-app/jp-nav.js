@@ -133,7 +133,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           
         }
 
-        paper-button.dropdownbutton, paper-item.dropdownbutton{
+        paper-button.dropdownbutton{
           display: block;
           font-family: IBMBold;
           text-align: center;
@@ -144,12 +144,9 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           padding-right: 0;
           margin-left: 0;
           margin-right: 0;
-
-          padding: calc(.5vh + 4px) 0;
-          text-transform: uppercase;
         }
 
-        paper-button.bottom, paper-item.bottom{
+        paper-button.bottom{
           border-bottom: 2px solid var(--jp-dark-border);
         }
 
@@ -235,9 +232,9 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
                 alt="menu">
                 </paper-icon-button>
                 <paper-listbox slot="dropdown-content" class="listbox">
-                  <paper-item class="dropdownbutton" on-tap="_goto" value="projects">Projects</paper-item>
-                  <paper-item class="dropdownbutton" on-tap="_goto" value="resume">Resume</paper-item>
-                  <paper-item class="dropdownbutton bottom" on-tap="_goto" value="contact">Contact</paper-item>
+                  <paper-button class="dropdownbutton" on-tap="_goto" value="projects">Projects</paper-button>
+                  <paper-button class="dropdownbutton" on-tap="_goto" value="resume">Resume</paper-button>
+                  <paper-button class="dropdownbutton bottom" on-tap="_goto" value="contact">Contact</paper-button>
                 </paper-listbox>
 
               </paper-menu-button>
