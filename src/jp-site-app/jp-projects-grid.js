@@ -33,7 +33,6 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
 
 
         paper-button.gridbutton{
-          display: block;
           width: 100%;
           cursor: pointer;
           margin: 0;
@@ -166,6 +165,17 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
               width: calc(100% - 2.5vw);
             }
           }
+
+          @media screen and (max-width: 580px) {
+            paper-button.gridbutton{
+              display: block;
+            }
+            paper-button.gridbutton img{
+              height: 25vh;
+              width: 25vh;
+            }
+          }
+
 
 
       </style>  

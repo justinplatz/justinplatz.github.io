@@ -205,20 +205,24 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           </div>
         
           <div id="navbar-right">
+            
             <template is="dom-if" if="[[!mobile]]">
               <paper-button class="navbutton green" on-tap="_goto" value="projects">Projects</paper-button>
               <paper-button class="navbutton red" on-tap="_goto" value="resume">Resume</paper-button>
               <paper-button class="navbutton purple" on-tap="_goto" value="contact">Contact</paper-button>
             </template>
+            
             <template is="dom-if" if="[[mobile]]">
-
               <paper-menu-button
               horizontalAlign="left"
               verticalAlign="bottom"
-              dynamicAlign="true"
               no-overlap="true">
 
-                <paper-icon-button slot="dropdown-trigger" icon="menu" on-tap="_menuClicked" alt="menu">
+                <paper-icon-button 
+                slot="dropdown-trigger" 
+                icon="menu" 
+                on-tap="_menuClicked" 
+                alt="menu">
                 </paper-icon-button>
                
                 <paper-listbox slot="dropdown-content" class="listbox">
@@ -226,12 +230,14 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
                   <paper-button class="dropdownbutton" on-tap="_goto" value="resume">Resume</paper-button>
                   <paper-button class="dropdownbutton bottom" on-tap="_goto" value="contact">Contact</paper-button>
                 </paper-listbox>
+
               </paper-menu-button>
-
-
             </template>
+
           </div>
+
         </div>
+        
       </div>
       
-    `}static get properties(){return{mobile:{notfiy:!0},expanded:{notfiy:!0}}}ready(){super.ready();this._addScrollListener();this.set("expanded",!0);this.set("dropdownexpanded",!1);var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;if(w){this.set("expanded",!1)}}_addScrollListener(){var self=this;self._resizeWindowFunction();window.onresize=function(){self._resizeWindowFunction()};self._scrollFunction();window.onscroll=function(){self._scrollFunction()}}_resizeWindowFunction(){var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;this.set("mobile",w);if(w){this.set("expanded",!1)}}_scrollFunction(){var self=this;if(this.mobile){return}if(80<document.body.scrollTop||80<document.documentElement.scrollTop){self.set("expanded",!1)}else{self.set("expanded",!0)}}_menuClicked(){$.publish("_closeModal");if(this.dropdownexpanded){this.set("dropdownexpanded",!1)}else{this.set("dropdownexpanded",!0)}}_gohome(){$.publish("_goto","carousel");$.publish("_closeModal")}_goto(e){var val=e.target.getAttribute("value");$.publish("_goto",val);$.publish("_closeModal")}}window.customElements.define("jp-nav",JpNav)});
+    `}static get properties(){return{mobile:{notfiy:!0},expanded:{notfiy:!0}}}ready(){super.ready();this._addScrollListener();this.set("expanded",!0);var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;if(w){this.set("expanded",!1)}}_addScrollListener(){var self=this;self._resizeWindowFunction();window.onresize=function(){self._resizeWindowFunction()};self._scrollFunction();window.onscroll=function(){self._scrollFunction()}}_resizeWindowFunction(){var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;this.set("mobile",w);if(w){this.set("expanded",!1)}}_scrollFunction(){var self=this;if(this.mobile){return}if(80<document.body.scrollTop||80<document.documentElement.scrollTop){self.set("expanded",!1)}else{self.set("expanded",!0)}}_menuClicked(){$.publish("_closeModal")}_gohome(){$.publish("_goto","carousel");$.publish("_closeModal")}_goto(e){var val=e.target.getAttribute("value");$.publish("_goto",val);$.publish("_closeModal")}}window.customElements.define("jp-nav",JpNav)});
