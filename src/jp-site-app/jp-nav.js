@@ -157,7 +157,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           width: 100vw;
           margin-top: 0 !important;
           padding-top: 0 !important;
-          z-index: 9;
+          z-index: 100;
         }
 
         .logo{

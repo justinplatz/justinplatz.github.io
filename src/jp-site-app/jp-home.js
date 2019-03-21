@@ -17,6 +17,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           position: absolute;
           left: 0;
           top: 0;
+          z-index: 0;
         }
 
 
