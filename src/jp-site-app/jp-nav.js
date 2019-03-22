@@ -122,6 +122,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         @media screen and (max-width: 580px) {
           #navbar {
             padding: 20px 10px !important;
+            z-index: 100 !important;
           }
 
           #navbar a {
@@ -160,7 +161,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           width: 100vw;
           margin-top: 0 !important;
           padding-top: 0 !important;
-          z-index: 100;
+          z-index: 100 !important;
         }
 
         .logo{
