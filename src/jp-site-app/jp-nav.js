@@ -70,7 +70,6 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           transition: 0.4s;
           position: fixed;
           top: 0;
-          z-index: 99;
           width: 98vw;
           left: 0px;
           border-bottom: 2px solid var(--jp-dark-border);
