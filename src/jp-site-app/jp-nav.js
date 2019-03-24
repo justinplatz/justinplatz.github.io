@@ -83,7 +83,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
 
         #navbar-right {
           position: fixed;
-          right: 1vw;
+          right: 2.5vw;
         }
 
         .navbarexpanded-true{
@@ -193,6 +193,55 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           font-family: IBMBold;
           font-size: 0.75em;
         }
+
+        paper-button.socialbutton{
+          margin: 0vh .5vw !important;
+          min-width: 0 !important;
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
+          border: 3px solid var(--jp-black);
+          height: 5vh;
+          width: 5vh;
+        }
+
+        paper-button.socialbutton:hover, paper-button.socialbutton:hover *{
+          background: var(--jp-black);
+          --icon-background-color: var(--jp-black);
+        }
+
+        paper-button.red:hover, paper-button.red:hover *{
+          color: var(--jp-red);
+          --icon-color: var(--jp-red);
+        }
+
+        paper-button.blue:hover, paper-button.blue:hover *{
+          color: var(--jp-light-blue);
+          --icon-color: var(--jp-light-blue);
+        }
+
+        paper-button.green:hover, paper-button.green:hover *{
+          color: var(--jp-green);
+          --icon-color: var(--jp-green);
+        }
+
+        paper-button.pink:hover, paper-button.pink:hover *{
+          color: var(--jp-pink);
+          --icon-color: var(--jp-pink);
+        }
+
+        paper-button.purple:hover, paper-button.purple:hover *{
+          color: var(--jp-purple);
+          --icon-color: var(--jp-purple);
+        }
+
+        fa-icon.icon{
+          --icon-color: var(--jp-black);
+          --icon-background-color: transparent;
+          font-size: 1em;
+        }
       </style>
 
 
@@ -219,7 +268,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
             </template>
             
             <template is="dom-if" if="[[mobile]]">
-              <paper-menu-button
+              <!-- <paper-menu-button
               horizontalAlign="left"
               verticalAlign="bottom"
               no-overlap="true"
@@ -237,7 +286,19 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
                   <paper-button class="dropdownbutton bottom" on-tap="_goto" value="contact">Contact</paper-button>
                 </paper-listbox>
 
-              </paper-menu-button>
+              </paper-menu-button> -->
+
+              <paper-button class="socialbutton purple" on-tap="_goto" value="projects">
+                <fa-icon icon-prefix="fas" icon-name="fa-code" class="icon"></fa-icon>
+              </paper-button>
+              <paper-button class="socialbutton green" on-tap="_goto" value="resume">
+                <fa-icon icon-prefix="fas" icon-name="fa-file" class="icon"></fa-icon>
+              </paper-button>
+              <paper-button class="socialbutton red" on-tap="_goto" value="contact">
+                <fa-icon icon-prefix="fas" icon-name="fa-comments" class="icon"></fa-icon>
+              </paper-button>
+
+
             </template>
 
           </div>
