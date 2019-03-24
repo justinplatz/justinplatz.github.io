@@ -203,8 +203,8 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           -o-transition: all 350ms ease;
           transition: all 350ms ease;
           border: 3px solid var(--jp-black);
-          height: 5vh;
-          width: 5vh;
+          height: 7.5vh;
+          width:  7.5vh;
         }
 
         paper-button.socialbutton:hover, paper-button.socialbutton:hover *{

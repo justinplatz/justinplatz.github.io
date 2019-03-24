@@ -9,7 +9,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           background: var(--jp-default-white);
           margin-top: calc(5vh + 6vh + 5px);
           width: 100vw;
-          height: calc(100vh - 5vh - 6vh - 5px - 1vh);
+          height: calc(100vh - 5vh - 6vh - 5px - 5vh);
           clear: both;
           display: flex;
           justify-content: center;
