@@ -167,9 +167,9 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         .logo{
           background: var(--jp-black);
           color: var(--jp-offwhite);
-          border-radius: 50%;
-          width: 5vh;
-          height: 5vh;
+          border-radius: 0;
+          width: 7.5vh;
+          height: 7.5vh;
           padding: 0;
           margin: 0;
           min-width: 0 !important;
@@ -181,6 +181,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         }
 
         .logo:hover{
+          color: var(--jp-black);
           background: var(--jp-light-blue);
           -webkit-transition: all 350ms ease;
           -moz-transition: all 350ms ease;
@@ -205,6 +206,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           border: 3px solid var(--jp-black);
           height: 7.5vh;
           width:  7.5vh;
+          border-radius: 0;
         }
 
         paper-button.socialbutton:hover, paper-button.socialbutton:hover *{
