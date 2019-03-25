@@ -17,12 +17,13 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           position: fixed;
           left: 0;
           top: 0;
+          overflow-y: scroll;
         }
 
 
         @media screen and (max-width: 580px) {
           .maincontainer{
-            margin-top: calc(5vh + 45px);
+            margin-top: calc(7.5vh + 45px);
             height: calc(100vh - 5vh - 45px - 1vh);
           }
         }
