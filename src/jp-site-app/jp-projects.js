@@ -5,11 +5,11 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
         }
 
         .modalhiddentrue:{
-          visibility: none;
+          display: none;
         }
 
         .gridshiddentrue:{
-          visibility: none;
+          display: none;
         }
       </style>  
       
@@ -43,4 +43,4 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
       class$="modalhidden[[modalOpen]]">
       </jp-grid-modal-lm>
       
-    `}static get properties(){return{name:{type:String,value:"jp-projects"},modalOpen:{type:Boolean,value:!1}}}ready(){super.ready();this._addSubscribers();this.set("modalOpen",!1)}connectedCallback(){super.connectedCallback()}_addSubscribers(){var self=this}}window.customElements.define("jp-projects",JpProjects)});
+    `}static get properties(){return{name:{type:String,value:"jp-projects"},modalOpen:{type:Boolean,value:!1}}}ready(){super.ready();this._addSubscribers();this.set("modalOpen",!1)}connectedCallback(){super.connectedCallback()}_addSubscribers(){var self=this;$.subscribe("_closeModal",function(event,data){self.set("modalOpen",!1)});$.subscribe("openModal",function(event,data){self.set("modalOpen",!0)})}}window.customElements.define("jp-projects",JpProjects)});
