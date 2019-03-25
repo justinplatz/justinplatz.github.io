@@ -57,7 +57,6 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
 
         @media screen and (max-width: 580px) {
           .modalcontainer{
-            margin-top: 2.5vh;
           }
           
         }
