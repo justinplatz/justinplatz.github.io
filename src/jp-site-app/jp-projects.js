@@ -8,16 +8,17 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
           display: none;
         }
 
-        .gridshiddentrue:{
+        jp-projects-grid.gridshiddentrue:{
           display: none;
         }
       </style>  
       
-      <jp-projects-grid
-      name="jp-projects-grid"
-      class$="gridshidden[[modalOpen]]">
-      </jp-projects-grid>
-
+      <template is="dom-if" if="[[!modalOpen]]">
+        <jp-projects-grid
+        name="jp-projects-grid">
+        </jp-projects-grid>
+      </template>
+      
       <jp-grid-modal-qa
       name="jp-grid-modal-qa"
       class$="modalhidden[[modalOpen]]">
