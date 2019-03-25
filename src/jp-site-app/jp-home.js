@@ -26,10 +26,14 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
             margin-top: calc(7.5vh + 45px);
             height: calc(100vh - 7.5vh - 45px - 1vh);
           }
+          .modalOpentrue{
+            margin-top: 0 !important;
+            height: 100vh !important;
+          }
         }
       </style>
 
-      <div class="maincontainer">
+      <div class$="maincontainer modalOpen[[modalOpen]]">
         <template is="dom-if" if="[[_isCarouselSelected(selected)]]">
           <jp-carousel
           name="jp-carousel">
@@ -55,4 +59,4 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         </template>
       </div>
      
-    `}static get properties(){return{name:{type:String,value:"jp-home"}}}ready(){super.ready();this.set("selected","carousel");this._addSubscribers()}connectedCallback(){super.connectedCallback();console.log(this.name+" connected")}_addSubscribers(){var self=this;$.subscribe("_goto",function(event,value){if(value){self.set("selected",value)}})}_isCarouselSelected(selected){return"carousel"==this.selected}_isProjectsSelected(selected){return"projects"==this.selected}_isResumeSelected(selected){return"resume"==this.selected}_isContactSelected(selected){return"contact"==this.selected}}window.customElements.define("jp-home",JpHome)});
+    `}static get properties(){return{name:{type:String,value:"jp-home"}}}ready(){super.ready();this.set("selected","carousel");this._addSubscribers()}connectedCallback(){super.connectedCallback();console.log(this.name+" connected")}_addSubscribers(){var self=this;$.subscribe("_goto",function(event,value){if(value){self.set("selected",value)}});$.subscribe("_closeModal",function(event,data){self.set("modalOpen",!1)});$.subscribe("openModal",function(event,data){self.set("modalOpen",!0)})}_isCarouselSelected(selected){return"carousel"==this.selected}_isProjectsSelected(selected){return"projects"==this.selected}_isResumeSelected(selected){return"resume"==this.selected}_isContactSelected(selected){return"contact"==this.selected}}window.customElements.define("jp-home",JpHome)});

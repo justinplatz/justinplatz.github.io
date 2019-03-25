@@ -12,9 +12,10 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           box-shadow: none;
           height: 100vh;
           width: 100vw;
-          position: fixed !important;
           top: 0 !important;
           left: 0 !important;
+          position: fixed !important;
+          margin-top: calc(-7.5vh - 45px) !important;
         }
 
         video.vid{
