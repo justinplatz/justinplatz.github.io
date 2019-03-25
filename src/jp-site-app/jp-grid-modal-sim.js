@@ -114,7 +114,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         </div>
 
         <div class="modalcontainer">
-          <div class="bold"> AI Driven Company Discovery</div>
+          <div class="bold title"> AI Driven Company Discovery</div>
           <a class="bold" href="https://dl.acm.org/citation.cfm?doid=3240323.3243228">Published in RecSys '18 - Cognitive Company Discovery</a>
           <div class="text">
           Cognitive Company Discovery is an application that helps business professionals 

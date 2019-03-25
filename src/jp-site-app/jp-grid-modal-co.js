@@ -73,6 +73,10 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           padding-top: 1vh;
         }
 
+        .title{
+          font-size: 2em;
+        }
+
         .text{
           font-family: IBMLight;
           text-align: justify;
@@ -117,7 +121,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         </div>
 
         <div class="modalcontainer">
-          <div class="bold"> 
+          <div class="bold title"> 
             AI Co-Pilot
           </div>
           <div class="text">

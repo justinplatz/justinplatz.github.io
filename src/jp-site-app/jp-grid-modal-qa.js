@@ -116,7 +116,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         </div>
 
         <div class="modalcontainer">
-          <div class="bold"> 
+          <div class="bold title"> 
             NBA Guru
           </div>
           <div class="text">

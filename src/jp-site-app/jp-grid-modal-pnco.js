@@ -117,7 +117,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         </div>
 
         <div class="modalcontainer">
-          <div class="bold"> 
+          <div class="bold title"> 
             Music Sync Collab. App
           </div>
           <div class="text">

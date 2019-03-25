@@ -117,7 +117,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         </div>
 
         <div class="modalcontainer">
-          <div class="bold"> 
+          <div class="bold title"> 
             IoT Motion Controlled Servos
           </div>
           <a class="bold" href="https://www.instructables.com/id/IoT-Motion-Controlled-Servos/">First Prize Raspberry Pi Project on Instructables.com</a>
