@@ -14,7 +14,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           display: flex;
           justify-content: center;
           align-items: center;
-          position: absolute;
+          position: fixed;
           left: 0;
           top: 0;
         }
