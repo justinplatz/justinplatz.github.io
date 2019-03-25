@@ -42,7 +42,6 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
 
         .modalcontainer{
           text-align: center;
-          overflow-y: scroll;
           height: calc(100vh - 10vh);
         }
 
