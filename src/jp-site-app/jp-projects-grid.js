@@ -247,4 +247,4 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
       </ul>
 
       
-    `}static get properties(){return{}}_openModalQa(event){$.publish("_openModalQa")}_openModalSim(event){$.publish("_openModalSim")}_openModalCo(event){$.publish("_openModalCo")}_openModalPnCo(event){$.publish("_openModalPnCo")}_openModalLm(event){$.publish("_openModalLm")}}window.customElements.define("jp-projects-grid",JpProjectsGrid)});
+    `}static get properties(){return{}}_openModalQa(event){$.publish("openModal");$.publish("_openModalQa")}_openModalSim(event){$.publish("openModal");$.publish("_openModalSim")}_openModalCo(event){$.publish("openModal");$.publish("_openModalCo")}_openModalPnCo(event){$.publish("openModal");$.publish("_openModalPnCo")}_openModalLm(event){$.publish("openModal");$.publish("_openModalLm")}}window.customElements.define("jp-projects-grid",JpProjectsGrid)});

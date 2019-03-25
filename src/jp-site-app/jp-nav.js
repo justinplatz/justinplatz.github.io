@@ -244,10 +244,14 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           --icon-background-color: transparent;
           font-size: 1em;
         }
+
+        .modalOpentrue{
+          visibility: hidden;
+        }
       </style>
 
 
-      <div id="navbar" class$="navbarexpanded-[[expanded]]">
+      <div id="navbar" class$="navbarexpanded-[[expanded]] modalOpen[[modalOpen]]">
         <div class="logocontainer" id="logo"> 
 
           <div class$="logotext logotextexpanded-[[expanded]]">
@@ -309,4 +313,4 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
 
       </div>
       
-    `}static get properties(){return{mobile:{notfiy:!0},expanded:{notfiy:!0}}}ready(){super.ready();this._addScrollListener();this.set("expanded",!0);var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;if(w){this.set("expanded",!1)}}_addScrollListener(){var self=this;self._resizeWindowFunction();window.onresize=function(){self._resizeWindowFunction()};self._scrollFunction();window.onscroll=function(){self._scrollFunction()}}_resizeWindowFunction(){var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;this.set("mobile",w);if(w){this.set("expanded",!1)}}_scrollFunction(){var self=this;if(this.mobile){return}if(80<document.body.scrollTop||80<document.documentElement.scrollTop){self.set("expanded",!1)}else{self.set("expanded",!0)}}_menuClicked(){$.publish("_closeModal")}_gohome(){$.publish("_goto","carousel");$.publish("_closeModal")}_goto(e){var val=e.target.getAttribute("value");$.publish("_goto",val);$.publish("_closeModal")}}window.customElements.define("jp-nav",JpNav)});
+    `}static get properties(){return{mobile:{notfiy:!0},expanded:{notfiy:!0}}}ready(){super.ready();this._addScrollListener();this._addSubscribers();this.set("expanded",!0);var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;if(w){this.set("expanded",!1)}}_addSubscribers(){var self=this;$.subscribe("_closeModal",function(event,data){self.set("modalOpen",!1)});$.subscribe("openModal",function(event,data){self.set("modalOpen",!0)})}_addScrollListener(){var self=this;self._resizeWindowFunction();window.onresize=function(){self._resizeWindowFunction()};self._scrollFunction();window.onscroll=function(){self._scrollFunction()}}_resizeWindowFunction(){var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;w=760>w?!0:!1;this.set("mobile",w);if(w){this.set("expanded",!1)}}_scrollFunction(){var self=this;if(this.mobile){return}if(80<document.body.scrollTop||80<document.documentElement.scrollTop){self.set("expanded",!1)}else{self.set("expanded",!0)}}_menuClicked(){$.publish("_closeModal")}_gohome(){$.publish("_goto","carousel");$.publish("_closeModal")}_goto(e){var val=e.target.getAttribute("value");$.publish("_goto",val);$.publish("_closeModal")}}window.customElements.define("jp-nav",JpNav)});

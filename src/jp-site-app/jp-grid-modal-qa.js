@@ -129,4 +129,4 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         </div>
 
       </paper-dialog>
-    `}static get properties(){return{name:{type:String,value:"jp-grid-modal-qa"}}}ready(){super.ready();this.set("selected","home");this._addSubscribers()}connectedCallback(){super.connectedCallback();console.log(this.getAttribute("name")+" connected")}_addSubscribers(){var self=this;$.subscribe("_openModalQa",function(event,data){self.$.modal.open()});$.subscribe("_closeModal",function(event,data){self._close()})}_close(){this.$.modal.close()}}window.customElements.define("jp-grid-modal-qa",JpGridModalQa)});
+    `}static get properties(){return{name:{type:String,value:"jp-grid-modal-qa"}}}ready(){super.ready();this.set("selected","home");this._addSubscribers()}connectedCallback(){super.connectedCallback();console.log(this.getAttribute("name")+" connected")}_addSubscribers(){var self=this;$.subscribe("_openModalQa",function(event,data){self.$.modal.open()})}_close(){$.publish("_closeModal");this.$.modal.close()}}window.customElements.define("jp-grid-modal-qa",JpGridModalQa)});
