@@ -14,8 +14,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           width: 100vw;
           top: 0 !important;
           left: 0 !important;
-          position: fixed !important;
-          margin-top: calc(-7.5vh - 45px) !important;
+          position: absolute !important;
         }
 
         video.vid{
