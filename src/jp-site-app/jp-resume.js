@@ -24,7 +24,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
       <!-- <canvas id="canvas"></canvas> -->
 
       <object class="pdf" data="css/images/JustinPlatzResume2018.pdf" type="application/pdf"/>
-        <iframe class="pdf" src="https://drive.google.com/file/d/1AhMO2akKHzrpGN08Mq43IGRQT1narh92/preview"></iframe>
+        <iframe class="pdf" src="https://drive.google.com/file/d/1Sa49KoTryUjGStI7QB_Uzc1pliRo0dLv/preview"></iframe>
       </object>
 
 
