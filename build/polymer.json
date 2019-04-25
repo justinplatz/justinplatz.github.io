@@ -14,9 +14,15 @@
     "bower_components/webcomponentsjs/*.js",
     "manifest.json",
     "node_modules/@webcomponents/**",
-    "node_modules/@polymer/**",
     "node_modules/@fabricelements/**",
-    "node_modules/web-animations-js/**"
+    "node_modules/web-animations-js/**",
+    "node_modules/@polymer/**",
+    "node_modules/@fortawesome/**",
+    "node_modules/lit-html/**",
+    "node_modules/fa-icon-polymer/fa-icon.js",
+    "node_modules/fa-icon-polymer/fa-icon-css.js",
+    ".nojekyll",
+    "CNAME"
   ],
   "builds": [
     {

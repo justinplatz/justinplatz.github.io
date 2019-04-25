@@ -1,0 +1,109 @@
+import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import '@fabricelements/skeleton-carousel/skeleton-carousel.js';
+
+/**
+ * @customElement
+ * @polymer
+ */
+class JpCarousel extends PolymerElement {
+  static get template() {
+    return html`
+      <style>
+        :host {
+        
+        }
+
+
+        .imagecontainer{
+        }
+
+        img.img{
+          height: 100%;
+          width: 100%;
+        }
+
+        skeleton-carousel.slider{
+          width: 50vw;
+          height: 50vw;
+          max-height: 50vh;
+          max-width: 50vh;
+          display: inline-flex;
+          border: 3px solid var(--jp-light-border);
+        }
+
+
+        @media screen and (max-width: 580px) {
+          skeleton-carousel.slider{
+            width: 75vw;
+            height: 75vw;
+            min-width: 0;
+            min-height: 0;
+          }
+          
+        }
+      </style>
+
+      <div class="imagecontainer">
+        <skeleton-carousel 
+        class="slider" 
+        loop
+        auto
+        duration="5000"
+        disable-keys>
+          <img 
+          class="img"
+          data-src="../css/images/jp1.jpg"
+          sizing="cover"
+          preload
+          fade> 
+          </img>
+
+          <img
+          class="img"
+          data-src="../css/images/jp2.jpg"
+          sizing="cover"
+          preload
+          fade> 
+          </img>
+
+          <img
+          class="img"
+          data-src="../css/images/jp3.jpg"
+          sizing="cover"
+          preload
+          fade> 
+          </img>
+
+          <img
+          class="img"
+          data-src="../css/images/jp4.jpg"
+          sizing="cover"
+          preload
+          fade> 
+          </img>
+
+          <img
+          class="img"
+          data-src="../css/images/jp6.jpg"
+          sizing="cover"
+          preload
+          fade> 
+          </img>
+
+        </skeleton-carousel>
+      </div>
+
+     
+    `;
+  }
+  static get properties() {
+    return {
+      prop1: {
+        type: String,
+        value: 'jp-carousel'
+      }
+    };
+  }
+}
+
+window.customElements.define('jp-carousel', JpCarousel);

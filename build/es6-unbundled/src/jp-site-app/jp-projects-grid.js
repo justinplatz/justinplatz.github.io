@@ -1,21 +1,24 @@
 define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_polymerElement){"use strict";class JpProjectsGrid extends _polymerElement.PolymerElement{static get template(){return _polymerElement.html`
       <style>
         :host {
-          display: inline-block;
-          width: 80vw;
-          height: 88vh;
-          position: fixed;
-          left: 10%;
-          overflow-y: scroll;
-          margin-top: 2vh;
+          
         }
 
         .grid {
-          padding: 1vw;
           list-style: none;
-          position: relative;
-          width: 100%;
-          margin-top: 0em !important;
+          width: 75vw;
+        }
+
+        @media screen and (max-width: 580px) {
+          .grid {
+            list-style: none;
+            width: 75vw;
+            position: absolute;
+            top: 2.5vh;
+            left: 12.5vw;
+            margin: 0 !important;
+            padding: 0 !important;
+          }
         }
 
         .grid li {
@@ -30,7 +33,6 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
 
 
         paper-button.gridbutton{
-          display: block;
           width: 100%;
           cursor: pointer;
           margin: 0;
@@ -41,10 +43,26 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
           -ms-transition: all 350ms ease;
           -o-transition: all 350ms ease;
           transition: all 350ms ease;
+          border: 3px solid var(--jp-default-white);
+          border-radius: 0;
+          
+          text-align: center;
+          display: table-cell;
+          vertical-align: middle;
         }
 
         paper-button.gridbutton:hover{
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
+          border: 3px solid var(--jp-black);
           color: var(--jp-black);
+        }
+
+        paper-button.blue:hover{
+          color: var(--jp-light-blue);
           -webkit-transition: all 350ms ease;
           -moz-transition: all 350ms ease;
           -ms-transition: all 350ms ease;
@@ -52,18 +70,69 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
           transition: all 350ms ease;
         }
 
+        paper-button.darkblue:hover{
+          color: var(--jp-dark-blue);
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
+        }
+
+        paper-button.green:hover{
+          color: var(--jp-green);
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
+        }
+
+        paper-button.red:hover{
+          color: var(--jp-red);
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
+        }
+
+        paper-button.purple:hover{
+          color: var(--jp-purple);
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
+        }
+
+        paper-button.gridbutton:hover img{
+          visibility: hidden;
+        }
+
         paper-button.gridbutton img {
-          max-width: 100%;
+          background-position: 50% 50%;
+          background-repeat: no-repeat;
+          background-size: cover;
+          width: 20vw;
         }
 
         .griddiv{
-          width: 100%;
           text-transform: uppercase;
           font-size: 1.25em;
           font-family: IBMBold;
-          position: absolute;
-          top: 45%;
           text-align: center;
+          
+          clear: both;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+          position: absolute;
+          top: 0;
+          height: 100%;
+          width: 80%;
+          left: 10%;
         }
 
          @media screen and (max-width: 1190px) {
@@ -97,6 +166,17 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
             }
           }
 
+          @media screen and (max-width: 580px) {
+            paper-button.gridbutton{
+              display: block;
+            }
+            paper-button.gridbutton img{
+              height: 25vh;
+              width: 25vh;
+            }
+          }
+
+
 
       </style>  
 
@@ -104,66 +184,67 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js"],function(_poly
 
         <li>
           <paper-button 
-          class="gridbutton"
+          class="gridbutton blue"
           on-tap="_openModalSim">
             <img src="../css/images/animat-compass-color.gif" />
             <div class="griddiv">
-              AI Driven Company Discovery
+              <div class="buttonlabel">
+                AI Driven Company Discovery (2019)
+              </div>
+            </div>
+          </paper-button>
+        </li>
+
+        <li>
+          <paper-button
+          class="gridbutton green"
+          on-tap="_openModalCo"
+          value="xx">
+            <img src="../css/images/animat-rocket-color.gif" />
+            <div class="griddiv">
+              AI Decision Support Co-Pilot (2018)
+            </div>
+          </paper-button>
+        </li>
+
+
+        <li>
+         <paper-button
+          class="gridbutton red"
+          on-tap="_openModalQa"
+          value="qa">
+            <img src="../css/images/watson2.gif" />
+            <div class="griddiv">
+              Natural Language Q&A System (2017)
             </div>
           </paper-button>
         </li>
 
         <li>
          <paper-button
-          class="gridbutton"
-          on-tap="_openModalQa"
+          class="gridbutton blue"
+          on-tap="_openModalPnCo"
           value="qa">
-            <img src="../css/images/watson2.gif" />
+            <img src="../css/images/cobeats.gif" />
             <div class="griddiv">
-              Natural Language Q&A System
+              Music Sync Collab. App (2015)
+            </div>
+          </paper-button>
+        </li>
+
+        <li>
+         <paper-button
+          class="gridbutton green"
+          on-tap="_openModalLm"
+          value="lm">
+            <img src="../css/images/leap.gif" />
+            <div class="griddiv">
+              IoT Motion Controlled Servos (2015)
             </div>
           </paper-button>
         </li>
         
-        <li>
-          <paper-button
-          class="gridbutton"
-          on-tap="_openModalCo"
-          value="xx">
-            <img src="../css/images/animat-rocket-color.gif" />
-            <div class="griddiv">
-              AI Decision Support Co-Pilot
-            </div>
-          </paper-button>
-        </li>
-        <li>
-          <paper-button 
-          class="gridbutton">
-            <img src="../css/images/jp1.JPG" />
-            <div class="griddiv">
-              Felis catus
-            </div>
-          </paper-button>
-        </li>
-        <li>
-          <paper-button
-          class="gridbutton">
-            <img src="../css/images/jp1.JPG" />
-            <div class="griddiv">
-              Felis catus
-            </div>
-          </paper-button>
-        </li>
-        <li>
-          <paper-button
-          class="gridbutton">
-            <img src="../css/images/jp2.JPG" />
-            <div class="griddiv">
-              Felis catus
-            </div>
-          </paper-button>
-        </li>
       </ul>
 
       
-    `}static get properties(){return{}}_openModalQa(event){$.publish("_openModalQa")}_openModalSim(event){$.publish("_openModalSim")}_openModalCo(event){$.publish("_openModalCo")}}window.customElements.define("jp-projects-grid",JpProjectsGrid)});
+    `}static get properties(){return{}}_openModalQa(event){$.publish("openModal");$.publish("_openModalQa")}_openModalSim(event){$.publish("openModal");$.publish("_openModalSim")}_openModalCo(event){$.publish("openModal");$.publish("_openModalCo")}_openModalPnCo(event){$.publish("openModal");$.publish("_openModalPnCo")}_openModalLm(event){$.publish("openModal");$.publish("_openModalLm")}}window.customElements.define("jp-projects-grid",JpProjectsGrid)});

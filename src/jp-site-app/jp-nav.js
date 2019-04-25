@@ -15,6 +15,7 @@ class JpNav extends PolymerElement {
   static get template() {
     return html`
       <style>
+
         :host {
           display: block;
           width: auto;
@@ -84,7 +85,6 @@ class JpNav extends PolymerElement {
           transition: 0.4s;
           position: fixed;
           top: 0;
-          z-index: 99;
           width: 98vw;
           left: 0px;
           border-bottom: 2px solid var(--jp-dark-border);
@@ -98,7 +98,7 @@ class JpNav extends PolymerElement {
 
         #navbar-right {
           position: fixed;
-          right: 1vw;
+          right: 2.5vw;
         }
 
         .navbarexpanded-true{
@@ -138,6 +138,7 @@ class JpNav extends PolymerElement {
           #navbar {
             padding: 20px 10px !important;
           }
+
           #navbar a {
             float: none;
             display: block;
@@ -163,24 +164,30 @@ class JpNav extends PolymerElement {
           border-bottom: 2px solid var(--jp-dark-border);
         }
 
-        paper-listbox.listbox{
+
+        paper-menu-button.papermenubutton{
+          --paper-menu-button-dropdown:{}
+        }
+        
+        /* paper-listbox.listbox{
           position: fixed;
           left: 0;
+          top: calc(5vh + 43px);
           width: 100vw;
           margin-top: 0 !important;
           padding-top: 0 !important;
-        }
+          z-index: 100 !important;
+        } */
 
         .logo{
           background: var(--jp-black);
           color: var(--jp-offwhite);
-          border-radius: 50%;
-          width: 5vh;
-          height: 5vh;
+          border-radius: 0;
+          width: 7.5vh;
+          height: 7.5vh;
           padding: 0;
           margin: 0;
           min-width: 0 !important;
-          margin-top: .5vh;
           -webkit-transition: all 350ms ease;
           -moz-transition: all 350ms ease;
           -ms-transition: all 350ms ease;
@@ -189,6 +196,7 @@ class JpNav extends PolymerElement {
         }
 
         .logo:hover{
+          color: var(--jp-black);
           background: var(--jp-light-blue);
           -webkit-transition: all 350ms ease;
           -moz-transition: all 350ms ease;
@@ -201,17 +209,71 @@ class JpNav extends PolymerElement {
           font-family: IBMBold;
           font-size: 0.75em;
         }
+
+        paper-button.socialbutton{
+          margin: 0vh .5vw !important;
+          min-width: 0 !important;
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
+          border: 3px solid var(--jp-black);
+          height: 7.5vh;
+          width:  7.5vh;
+          border-radius: 0;
+        }
+
+        paper-button.socialbutton:hover, paper-button.socialbutton:hover *{
+          background: var(--jp-black);
+          --icon-background-color: var(--jp-black);
+        }
+
+        paper-button.red:hover, paper-button.red:hover *{
+          color: var(--jp-red);
+          --icon-color: var(--jp-red);
+        }
+
+        paper-button.blue:hover, paper-button.blue:hover *{
+          color: var(--jp-light-blue);
+          --icon-color: var(--jp-light-blue);
+        }
+
+        paper-button.green:hover, paper-button.green:hover *{
+          color: var(--jp-green);
+          --icon-color: var(--jp-green);
+        }
+
+        paper-button.pink:hover, paper-button.pink:hover *{
+          color: var(--jp-pink);
+          --icon-color: var(--jp-pink);
+        }
+
+        paper-button.purple:hover, paper-button.purple:hover *{
+          color: var(--jp-purple);
+          --icon-color: var(--jp-purple);
+        }
+
+        fa-icon.icon{
+          --icon-color: var(--jp-black);
+          --icon-background-color: transparent;
+          font-size: 1em;
+        }
+
+        .modalOpentrue{
+          visibility: hidden;
+        }
       </style>
 
 
-      <div id="navbar" class$="navbarexpanded-[[expanded]]">
+      <div id="navbar" class$="navbarexpanded-[[expanded]] modalOpen[[modalOpen]]">
         <div class="logocontainer" id="logo"> 
 
           <div class$="logotext logotextexpanded-[[expanded]]">
             <paper-button
             class="logo"
             on-tap="_gohome" 
-            value="home">
+            value="carousel">
               <div class="logodiv">
                 JP
               </div>
@@ -219,33 +281,51 @@ class JpNav extends PolymerElement {
           </div>
         
           <div id="navbar-right">
+            
             <template is="dom-if" if="[[!mobile]]">
               <paper-button class="navbutton green" on-tap="_goto" value="projects">Projects</paper-button>
               <paper-button class="navbutton red" on-tap="_goto" value="resume">Resume</paper-button>
-              <paper-button class="navbutton purple" on-tap="_goto" value="about">Contact</paper-button>
+              <paper-button class="navbutton purple" on-tap="_goto" value="contact">Contact</paper-button>
             </template>
+            
             <template is="dom-if" if="[[mobile]]">
-
-              <paper-menu-button
+              <!-- <paper-menu-button
               horizontalAlign="left"
               verticalAlign="bottom"
-              dynamicAlign="true"
-              no-overlap="true">
+              no-overlap="true"
+              class="papermenubutton">
 
-                <paper-icon-button slot="dropdown-trigger" icon="menu" on-tap="_menuClicked" alt="menu">
+                <paper-icon-button 
+                slot="dropdown-trigger" 
+                icon="menu" 
+                on-tap="_menuClicked" 
+                alt="menu">
                 </paper-icon-button>
-               
                 <paper-listbox slot="dropdown-content" class="listbox">
                   <paper-button class="dropdownbutton" on-tap="_goto" value="projects">Projects</paper-button>
                   <paper-button class="dropdownbutton" on-tap="_goto" value="resume">Resume</paper-button>
-                  <paper-button class="dropdownbutton bottom" on-tap="_goto" value="ontact">Contact</paper-button>
+                  <paper-button class="dropdownbutton bottom" on-tap="_goto" value="contact">Contact</paper-button>
                 </paper-listbox>
-              </paper-menu-button>
+
+              </paper-menu-button> -->
+
+              <paper-button class="socialbutton purple" on-tap="_goto" value="projects">
+                <fa-icon icon-prefix="fas" icon-name="fa-code" class="icon"></fa-icon>
+              </paper-button>
+              <paper-button class="socialbutton green" on-tap="_goto" value="resume">
+                <fa-icon icon-prefix="fas" icon-name="fa-file" class="icon"></fa-icon>
+              </paper-button>
+              <paper-button class="socialbutton red" on-tap="_goto" value="contact">
+                <fa-icon icon-prefix="fas" icon-name="fa-comments" class="icon"></fa-icon>
+              </paper-button>
 
 
             </template>
+
           </div>
+
         </div>
+
       </div>
       
     `;
@@ -264,8 +344,9 @@ class JpNav extends PolymerElement {
   ready(){
     super.ready();
     this._addScrollListener();
+    this._addSubscribers();
     this.set("expanded", true);
-    this.set("dropdownexpanded", false);
+    // this.set("dropdownexpanded", false);
 
     var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     w = w < 760 ? true : false;
@@ -273,6 +354,11 @@ class JpNav extends PolymerElement {
       this.set("expanded", false);
     }
   }
+
+  _addSubscribers(){
+    var self = this;
+  }
+
 
   _addScrollListener(){
     var self = this;
@@ -309,16 +395,15 @@ class JpNav extends PolymerElement {
 
   _menuClicked(){
     $.publish("_closeModal");
-    if(this.dropdownexpanded){
-      this.set("dropdownexpanded", false);
-    }else{
-      this.set("dropdownexpanded", true);
-    }
-    
+    // if(this.dropdownexpanded){
+    //   this.set("dropdownexpanded", false);
+    // }else{
+    //   this.set("dropdownexpanded", true);
+    // }
   }
 
   _gohome(){
-    $.publish("_goto", "home");
+    $.publish("_goto", "carousel");
     $.publish("_closeModal");
   }
 

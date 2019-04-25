@@ -4,15 +4,17 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           
         }
 
-        paper-dialog{
+        paper-dialog {
           max-width: none !important;
           max-height: none !important;
           margin: 0 !important;
           padding: 0 !important;
-          left: 0 !important;
           box-shadow: none;
-          height: 100%;
-          width: 100%;
+          height: 100vh;
+          width: 100vw;
+          top: 0 !important;
+          left: 0 !important;
+          position: absolute !important;
         }
 
         video.vid{
@@ -20,10 +22,26 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         }
 
         paper-button.gridModalCloseButton{
+          background: var(--jp-black);
+          border-radius: 0;
+          color: var(--jp-default-white);
+          height: 7.5vh;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+
+        paper-button.gridModalCloseButton:hover{
+          background: var(--jp-light-blue);
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
         }
 
         .modalcontainer{
           text-align: center;
+          height: calc(100vh - 10vh);
         }
 
         div.controls{
@@ -33,11 +51,11 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           text-align: right;
           padding: 0 !important;
           margin: 0 !important;
+          background: var(--jp-dark-border);
         }
 
         @media screen and (max-width: 580px) {
           .modalcontainer{
-            margin-top: 2.5vh;
           }
           
         }
@@ -50,6 +68,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           font-size: 1.25em;
           display: block;
           padding-bottom: 2.5vh;
+          padding-top: 1vh;
         }
 
         .text{
@@ -57,6 +76,17 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           text-align: justify;
           color: var(--jp-black);
           padding-bottom: 2.5vh;
+        }
+        .frame{
+          padding:40% 0 0 0;
+          position:relative;
+        }
+
+        @media screen and (max-width: 580px) {
+          .frame{
+            padding:55% 0 0 0;
+          }
+          
         }
 
       </style>
@@ -83,6 +113,7 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
         </div>
 
         <div class="modalcontainer">
+          <div class="bold title"> AI Driven Company Discovery</div>
           <a class="bold" href="https://dl.acm.org/citation.cfm?doid=3240323.3243228">Published in RecSys '18 - Cognitive Company Discovery</a>
           <div class="text">
           Cognitive Company Discovery is an application that helps business professionals 
@@ -94,8 +125,8 @@ define(["../../node_modules/@polymer/polymer/polymer-element.js","../../node_mod
           The application is currently deployed in a major corporation
           </div>
           <a class="bold" href="https://dl.acm.org/citation.cfm?doid=3240323.3243228">Also published in IDEA '18 - Towards a Generalized Similarity Service</a>
-          <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/285129679" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+          <div class="frame"><iframe src="https://player.vimeo.com/video/285129679" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
         </div>
 
       </paper-dialog>
-    `}static get properties(){return{name:{type:String,value:"jp-grid-modal-sim"}}}ready(){super.ready();this.set("selected","home");this._addSubscribers()}connectedCallback(){super.connectedCallback();console.log(this.getAttribute("name")+" connected")}_addSubscribers(){var self=this;$.subscribe("_openModalSim",function(event,data){self.$.modal.open()});$.subscribe("_closeModal",function(event,data){self._close()})}_close(){this.$.modal.close()}}window.customElements.define("jp-grid-modal-sim",JpGridModalSim)});
+    `}static get properties(){return{name:{type:String,value:"jp-grid-modal-sim"}}}ready(){super.ready();this.set("selected","home");this._addSubscribers()}connectedCallback(){super.connectedCallback();console.log(this.getAttribute("name")+" connected")}_addSubscribers(){var self=this;$.subscribe("_openModalSim",function(event,data){self.$.modal.open()})}_close(){$.publish("_closeModal");this.$.modal.close()}}window.customElements.define("jp-grid-modal-sim",JpGridModalSim)});

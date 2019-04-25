@@ -13,15 +13,17 @@ class JpGridModalQa extends PolymerElement {
           
         }
 
-        paper-dialog{
+        paper-dialog {
           max-width: none !important;
           max-height: none !important;
           margin: 0 !important;
           padding: 0 !important;
-          left: 0 !important;
           box-shadow: none;
-          height: 100%;
-          width: 100%;
+          height: 100vh;
+          width: 100vw;
+          top: 0 !important;
+          left: 0 !important;
+          position: absolute !important;
         }
 
         video.vid{
@@ -29,10 +31,27 @@ class JpGridModalQa extends PolymerElement {
         }
 
         paper-button.gridModalCloseButton{
+          background: var(--jp-black);
+          border-radius: 0;
+          color: var(--jp-default-white);
+          height: 7.5vh;
+          padding: 0 !important;
+          margin: 0 !important;
         }
+
+        paper-button.gridModalCloseButton:hover{
+          background: var(--jp-light-blue);
+          -webkit-transition: all 350ms ease;
+          -moz-transition: all 350ms ease;
+          -ms-transition: all 350ms ease;
+          -o-transition: all 350ms ease;
+          transition: all 350ms ease;
+        }
+
 
         .modalcontainer{
           text-align: center;
+          height: calc(100vh - 10vh);
         }
 
         div.controls{
@@ -42,11 +61,11 @@ class JpGridModalQa extends PolymerElement {
           text-align: right;
           padding: 0 !important;
           margin: 0 !important;
+          background: var(--jp-dark-border);
         }
 
         @media screen and (max-width: 580px) {
           .modalcontainer{
-            margin-top: 10vh;
           }
           
         }
@@ -59,6 +78,7 @@ class JpGridModalQa extends PolymerElement {
           font-size: 1.25em;
           display: block;
           padding-bottom: 2.5vh;
+          padding-top: 1vh;
         }
 
         .text{
@@ -66,6 +86,18 @@ class JpGridModalQa extends PolymerElement {
           text-align: justify;
           color: var(--jp-black);
           padding-bottom: 2.5vh;
+        }
+
+        .frame{
+          padding:40% 0 0 0;
+          position:relative;
+        }
+
+        @media screen and (max-width: 580px) {
+          .frame{
+            padding:55% 0 0 0;
+          }
+          
         }
 
       </style>
@@ -92,20 +124,16 @@ class JpGridModalQa extends PolymerElement {
         </div>
 
         <div class="modalcontainer">
-          <div class="bold"> 
+          <div class="bold title"> 
             NBA Guru
           </div>
           <div class="text">
             A NBA Question Answering System Powered by Watson.
-            The NLQ system uses an ontology to capture domain knowledge
-            It converts natural language into queries over the ontology;
-            these queries then get translated into SQL queries, 
-            which are executed against a DB instance to retrieve answers.
+            The NLQ system uses an ontology to capture domain knowledge.
+            Using Natural Language we can query over a self-developed ontology to retrieve question answers.
           </div>
-          <video width="100%" height="100%" controls controlsList="nodownload" class="vid">
-            <source src="../css/videos/qa.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <div class="frame"><iframe src="https://player.vimeo.com/video/324369298" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>        </div>
+
         </div>
 
       </paper-dialog>
@@ -136,12 +164,13 @@ class JpGridModalQa extends PolymerElement {
       $.subscribe("_openModalQa", function(event, data) {
           self.$.modal.open();
       });
-      $.subscribe("_closeModal", function(event, data) {
-          self._close();
-      });
+      // $.subscribe("_closeModal", function(event, data) {
+      //     self._close();
+      // });
     }
 
     _close(){
+      $.publish("_closeModal");
       this.$.modal.close();
     }
       
