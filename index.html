@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="site-title">Justin Platz</title>
+    <meta name="description" content="Senior Technical Product Manager (AI) at Apple. Building the future of AI-powered products.">
+    <meta name="author" content="Justin Platz">
+    <meta property="og:title" content="Justin Platz">
+    <meta property="og:description" content="Senior Technical Product Manager (AI) at Apple. Building the future of AI-powered products.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Justin Platz">
+    <meta name="twitter:description" content="Senior Technical Product Manager (AI) at Apple. Building the future of AI-powered products.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="header-left">
+                    <a href="#about" id="site-name" class="site-name">Justin Platz</a>
+                    <nav id="main-nav">
+                        <!-- Navigation will be populated from config -->
+                    </nav>
+                </div>
+                <div class="header-right">
+                    <button class="theme-toggle symbol-box" id="theme-toggle" aria-label="Toggle theme">
+                        <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-grid">
+            <!-- About Section -->
+            <section id="about" class="about-section fade-in">
+                <h2 class="section-title">About Me</h2>
+                <div id="about-sections">
+                    <!-- About sections will be populated from config -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Shelf Section (Outside main-grid) -->
+        <section id="shelf" class="bookshelf-section fade-in">
+            <h2>Shelf</h2>
+
+                <!-- Shelf Navigation Tabs -->
+                <div class="shelf-tabs">
+                    <button class="tab-button active" data-shelf="books">Books</button>
+                    <button class="tab-button" data-shelf="podcasts">Podcasts</button>
+                </div>
+
+                <!-- Books Shelf -->
+                <div id="books-shelf" class="shelf-content active">
+                    <div id="books-list" class="items-list">
+                        <!-- Books will be populated from config -->
+                    </div>
+                </div>
+
+                <!-- Podcasts Shelf -->
+                <div id="podcasts-shelf" class="shelf-content">
+                    <div id="podcasts-list" class="items-list">
+                        <!-- Podcasts will be populated from config -->
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <footer>
+            <div id="social-links" class="social-links">
+                <!-- Social links will be populated from config -->
+            </div>
+            <button id="scroll-top" class="scroll-top" aria-label="Scroll to top">
+                ↑
+            </button>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

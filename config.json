@@ -1,0 +1,268 @@
+{
+  "site": {
+    "title": "Justin Platz",
+    "symbol": "☀"
+  },
+  "navigation": [
+    {
+      "name": "About",
+      "href": "#about"
+    },
+    {
+      "name": "Shelf",
+      "href": "#shelf"
+    }
+  ],
+  "social": [
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/justinplatz"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/justinplatz"
+    }
+  ],
+  "about": {
+    "sections": {
+      "now": {
+        "title": "//now//",
+        "items": [
+          "Senior Technical Product Manager at Apple, working on AI, Retrieval and Recommendations systems",
+          "Based in New York City",
+          "Focused on applied AI: matching, recommendations, incentives, and decision systems",
+          "Spending a lot of time thinking about trust, great defaults, and where software quietly goes wrong"
+        ]
+      },
+      "previously": {
+        "title": "//previously//",
+        "items": [
+          "Technical PM across AI, Ads, and ML Research",
+          "IBM, eBay, and start up experience",
+          "Masters in Computer Science from NYU Tandon School of Engineering",
+          "Bachelors in Computer Science from the University of Michigan",
+          "Guest lecturer at NYU, covering Product Management for AI systems"
+        ]
+      },
+      "interests": {
+        "title": "//interests//",
+        "items": [
+          "Agentic systems & applied AI",
+          "Product strategy and zero-to-one execution",
+          "Privacy, identity, and trust",
+          "Marketplaces, incentives, and human behavior",
+          "Design systems that age well"
+        ]
+      }
+    }
+  },
+  "shelf": {
+    "books": [
+      {
+        "title": "Zero to One",
+        "author": "Peter Thiel & Blake Masters",
+        "year": 2025,
+        "rating": 5,
+        "favorite": true,
+        "isbn": "9780804139298"
+      },
+      {
+        "title": "Stories of Your Life and Others",
+        "author": "Ted Chiang",
+        "year": 2025,
+        "rating": 5,
+        "favorite": true,
+        "isbn": "9781101972120"
+      },
+      {
+        "title": "The Mom Test",
+        "author": "Rob Fitzpatrick",
+        "year": 2025,
+        "rating": 5,
+        "favorite": true,
+        "isbn": "9781492180746"
+      },
+      {
+        "title": "The Almanack of Naval Ravikant",
+        "author": "Eric Jorgenson & Tim Ferriss",
+        "year": 2025,
+        "rating": 5,
+        "favorite": true,
+        "olid": "OL39471164M"
+      },
+      {
+        "title": "High Output Management",
+        "author": "Andy Grove",
+        "year": 2025,
+        "rating": 5,
+        "favorite": false,
+        "isbn": "9780679762881"
+      },
+      {
+        "title": "Who Gets What and Why",
+        "author": "Alvin E. Roth",
+        "year": 2025,
+        "rating": 4,
+        "favorite": true,
+        "olid": "OL32323308M"
+      },
+      {
+        "title": "Inspired",
+        "author": "Marty Cagan",
+        "year": 2025,
+        "rating": 5,
+        "favorite": false,
+        "isbn": "9781119387503"
+      },
+      {
+        "title": "How to Win Friends and Influence People",
+        "author": "Dale Carnegie",
+        "year": 2025,
+        "rating": 4,
+        "favorite": false,
+        "isbn": "9780671027032"
+      },
+      {
+        "title": "Make Something Wonderful",
+        "author": "Steve Jobs",
+        "year": 2024,
+        "rating": 5,
+        "favorite": true,
+        "olid": "OL54897035M"
+      },
+      {
+        "title": "Meditations",
+        "author": "Marcus Aurelius",
+        "year": 2024,
+        "rating": 5,
+        "favorite": true,
+        "olid": "OL7242701M"
+      },
+      {
+        "title": "Atomic Habits",
+        "author": "James Clear",
+        "year": 2024,
+        "rating": 5,
+        "favorite": false,
+        "isbn": "9780735211292"
+      },
+      {
+        "title": "Long Fuse, Big Bang",
+        "author": "Eric Haseltine",
+        "year": 2024,
+        "rating": 4,
+        "favorite": false,
+        "olid": "OL26055268M"
+      },
+      {
+        "title": "Thinking, Fast and Slow",
+        "author": "Daniel Kahneman",
+        "year": 2024,
+        "rating": 5,
+        "favorite": false,
+        "isbn": "9780374533557"
+      },
+      {
+        "title": "The Rational Optimist",
+        "author": "Matt Ridley",
+        "year": 2024,
+        "rating": 4,
+        "favorite": false,
+        "isbn": "9780061452062"
+      }
+    ],
+    "podcasts": [
+      {
+        "title": "Founders",
+        "host": "David Senra",
+        "rating": 5,
+        "favorite": true,
+        "applePodcastsId": "1141877104"
+      },
+      {
+        "title": "Lenny's Podcast",
+        "host": "Lenny Rachitsky",
+        "rating": 5,
+        "favorite": true,
+        "applePodcastsId": "1627920305"
+      },
+      {
+        "title": "TBPN",
+        "host": "Various",
+        "rating": 4,
+        "favorite": true,
+        "applePodcastsId": "1772360235"
+      },
+      {
+        "title": "TED Talks Daily",
+        "host": "TED",
+        "rating": 4,
+        "favorite": false,
+        "applePodcastsId": "160904630"
+      },
+      {
+        "title": "The a16z Show",
+        "host": "a16z",
+        "rating": 4,
+        "favorite": false,
+        "applePodcastsId": "842818711"
+      },
+      {
+        "title": "The Twenty Minute VC",
+        "host": "Harry Stebbings",
+        "rating": 4,
+        "favorite": false,
+        "applePodcastsId": "958230465"
+      },
+      {
+        "title": "Y Combinator Startup Podcast",
+        "host": "Y Combinator",
+        "rating": 4,
+        "favorite": false,
+        "applePodcastsId": "1236907421"
+      },
+      {
+        "title": "Fantasy Focus Football",
+        "host": "ESPN",
+        "rating": 4,
+        "favorite": false,
+        "applePodcastsId": "260537420"
+      },
+      {
+        "title": "The Delphi Podcast",
+        "host": "Delphi Digital",
+        "rating": 4,
+        "favorite": false,
+        "applePodcastsId": "1438148082"
+      },
+      {
+        "title": "David Senra",
+        "host": "David Senra",
+        "rating": 5,
+        "favorite": true,
+        "applePodcastsId": "1836497887"
+      },
+      {
+        "title": "UpOnly",
+        "host": "Cobie & Ledger",
+        "rating": 4,
+        "favorite": false,
+        "applePodcastsId": "1554387610"
+      },
+      {
+        "title": "Web3 with a16z crypto",
+        "host": "a16z crypto",
+        "rating": 4,
+        "favorite": false,
+        "applePodcastsId": "1622312549"
+      },
+      {
+        "title": "Freakonomics Radio",
+        "host": "Stephen J. Dubner",
+        "rating": 4,
+        "favorite": true,
+        "applePodcastsId": "354668519"
+      }
+    ]
+  }
+}
