@@ -60,36 +60,12 @@
   "shelf": {
     "books": [
       {
-        "title": "Zero to One",
-        "author": "Peter Thiel & Blake Masters",
-        "year": 2025,
-        "rating": 5,
-        "favorite": true,
-        "isbn": "9780804139298"
-      },
-      {
-        "title": "Stories of Your Life and Others",
+        "title": "Exhalation",
         "author": "Ted Chiang",
         "year": 2025,
         "rating": 5,
         "favorite": true,
-        "isbn": "9781101972120"
-      },
-      {
-        "title": "The Mom Test",
-        "author": "Rob Fitzpatrick",
-        "year": 2025,
-        "rating": 5,
-        "favorite": true,
-        "isbn": "9781492180746"
-      },
-      {
-        "title": "The Almanack of Naval Ravikant",
-        "author": "Eric Jorgenson & Tim Ferriss",
-        "year": 2025,
-        "rating": 5,
-        "favorite": true,
-        "olid": "OL39471164M"
+        "olid": "OL27329035M"
       },
       {
         "title": "High Output Management",
@@ -100,14 +76,6 @@
         "isbn": "9780679762881"
       },
       {
-        "title": "Who Gets What and Why",
-        "author": "Alvin E. Roth",
-        "year": 2025,
-        "rating": 4,
-        "favorite": true,
-        "olid": "OL32323308M"
-      },
-      {
         "title": "Inspired",
         "author": "Marty Cagan",
         "year": 2025,
@@ -116,12 +84,68 @@
         "isbn": "9781119387503"
       },
       {
+        "title": "Stories of Your Life and Others",
+        "author": "Ted Chiang",
+        "year": 2025,
+        "rating": 5,
+        "favorite": true,
+        "isbn": "9781101972120"
+      },
+      {
+        "title": "The Almanack of Naval Ravikant",
+        "author": "Eric Jorgenson & Tim Ferriss",
+        "year": 2025,
+        "rating": 5,
+        "favorite": true,
+        "olid": "OL39471164M"
+      },
+      {
+        "title": "The Mom Test",
+        "author": "Rob Fitzpatrick",
+        "year": 2025,
+        "rating": 5,
+        "favorite": true,
+        "isbn": "9781492180746"
+      },
+      {
+        "title": "Who Gets What and Why",
+        "author": "Alvin E. Roth",
+        "year": 2025,
+        "rating": 4,
+        "favorite": true,
+        "olid": "OL32323308M"
+      },
+      {
+        "title": "Zero to One",
+        "author": "Peter Thiel & Blake Masters",
+        "year": 2025,
+        "rating": 5,
+        "favorite": true,
+        "isbn": "9780804139298"
+      },
+      {
+        "title": "Atomic Habits",
+        "author": "James Clear",
+        "year": 2024,
+        "rating": 5,
+        "favorite": false,
+        "isbn": "9780735211292"
+      },
+      {
         "title": "How to Win Friends and Influence People",
         "author": "Dale Carnegie",
-        "year": 2025,
+        "year": 2024,
         "rating": 4,
         "favorite": false,
         "isbn": "9780671027032"
+      },
+      {
+        "title": "Long Fuse, Big Bang",
+        "author": "Eric Haseltine",
+        "year": 2024,
+        "rating": 4,
+        "favorite": false,
+        "olid": "OL26055268M"
       },
       {
         "title": "Make Something Wonderful",
@@ -140,20 +164,12 @@
         "olid": "OL7242701M"
       },
       {
-        "title": "Atomic Habits",
-        "author": "James Clear",
-        "year": 2024,
-        "rating": 5,
-        "favorite": false,
-        "isbn": "9780735211292"
-      },
-      {
-        "title": "Long Fuse, Big Bang",
-        "author": "Eric Haseltine",
+        "title": "The Rational Optimist",
+        "author": "Matt Ridley",
         "year": 2024,
         "rating": 4,
         "favorite": false,
-        "olid": "OL26055268M"
+        "isbn": "9780061452062"
       },
       {
         "title": "Thinking, Fast and Slow",
@@ -162,14 +178,6 @@
         "rating": 5,
         "favorite": false,
         "isbn": "9780374533557"
-      },
-      {
-        "title": "The Rational Optimist",
-        "author": "Matt Ridley",
-        "year": 2024,
-        "rating": 4,
-        "favorite": false,
-        "isbn": "9780061452062"
       }
     ],
     "podcasts": [
@@ -269,76 +277,97 @@
       {
         "title": "Slopes: Ski & Snowboard",
         "appStoreId": "643351983",
+        "category": "Essentials",
         "favorite": true
       },
       {
         "title": "United Airlines",
         "appStoreId": "449945214",
+        "category": "Essentials",
         "favorite": false
       },
       {
         "title": "Bilt Rewards",
         "appStoreId": "1565576987",
+        "category": "Essentials",
         "favorite": false
       },
       {
         "title": "Apple Fitness",
         "appStoreId": "1208224953",
+        "category": "Essentials",
         "favorite": true
       },
       {
         "title": "Chess - Play & Learn Online",
         "appStoreId": "329218549",
+        "category": "Games",
         "favorite": true
       },
       {
         "title": "The Battle of Polytopia",
         "appStoreId": "1006393168",
+        "category": "Games",
         "favorite": false
       },
       {
         "title": "AllTrails: Hike, Bike & Run",
         "appStoreId": "405075943",
+        "category": "Essentials",
         "favorite": true
       },
       {
         "title": "Duolingo - Language Lessons",
         "appStoreId": "570060128",
+        "category": "Essentials",
         "favorite": true
       },
       {
         "title": "Hole19 Golf: GPS Range Finder",
         "appStoreId": "794462227",
+        "category": "Essentials",
         "favorite": false
       },
       {
         "title": "BirdBuddy: ID & Collect Birds",
         "appStoreId": "1622355240",
+        "category": "Essentials",
         "favorite": false
       },
       {
         "title": "Apple Sports",
         "appStoreId": "6446788829",
+        "category": "Essentials",
         "favorite": true
       },
       {
         "title": "Balatro",
         "appStoreId": "6502453075",
+        "category": "Games",
         "favorite": false
       },
       {
         "title": "Pokémon TCG Pocket",
         "appStoreId": "6479970832",
+        "category": "Games",
         "favorite": false
       },
       {
         "title": "Aura Frames",
         "appStoreId": "990062908",
+        "category": "Essentials",
         "favorite": false
       },
       {
         "title": "Granola AI Meeting Notes",
         "appStoreId": "6739429409",
+        "category": "Essentials",
+        "favorite": false
+      },
+      {
+        "title": "M1: Invest & Bank Smarter",
+        "appStoreId": "1071915644",
+        "category": "Essentials",
         "favorite": false
       }
     ]

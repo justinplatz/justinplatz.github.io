@@ -101,8 +101,20 @@ function setupThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
 
-    // Check for saved theme preference or default to light mode
-    const currentTheme = localStorage.getItem('theme') || 'light';
+    // Check for saved theme preference first
+    const savedTheme = localStorage.getItem('theme');
+    
+    // If no saved preference, check system preference
+    let currentTheme;
+    if (savedTheme) {
+        currentTheme = savedTheme;
+    } else {
+        // Check system preference using prefers-color-scheme
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        currentTheme = prefersDark ? 'dark' : 'light';
+    }
+
+    // Apply theme
     if (currentTheme === 'dark') {
         document.body.classList.add('dark-mode');
         // Show light_mode icon in dark mode (to switch to light)
@@ -334,10 +346,11 @@ function populateShelf(shelfType) {
                     fetchPodcastArtwork(item.applePodcastsId).then(artworkUrl => {
                         if (artworkUrl) {
                             item.coverImage = artworkUrl;
-                            // Update the image src if it exists
-                            const images = listElement.querySelectorAll('.item img');
-                            if (images[index]) {
-                                images[index].src = artworkUrl;
+                            // Find the correct item element by applePodcastsId (not by index, since items are sorted alphabetically)
+                            const itemElement = listElement.querySelector(`.item[data-apple-podcasts-id="${item.applePodcastsId}"]`);
+                            if (itemElement) {
+                                // Replace skeleton with real content
+                                replaceSkeletonWithContent(itemElement, item, 'podcasts');
                             }
                         }
                     }).catch(err => {
@@ -364,24 +377,11 @@ function populateShelf(shelfType) {
                             if (appInfo.subtitle) {
                                 item.subtitle = appInfo.subtitle;
                             }
-                            // Update the image src if it exists
-                            const images = listElement.querySelectorAll('.item img');
-                            if (images[index] && appInfo.artworkUrl) {
-                                images[index].src = appInfo.artworkUrl;
-                            }
-                            // Update title and subtitle if they exist
-                            const itemElements = listElement.querySelectorAll('.item');
-                            if (itemElements[index]) {
-                                const titleElement = itemElements[index].querySelector('.item-title');
-                                const metaElement = itemElements[index].querySelector('.item-meta');
-                                if (titleElement && appInfo.name) {
-                                    titleElement.textContent = appInfo.name;
-                                }
-                                if (metaElement && appInfo.subtitle) {
-                                    metaElement.textContent = appInfo.subtitle.length > 60 
-                                        ? appInfo.subtitle.substring(0, 60) + '...' 
-                                        : appInfo.subtitle;
-                                }
+                            // Find the correct item element by appStoreId (not by index, since items are grouped by category)
+                            const itemElement = listElement.querySelector(`.item[data-app-store-id="${item.appStoreId}"]`);
+                            if (itemElement) {
+                                // Replace skeleton with real content
+                                replaceSkeletonWithContent(itemElement, item, 'apps');
                             }
                         }
                     }).catch(err => {
@@ -395,89 +395,194 @@ function populateShelf(shelfType) {
     }
 }
 
+// Render skeleton item
+function renderSkeletonItem(shelfType, identifier, identifierType) {
+    const isApp = shelfType === 'apps';
+    const isPodcast = shelfType === 'podcasts';
+    const coverClass = isApp ? 'app-cover' : (isPodcast ? 'podcast-cover' : '');
+    const dataAttr = isApp ? `data-app-store-id="${identifier}"` : (isPodcast ? `data-apple-podcasts-id="${identifier}"` : '');
+    
+    return `
+        <div class="item item-skeleton" ${dataAttr} data-skeleton="true">
+            <div class="item-cover ${coverClass}">
+                <img src="" alt="" style="display: none;">
+            </div>
+            <div class="item-badges"></div>
+            <div class="item-info">
+                <div class="item-title"></div>
+                <div class="item-meta"></div>
+            </div>
+        </div>
+    `;
+}
+
+// Replace skeleton with real content
+function replaceSkeletonWithContent(itemElement, item, shelfType) {
+    if (!itemElement || !itemElement.hasAttribute('data-skeleton')) {
+        return;
+    }
+    
+    const favoriteBadge = item.favorite ? '<div class="badge heart">❤</div>' : '';
+    let metaInfo = '';
+    let coverImage = '';
+    
+    if (shelfType === 'podcasts') {
+        metaInfo = item.host || '';
+        coverImage = item.coverImage || 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBDb3ZlcjwvdGV4dD48L3N2Zz4=';
+    } else if (shelfType === 'apps') {
+        metaInfo = item.subtitle 
+            ? (item.subtitle.length > 60 ? item.subtitle.substring(0, 60) + '...' : item.subtitle)
+            : '';
+        coverImage = item.coverImage || 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBJY29uPC90ZXh0Pjwvc3ZnPg==';
+    }
+    
+    const placeholderImage = shelfType === 'apps' 
+        ? 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBJY29uPC90ZXh0Pjwvc3ZnPg=='
+        : 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBDb3ZlcjwvdGV4dD48L3N2Zz4=';
+    
+    const coverClass = shelfType === 'apps' ? 'app-cover' : (shelfType === 'podcasts' ? 'podcast-cover' : '');
+    const dataAttrs = shelfType === 'apps' 
+        ? `data-category="${item.category || 'Essentials'}" data-favorite="${item.favorite}" data-app-store-id="${item.appStoreId || ''}"`
+        : (shelfType === 'podcasts' 
+            ? `data-rating="${item.rating}" data-favorite="${item.favorite}" data-apple-podcasts-id="${item.applePodcastsId || ''}"`
+            : `data-year="${item.year}" data-rating="${item.rating}" data-favorite="${item.favorite}"`);
+    
+    itemElement.outerHTML = `
+        <div class="item" ${dataAttrs} title="${item.title}">
+            <div class="item-cover ${coverClass}">
+                <img src="${coverImage}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}';">
+            </div>
+            <div class="item-badges">
+                ${favoriteBadge}
+            </div>
+            <div class="item-info">
+                <div class="item-title">${item.title}</div>
+                <div class="item-meta">${metaInfo}</div>
+            </div>
+        </div>
+    `;
+}
+
 // Render shelf items
 function renderShelfItems(shelfType, items) {
     const listElement = document.getElementById(`${shelfType}-list`);
 
     // For podcasts, don't group by year - just render all items
     if (shelfType === 'podcasts') {
+        // Sort podcasts alphabetically by title
+        const sortedItems = [...items].sort((a, b) => {
+            const titleA = (a.title || '').toLowerCase();
+            const titleB = (b.title || '').toLowerCase();
+            return titleA.localeCompare(titleB);
+        });
+        
         let html = '<div class="year-items">';
-        items.forEach(item => {
-            const favoriteBadge = item.favorite ? '<div class="badge heart">❤</div>' : '';
-
-            let metaInfo = item.host;
-
-            // For podcasts, use coverImage (fetched from iTunes API in populateShelf)
-            let coverImage;
-            let isPodcast = true;
-            if (item.coverImage) {
-                coverImage = item.coverImage;
-            } else if (item.applePodcastsId) {
-                // Fallback: construct iTunes artwork URL (may not always work)
-                coverImage = `https://is1-ssl.mzstatic.com/image/thumb/Podcasts116/v4/8a/0c/0e/8a0c0e5e-0b5e-5b5e-5b5e-5b5e5b5e5b5e/mza_1234567890.jpg/600x600bb.jpg`;
+        sortedItems.forEach(item => {
+            // Render skeleton if we don't have cover image yet
+            if (!item.coverImage && item.applePodcastsId) {
+                html += renderSkeletonItem('podcasts', item.applePodcastsId, 'applePodcastsId');
             } else {
-                coverImage = 'https://via.placeholder.com/200x200?text=No+Cover';
-            }
-            const placeholderImage = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBDb3ZlcjwvdGV4dD48L3N2Zz4=';
+                const favoriteBadge = item.favorite ? '<div class="badge heart">❤</div>' : '';
+                let metaInfo = item.host;
+                let coverImage = item.coverImage || 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBDb3ZlcjwvdGV4dD48L3N2Zz4=';
+                const placeholderImage = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBDb3ZlcjwvdGV4dD48L3N2Zz4=';
 
-            html += `
-                <div class="item" data-rating="${item.rating}" data-favorite="${item.favorite}" title="${item.title}">
-                    <div class="item-cover podcast-cover">
-                        <img src="${coverImage}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}';">
+                html += `
+                    <div class="item" data-rating="${item.rating}" data-favorite="${item.favorite}" data-apple-podcasts-id="${item.applePodcastsId || ''}" title="${item.title}">
+                        <div class="item-cover podcast-cover">
+                            <img src="${coverImage}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}';">
+                        </div>
+                        <div class="item-badges">
+                            ${favoriteBadge}
+                        </div>
+                        <div class="item-info">
+                            <div class="item-title">${item.title}</div>
+                            <div class="item-meta">${metaInfo}</div>
+                        </div>
                     </div>
-                    <div class="item-badges">
-                        ${favoriteBadge}
-                    </div>
-                    <div class="item-info">
-                        <div class="item-title">${item.title}</div>
-                        <div class="item-meta">${metaInfo}</div>
-                    </div>
-                </div>
-            `;
+                `;
+            }
         });
         
         html += `</div>`;
         listElement.innerHTML = html;
     } else if (shelfType === 'apps') {
-        // For apps, don't group by year - just render all items
-        let html = '<div class="year-items">';
+        // For apps, group by category
+        const itemsByCategory = {};
         items.forEach(item => {
-            const favoriteBadge = item.favorite ? '<div class="badge heart">❤</div>' : '';
-
-            // Truncate subtitle if too long
-            let metaInfo = item.subtitle 
-                ? (item.subtitle.length > 60 ? item.subtitle.substring(0, 60) + '...' : item.subtitle)
-                : '';
-
-            // For apps, use coverImage (fetched from iTunes API in populateShelf)
-            let coverImage;
-            if (item.coverImage) {
-                coverImage = item.coverImage;
-            } else if (item.appStoreId) {
-                // Fallback: construct iTunes artwork URL (may not always work)
-                coverImage = `https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/00/00/00/00000000-0000-0000-0000-000000000000/mzl.placeholder.png/512x512bb.jpg`;
-            } else {
-                coverImage = 'https://via.placeholder.com/200x200?text=No+Icon';
+            const category = item.category || 'Essentials'; // Default to Essentials if no category
+            if (!itemsByCategory[category]) {
+                itemsByCategory[category] = [];
             }
-            const placeholderImage = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBJY29uPC90ZXh0Pjwvc3ZnPg==';
-
-            html += `
-                <div class="item" data-favorite="${item.favorite}" title="${item.title}">
-                    <div class="item-cover app-cover">
-                        <img src="${coverImage}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}';">
-                    </div>
-                    <div class="item-badges">
-                        ${favoriteBadge}
-                    </div>
-                    <div class="item-info">
-                        <div class="item-title">${item.title}</div>
-                        <div class="item-meta">${metaInfo}</div>
-                    </div>
-                </div>
-            `;
+            itemsByCategory[category].push(item);
         });
-        
-        html += `</div>`;
+
+        // Sort categories: Essentials first, then Games
+        const categoryOrder = ['Essentials', 'Games'];
+        const categories = Object.keys(itemsByCategory).sort((a, b) => {
+            const indexA = categoryOrder.indexOf(a);
+            const indexB = categoryOrder.indexOf(b);
+            if (indexA === -1 && indexB === -1) return a.localeCompare(b);
+            if (indexA === -1) return 1;
+            if (indexB === -1) return -1;
+            return indexA - indexB;
+        });
+
+        // Render items grouped by category
+        let html = '';
+        categories.forEach(category => {
+            // Sort items within each category alphabetically by title
+            const sortedItems = itemsByCategory[category].sort((a, b) => {
+                const titleA = (a.title || '').toLowerCase();
+                const titleB = (b.title || '').toLowerCase();
+                return titleA.localeCompare(titleB);
+            });
+            
+            // Add category header with description
+            const categoryDescriptions = {
+                'Essentials': 'Well-made software I come back to.',
+                'Games': 'What I\'m playing right now.'
+            };
+            const description = categoryDescriptions[category] || '';
+            html += `<div class="year-group"><h3 class="year-header">${category}</h3>`;
+            if (description) {
+                html += `<p class="category-description">${description}</p>`;
+            }
+            html += `<div class="year-items">`;
+            
+            // Render items for this category
+            sortedItems.forEach(item => {
+                // Render skeleton if we don't have cover image yet
+                if (!item.coverImage && item.appStoreId) {
+                    html += renderSkeletonItem('apps', item.appStoreId, 'appStoreId');
+                } else {
+                    const favoriteBadge = item.favorite ? '<div class="badge heart">❤</div>' : '';
+                    let metaInfo = item.subtitle 
+                        ? (item.subtitle.length > 60 ? item.subtitle.substring(0, 60) + '...' : item.subtitle)
+                        : '';
+                    let coverImage = item.coverImage || 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBJY29uPC90ZXh0Pjwvc3ZnPg==';
+                    const placeholderImage = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBJY29uPC90ZXh0Pjwvc3ZnPg==';
+
+                    html += `
+                        <div class="item" data-category="${category}" data-favorite="${item.favorite}" data-app-store-id="${item.appStoreId || ''}" title="${item.title}">
+                            <div class="item-cover app-cover">
+                                <img src="${coverImage}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}';">
+                            </div>
+                            <div class="item-badges">
+                                ${favoriteBadge}
+                            </div>
+                            <div class="item-info">
+                                <div class="item-title">${item.title}</div>
+                                <div class="item-meta">${metaInfo}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+            
+            html += `</div></div>`;
+        });
+
         listElement.innerHTML = html;
     } else {
         // For books, group by year
