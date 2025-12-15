@@ -154,7 +154,11 @@ function populateAboutSection() {
         return `
             <p class="label">${section.title}</p>
             <ul>
-                ${section.items.map(item => `<li>${item}</li>`).join('')}
+                ${section.items.map(item => {
+                    // Replace "Apple Ads" with hyperlink
+                    const itemWithLink = item.replace(/Apple Ads/g, '<a href="https://ads.apple.com/" target="_blank" rel="noopener noreferrer">Apple Ads</a>');
+                    return `<li>${itemWithLink}</li>`;
+                }).join('')}
             </ul>
         `;
     }).join('');
