@@ -11,6 +11,7 @@
     --text-muted: #475569;
     --text-faint: #94A3B8;
     --accent: #4F46E5;
+    --accent-rgb: 79, 70, 229;
     --shadow: rgba(0, 0, 0, 0.1);
     
     /* Legacy variable mappings for compatibility */
@@ -28,6 +29,7 @@ body.dark-mode {
     --text-muted: #9BA3AE;
     --text-faint: #6B7280;
     --accent: #A3BFFA;
+    --accent-rgb: 163, 191, 250;
     --shadow: rgba(255, 255, 255, 0.1);
     
     /* Legacy variable mappings for compatibility */
@@ -360,11 +362,6 @@ nav a:hover {
 .item {
     position: relative;
     cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.item:hover {
-    transform: translateY(-5px);
 }
 
 .item-cover {
@@ -373,15 +370,45 @@ nav a:hover {
     overflow: hidden;
     border-radius: 4px;
     box-shadow: 0 2px 8px var(--shadow);
-    transition: box-shadow 0.2s ease;
+    transition: box-shadow 0.3s ease, transform 0.2s ease, filter 0.3s ease;
 }
 
 .item-cover.podcast-cover {
     aspect-ratio: 1/1;
 }
 
-.item:hover .item-cover {
-    box-shadow: 0 4px 16px var(--shadow);
+.item-cover.app-cover {
+    aspect-ratio: 1/1;
+    /* iOS squircle shape using clip-path (16-part Bézier curve approximation) */
+    clip-path: url(#squircle);
+    /* Fallback border-radius approximation (22.5% effective radius) */
+    -webkit-clip-path: url(#squircle);
+    border-radius: 22.5%;
+    /* Use filter for glow since clip-path clips box-shadow */
+    filter: drop-shadow(0 2px 8px var(--shadow));
+    transition: filter 0.3s ease, transform 0.2s ease;
+}
+
+.item:hover .item-cover,
+.item:hover .item-cover.podcast-cover {
+    box-shadow: 0 2px 8px var(--shadow), 0 0 0 2px rgba(var(--accent-rgb), 0.15), 0 0 20px rgba(var(--accent-rgb), 0.2);
+}
+
+.item:hover .item-cover.app-cover {
+    filter: drop-shadow(0 2px 8px var(--shadow)) drop-shadow(0 0 0 2px rgba(var(--accent-rgb), 0.15)) drop-shadow(0 0 20px rgba(var(--accent-rgb), 0.2));
+}
+
+.item:active .item-cover,
+.item:active .item-cover.podcast-cover {
+    box-shadow: 0 2px 8px var(--shadow), 0 0 0 3px rgba(var(--accent-rgb), 0.25), 0 0 25px rgba(var(--accent-rgb), 0.3);
+    transform: scale(0.98);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.item:active .item-cover.app-cover {
+    filter: drop-shadow(0 2px 8px var(--shadow)) drop-shadow(0 0 0 3px rgba(var(--accent-rgb), 0.25)) drop-shadow(0 0 25px rgba(var(--accent-rgb), 0.3));
+    transform: scale(0.98);
+    transition: filter 0.15s ease, transform 0.15s ease;
 }
 
 .item-cover img {

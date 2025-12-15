@@ -265,6 +265,83 @@
         "favorite": true,
         "applePodcastsId": "354668519"
       }
+    ],
+    "apps": [
+      {
+        "title": "Slopes: Ski & Snowboard",
+        "appStoreId": "643351983",
+        "favorite": true
+      },
+      {
+        "title": "United Airlines",
+        "appStoreId": "449945214",
+        "favorite": false
+      },
+      {
+        "title": "Bilt Rewards",
+        "appStoreId": "1565576987",
+        "favorite": false
+      },
+      {
+        "title": "Apple Fitness",
+        "appStoreId": "1208224953",
+        "favorite": true
+      },
+      {
+        "title": "Chess - Play & Learn Online",
+        "appStoreId": "329218549",
+        "favorite": true
+      },
+      {
+        "title": "The Battle of Polytopia",
+        "appStoreId": "1006393168",
+        "favorite": false
+      },
+      {
+        "title": "AllTrails: Hike, Bike & Run",
+        "appStoreId": "405075943",
+        "favorite": true
+      },
+      {
+        "title": "Duolingo - Language Lessons",
+        "appStoreId": "570060128",
+        "favorite": true
+      },
+      {
+        "title": "Hole19 Golf: GPS Range Finder",
+        "appStoreId": "794462227",
+        "favorite": false
+      },
+      {
+        "title": "BirdBuddy: ID & Collect Birds",
+        "appStoreId": "1622355240",
+        "favorite": false
+      },
+      {
+        "title": "Apple Sports",
+        "appStoreId": "6446788829",
+        "favorite": true
+      },
+      {
+        "title": "Balatro",
+        "appStoreId": "6502453075",
+        "favorite": false
+      },
+      {
+        "title": "Pokémon TCG Pocket",
+        "appStoreId": "6479970832",
+        "favorite": false
+      },
+      {
+        "title": "Aura Frames",
+        "appStoreId": "990062908",
+        "favorite": false
+      },
+      {
+        "title": "Granola AI Meeting Notes",
+        "appStoreId": "6739429409",
+        "favorite": false
+      }
     ]
   }
 }

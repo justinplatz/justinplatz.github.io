@@ -51,6 +51,7 @@ function initializeSite() {
     // Populate shelf sections
     populateShelf('books');
     populateShelf('podcasts');
+    populateShelf('apps');
 
     // Set up event listeners
     setupEventListeners();
@@ -200,6 +201,64 @@ function setupSiteNameClick() {
     }
 }
 
+// Fetch app info from iTunes API using JSONP (bypasses CORS)
+function fetchAppInfo(appId) {
+    return new Promise((resolve) => {
+        try {
+            const callbackName = `jsonp_callback_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+            
+            window[callbackName] = function(data) {
+                delete window[callbackName];
+                if (script.parentNode) {
+                    document.body.removeChild(script);
+                }
+                if (data && data.results && data.results.length > 0) {
+                    const app = data.results[0];
+                    // Use description as subtitle, truncate to first sentence or 100 chars
+                    let subtitle = app.description || '';
+                    if (subtitle) {
+                        // Try to get first sentence, otherwise truncate to 100 chars
+                        const firstSentence = subtitle.match(/^[^.!?]+[.!?]/);
+                        subtitle = firstSentence ? firstSentence[0] : subtitle.substring(0, 100);
+                    }
+                    resolve({
+                        artworkUrl: app.artworkUrl512 || app.artworkUrl100 || app.artworkUrl60 || null,
+                        name: app.trackName || null,
+                        subtitle: subtitle
+                    });
+                } else {
+                    resolve(null);
+                }
+            };
+            
+            const script = document.createElement('script');
+            script.src = `https://itunes.apple.com/lookup?id=${appId}&entity=software&callback=${callbackName}`;
+            script.onerror = () => {
+                delete window[callbackName];
+                if (script.parentNode) {
+                    document.body.removeChild(script);
+                }
+                resolve(null);
+            };
+            document.body.appendChild(script);
+            
+            // Timeout after 5 seconds
+            setTimeout(() => {
+                if (window[callbackName]) {
+                    delete window[callbackName];
+                    if (script.parentNode) {
+                        document.body.removeChild(script);
+                    }
+                    resolve(null);
+                }
+            }, 5000);
+        } catch (error) {
+            console.warn('Failed to fetch app info:', error);
+            resolve(null);
+        }
+    });
+}
+
 // Fetch podcast artwork from iTunes API using JSONP (bypasses CORS)
 function fetchPodcastArtwork(podcastId) {
     return new Promise((resolve) => {
@@ -257,7 +316,7 @@ function populateShelf(shelfType) {
         return;
     }
 
-    // For podcasts, try to fetch artwork URLs asynchronously (non-blocking)
+    // For podcasts and apps, try to fetch artwork URLs asynchronously (non-blocking)
     if (shelfType === 'podcasts') {
         // Render first with placeholders, then update as artwork loads
         renderShelfItems(shelfType, items);
@@ -278,6 +337,50 @@ function populateShelf(shelfType) {
                         }
                     }).catch(err => {
                         console.warn(`Failed to fetch artwork for ${item.title}:`, err);
+                    });
+                }, index * 500); // Stagger requests by 500ms
+            }
+        });
+    } else if (shelfType === 'apps') {
+        // Render first with placeholders, then update as app info loads
+        renderShelfItems(shelfType, items);
+        
+        // Fetch app info in background with delays to avoid rate limiting
+        items.forEach((item, index) => {
+            if (item.appStoreId && !item.coverImage) {
+                // Add delay between requests to avoid rate limiting (500ms per request)
+                setTimeout(() => {
+                    fetchAppInfo(item.appStoreId).then(appInfo => {
+                        if (appInfo) {
+                            item.coverImage = appInfo.artworkUrl;
+                            if (appInfo.name) {
+                                item.title = appInfo.name;
+                            }
+                            if (appInfo.subtitle) {
+                                item.subtitle = appInfo.subtitle;
+                            }
+                            // Update the image src if it exists
+                            const images = listElement.querySelectorAll('.item img');
+                            if (images[index] && appInfo.artworkUrl) {
+                                images[index].src = appInfo.artworkUrl;
+                            }
+                            // Update title and subtitle if they exist
+                            const itemElements = listElement.querySelectorAll('.item');
+                            if (itemElements[index]) {
+                                const titleElement = itemElements[index].querySelector('.item-title');
+                                const metaElement = itemElements[index].querySelector('.item-meta');
+                                if (titleElement && appInfo.name) {
+                                    titleElement.textContent = appInfo.name;
+                                }
+                                if (metaElement && appInfo.subtitle) {
+                                    metaElement.textContent = appInfo.subtitle.length > 60 
+                                        ? appInfo.subtitle.substring(0, 60) + '...' 
+                                        : appInfo.subtitle;
+                                }
+                            }
+                        }
+                    }).catch(err => {
+                        console.warn(`Failed to fetch app info for ${item.title}:`, err);
                     });
                 }, index * 500); // Stagger requests by 500ms
             }
@@ -315,6 +418,47 @@ function renderShelfItems(shelfType, items) {
             html += `
                 <div class="item" data-rating="${item.rating}" data-favorite="${item.favorite}" title="${item.title}">
                     <div class="item-cover podcast-cover">
+                        <img src="${coverImage}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}';">
+                    </div>
+                    <div class="item-badges">
+                        ${favoriteBadge}
+                    </div>
+                    <div class="item-info">
+                        <div class="item-title">${item.title}</div>
+                        <div class="item-meta">${metaInfo}</div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        html += `</div>`;
+        listElement.innerHTML = html;
+    } else if (shelfType === 'apps') {
+        // For apps, don't group by year - just render all items
+        let html = '<div class="year-items">';
+        items.forEach(item => {
+            const favoriteBadge = item.favorite ? '<div class="badge heart">❤</div>' : '';
+
+            // Truncate subtitle if too long
+            let metaInfo = item.subtitle 
+                ? (item.subtitle.length > 60 ? item.subtitle.substring(0, 60) + '...' : item.subtitle)
+                : '';
+
+            // For apps, use coverImage (fetched from iTunes API in populateShelf)
+            let coverImage;
+            if (item.coverImage) {
+                coverImage = item.coverImage;
+            } else if (item.appStoreId) {
+                // Fallback: construct iTunes artwork URL (may not always work)
+                coverImage = `https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/00/00/00/00000000-0000-0000-0000-000000000000/mzl.placeholder.png/512x512bb.jpg`;
+            } else {
+                coverImage = 'https://via.placeholder.com/200x200?text=No+Icon';
+            }
+            const placeholderImage = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBJY29uPC90ZXh0Pjwvc3ZnPg==';
+
+            html += `
+                <div class="item" data-favorite="${item.favorite}" title="${item.title}">
+                    <div class="item-cover app-cover">
                         <img src="${coverImage}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}';">
                     </div>
                     <div class="item-badges">
@@ -398,9 +542,10 @@ function renderShelfItems(shelfType, items) {
         const images = listElement.querySelectorAll('img');
         images.forEach(img => {
             img.addEventListener('error', function() {
-                // Use square placeholder for podcasts, rectangular for books
-                const isPodcastCover = this.closest('.item-cover')?.classList.contains('podcast-cover');
-                const placeholderImage = isPodcastCover
+                // Use square placeholder for podcasts and apps, rectangular for books
+                const itemCover = this.closest('.item-cover');
+                const isSquareCover = itemCover?.classList.contains('podcast-cover') || itemCover?.classList.contains('app-cover');
+                const placeholderImage = isSquareCover
                     ? 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBDb3ZlcjwvdGV4dD48L3N2Zz4='
                     : 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBDb3ZlcjwvdGV4dD48L3N2Zz4=';
                 this.src = placeholderImage;
