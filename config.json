@@ -54,6 +54,16 @@
           "Games, competition, and constraints",
           "Travel, food, and noticing how things work"
         ]
+      },
+      "context": {
+        "title": "CONTEXT",
+        "items": [
+          "4x 1st place winner in Apple-wide company hackathon (2022, 2023, 2024, 2025)",
+          "Co-Author: Page Level Optimization of e-Commerce Item Recommendations. RecSys '21; Amsterdam (<a href=\"https://arxiv.org/abs/2108.05891\" target=\"_blank\" rel=\"noopener noreferrer\">link</a>)",
+          "Co-Author: Cognitive Company Discovery. RecSys '18; Vancouver. (<a href=\"https://dl.acm.org/doi/10.1145/3240323.3243228\" target=\"_blank\" rel=\"noopener noreferrer\">link</a>)",
+          "Co-Author: Towards a Generalized Similarity Service. KDD '18; London. (<a href=\"https://poloclub.gatech.edu/idea2018/papers/idea18-paper8-bhamidipaty.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">link</a>)",
+          "Winner \"Michigan++\" at MHacks IV 2014 Hackathon (<a href=\"https://devpost.com/software/yogurt\" target=\"_blank\" rel=\"noopener noreferrer\">link</a>)"
+        ]
       }
     }
   },
