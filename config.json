@@ -46,12 +46,14 @@
       "interests": {
         "title": "INTERESTS",
         "items": [
-          "AI that actually ships — and is loved",
-          "Retrieval, recommendations, and incentive-driven systems",
-          "Product strategy for AI-native businesses",
+          "How systems shape behavior",
+          "Building things from zero",
           "Defaults, incentives, and second-order effects",
-          "Consumer trust, privacy, and transparency",
-          "Building fast, without breaking things that matter"
+          "Privacy as a product problem",
+          "Clean interfaces and things that age well",
+          "Teaching and mentoring (without the noise)",
+          "Games, competition, and constraints",
+          "Travel, food, and noticing how things work"
         ]
       }
     }
