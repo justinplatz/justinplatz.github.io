@@ -56,6 +56,11 @@ function initializeSite() {
     // Set up event listeners
     setupEventListeners();
 
+    // Apply initial filter after items are rendered
+    setTimeout(() => {
+        applyFilter();
+    }, 100);
+
     // Handle section navigation
     setupSectionNavigation();
 
@@ -572,7 +577,42 @@ function setupEventListeners() {
             document.getElementById(`${shelfType}-shelf`).classList.add('active');
             currentShelf = shelfType;
 
+            // Reapply current filter when switching tabs
+            applyFilter();
         });
+    });
+
+    // Filter switching
+    const filterButtons = document.querySelectorAll('.filter-button');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all filter buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked filter button
+            button.classList.add('active');
+            // Apply filter
+            applyFilter();
+        });
+    });
+}
+
+// Apply filter to current shelf
+function applyFilter() {
+    const activeFilter = document.querySelector('.filter-button.active')?.dataset.filter || 'all';
+    const activeShelf = document.querySelector('.shelf-content.active');
+    
+    if (!activeShelf) return;
+    
+    const items = activeShelf.querySelectorAll('.item');
+    
+    items.forEach(item => {
+        if (activeFilter === 'favorites') {
+            const isFavorite = item.dataset.favorite === 'true';
+            item.style.display = isFavorite ? '' : 'none';
+        } else {
+            // Show all items
+            item.style.display = '';
+        }
     });
 }
 
