@@ -6,23 +6,37 @@
 }
 
 :root {
-    --bg-color: #fff;
-    --text-color: #1a4d3a;
-    --text-secondary: #2d5a47;
-    --text-tertiary: #3d6b56;
-    --link-color: #1a4d3a;
-    --border-color: #1a4d3a;
+    --bg: #FFFFFF;
+    --text-main: #0F172A;
+    --text-muted: #475569;
+    --text-faint: #94A3B8;
+    --accent: #4F46E5;
     --shadow: rgba(0, 0, 0, 0.1);
+    
+    /* Legacy variable mappings for compatibility */
+    --bg-color: var(--bg);
+    --text-color: var(--text-main);
+    --text-secondary: var(--text-muted);
+    --text-tertiary: var(--text-faint);
+    --link-color: var(--accent);
+    --border-color: var(--accent);
 }
 
 body.dark-mode {
-    --bg-color: #1a1a1a;
-    --text-color: #4a9d7a;
-    --text-secondary: #5db08f;
-    --text-tertiary: #6dc4a4;
-    --link-color: #4a9d7a;
-    --border-color: #4a9d7a;
+    --bg: #0D0F12;
+    --text-main: #E3E6EB;
+    --text-muted: #9BA3AE;
+    --text-faint: #6B7280;
+    --accent: #A3BFFA;
     --shadow: rgba(255, 255, 255, 0.1);
+    
+    /* Legacy variable mappings for compatibility */
+    --bg-color: var(--bg);
+    --text-color: var(--text-main);
+    --text-secondary: var(--text-muted);
+    --text-tertiary: var(--text-faint);
+    --link-color: var(--accent);
+    --border-color: var(--accent);
 }
 
 body {
@@ -32,7 +46,7 @@ body {
     background-color: var(--bg-color);
     margin: 0;
     padding: 0;
-    font-size: 16px;
+    font-size: 14px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -156,7 +170,7 @@ nav a:hover {
 
 
 .social-links {
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 40px;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -176,13 +190,15 @@ nav a:hover {
 
 /* Section Title */
 .section-title {
-    font-size: 16px;
-    font-weight: 400;
-    margin-bottom: 30px;
-    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--accent);
+    color: var(--text-color);
     font-family: 'Courier New', Courier, monospace;
-    letter-spacing: 0.5px;
 }
 
 /* About Section */
@@ -200,7 +216,7 @@ nav a:hover {
 
 /* Label styling for subsections */
 .label {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     margin-top: 30px;
     margin-bottom: 12px;
@@ -241,16 +257,6 @@ nav a:hover {
     margin-top: 40px;
 }
 
-.bookshelf-section h2 {
-    font-size: 16px;
-    font-weight: 400;
-    margin-bottom: 30px;
-    color: var(--text-color);
-    text-transform: uppercase;
-    font-family: 'Courier New', Courier, monospace;
-    letter-spacing: 0.5px;
-}
-
 .shelf-tabs {
     display: flex;
     gap: 24px;
@@ -288,7 +294,7 @@ nav a:hover {
 /* Filter Controls */
 .filter-controls {
     margin-bottom: 30px;
-    font-size: 16px;
+    font-size: 14px;
     color: var(--text-color);
     display: flex;
     gap: 20px;
@@ -310,7 +316,7 @@ nav a:hover {
     color: var(--text-color);
     cursor: pointer;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .filter-controls input[type="checkbox"] {
@@ -399,18 +405,14 @@ nav a:hover {
     top: 4px;
     right: 4px;
     font-size: 10px;
-    background-color: #f5f5f0;
+    background-color: var(--bg);
     padding: 2px 4px;
     line-height: 1;
     z-index: 2;
 }
 
 .badge.heart {
-    color: #2d8a2d;
-}
-
-body.dark-mode .badge.heart {
-    color: #4ade4a;
+    color: var(--accent);
 }
 
 .item-info {
@@ -419,7 +421,7 @@ body.dark-mode .badge.heart {
 }
 
 .item-title {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--text-color);
     margin-bottom: 3px;
@@ -427,7 +429,7 @@ body.dark-mode .badge.heart {
 }
 
 .item-meta {
-    font-size: 11px;
+    font-size: 10px;
     color: var(--text-tertiary);
 }
 
@@ -450,7 +452,6 @@ footer {
     border-radius: 50%;
     width: 45px;
     height: 45px;
-    font-size: 24px;
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
@@ -461,6 +462,12 @@ footer {
     align-items: center;
     justify-content: center;
     line-height: 1;
+}
+
+.scroll-top .material-symbols-outlined {
+    font-size: 24px;
+    color: inherit;
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
 .scroll-top.visible {
@@ -481,7 +488,7 @@ footer {
 @media (max-width: 768px) {
     body {
         padding: 15px;
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .sun {
@@ -516,6 +523,9 @@ footer {
         right: 20px;
         width: 40px;
         height: 40px;
+    }
+
+    .scroll-top .material-symbols-outlined {
         font-size: 20px;
     }
 }

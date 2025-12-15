@@ -26,32 +26,32 @@
   "about": {
     "sections": {
       "now": {
-        "title": "//now//",
+        "title": "NOW",
         "items": [
-          "Senior Technical Product Manager at Apple, working on AI, Retrieval and Recommendations systems",
-          "Based in New York City",
-          "Focused on applied AI: matching, recommendations, incentives, and decision systems",
-          "Spending a lot of time thinking about trust, great defaults, and where software quietly goes wrong"
+          "Senior Technical Product Manager at Apple Ads, working on Ads Retrieval, Matching, and Recommendation systems",
+          "Building and shipping LLM-powered products with millions of real users",
+          "Spending time on trust, transparency, and the edge-cases where AI quietly breaks down",
+          "Based in New York City"
         ]
       },
       "previously": {
-        "title": "//previously//",
+        "title": "PREVIOUSLY",
         "items": [
-          "Technical PM across AI, Ads, and ML Research",
-          "IBM, eBay, and start up experience",
-          "Masters in Computer Science from NYU Tandon School of Engineering",
-          "Bachelors in Computer Science from the University of Michigan",
-          "Guest lecturer at NYU, covering Product Management for AI systems"
+          "Product roles across IBM, eBay, and early-stage startups",
+          "M.S. in Computer Science, NYU Tandon School of Engineering",
+          "B.S. in Computer Science, University of Michigan",
+          "Published ML researcher, guest lecturer at NYU, and mentor to early-career product managers"
         ]
       },
       "interests": {
-        "title": "//interests//",
+        "title": "INTERESTS",
         "items": [
-          "Agentic systems & applied AI",
-          "Product strategy and zero-to-one execution",
-          "Privacy, identity, and trust",
-          "Marketplaces, incentives, and human behavior",
-          "Design systems that age well"
+          "AI that actually ships — and is loved",
+          "Retrieval, recommendations, and incentive-driven systems",
+          "Product strategy for AI-native businesses",
+          "Defaults, incentives, and second-order effects",
+          "Consumer trust, privacy, and transparency",
+          "Building fast, without breaking things that matter"
         ]
       }
     }

@@ -58,6 +58,9 @@ function initializeSite() {
     // Handle section navigation
     setupSectionNavigation();
 
+    // Handle site name click to scroll to top
+    setupSiteNameClick();
+
     // Setup theme toggle
     setupThemeToggle();
 
@@ -177,6 +180,20 @@ function setupSectionNavigation() {
             }
         });
     });
+}
+
+// Setup site name click to scroll to top
+function setupSiteNameClick() {
+    const siteName = document.getElementById('site-name');
+    if (siteName) {
+        siteName.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 }
 
 // Fetch podcast artwork from iTunes API using JSONP (bypasses CORS)
