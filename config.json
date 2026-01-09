@@ -393,6 +393,12 @@
         "favorite": false
       },
       {
+        "title": "NYT Games: Wordle & Crossword",
+        "appStoreId": "307569751",
+        "category": "Games",
+        "favorite": true
+      },
+      {
         "title": "Aura Frames",
         "appStoreId": "990062908",
         "category": "Essentials",
