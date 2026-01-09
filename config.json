@@ -29,7 +29,7 @@
         "title": "NOW",
         "items": [
           "Senior Technical Product Manager at Apple Ads, working on Targeting, Retrieval, and Recommendation systems",
-          "Building and shipping LLM-powered products with millions of real users",
+          "Building, experimenting and shipping AI products with millions of real users",
           "Based in New York City"
         ]
       },
@@ -37,22 +37,20 @@
         "title": "PREVIOUSLY",
         "items": [
           "Product roles across IBM, eBay, and early-stage startups",
+          "Former ML researcher, guest lecturer at NYU, and mentor to early-career product managers",
           "M.S. in Computer Science, NYU Tandon School of Engineering",
-          "B.S. in Computer Science, University of Michigan",
-          "Published ML researcher, guest lecturer at NYU, and mentor to early-career product managers"
+          "B.S. in Computer Science, University of Michigan"
         ]
       },
       "interests": {
         "title": "INTERESTS",
         "items": [
-          "How systems shape behavior",
+          "How systems and incentives shape behavior",
           "Building things from zero",
-          "Defaults, incentives, and second-order effects",
-          "Privacy as a product problem",
+          "Privacy as a human right",
           "Clean interfaces and things that age well",
-          "Teaching and mentoring (without the noise)",
           "Games, competition, and constraints",
-          "Travel, food, and noticing how things work"
+          "Travel, food, sports and sci-fi"
         ]
       },
       "context": {
@@ -69,6 +67,14 @@
   },
   "shelf": {
     "books": [
+      {
+        "title": "The Sovereign Individual",
+        "author": "James Dale Davidson & William Rees-Mogg",
+        "year": 2026,
+        "rating": 5,
+        "favorite": false,
+        "olid": "OL9351392M"
+      },
       {
         "title": "Exhalation",
         "author": "Ted Chiang",
@@ -188,6 +194,30 @@
         "rating": 5,
         "favorite": false,
         "isbn": "9780374533557"
+      },
+      {
+        "title": "AI 2041: Ten Visions for Our Future",
+        "author": "Kai-Fu Lee & Chen Qiufan",
+        "year": 2024,
+        "rating": 5,
+        "favorite": false,
+        "olid": "OL32442080M"
+      },
+      {
+        "title": "Blockchain Revolution: How the Technology Behind Bitcoin Is Changing Money, Business, and the World",
+        "author": "Don Tapscott & Alex Tapscott",
+        "year": 2024,
+        "rating": 5,
+        "favorite": false,
+        "olid": "OL27212411M"
+      },
+      {
+        "title": "The Age of Surveillance Capitalism",
+        "author": "Shoshana Zuboff",
+        "year": 2024,
+        "rating": 5,
+        "favorite": true,
+        "olid": "OL26677236M"
       }
     ],
     "podcasts": [
