@@ -431,6 +431,18 @@
         "appStoreId": "1071915644",
         "category": "Essentials",
         "favorite": false
+      },
+      {
+        "title": "Claude by Anthropic",
+        "appStoreId": "6473753684",
+        "category": "Essentials",
+        "favorite": true
+      },
+      {
+        "title": "Apple Maps",
+        "appStoreId": "915056765",
+        "category": "Essentials",
+        "favorite": true
       }
     ]
   }
