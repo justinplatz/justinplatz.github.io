@@ -234,6 +234,14 @@
         "rating": 5,
         "favorite": true,
         "olid": "OL26677236M"
+      },
+      {
+        "title": "Outliers",
+        "author": "Malcolm Gladwell",
+        "year": 2026,
+        "rating": 5,
+        "favorite": false,
+        "olid": "OL7353617M"
       }
     ],
     "podcasts": [
