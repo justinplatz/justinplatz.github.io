@@ -538,16 +538,8 @@ function renderShelfItems(shelfType, items) {
                 return titleA.localeCompare(titleB);
             });
             
-            // Add category header with description
-            const categoryDescriptions = {
-                'Essentials': 'Well-made software I come back to.',
-                'Games': 'What I\'m playing right now.'
-            };
-            const description = categoryDescriptions[category] || '';
+            // Add category header
             html += `<div class="year-group"><h3 class="year-header">${category}</h3>`;
-            if (description) {
-                html += `<p class="category-description">${description}</p>`;
-            }
             html += `<div class="year-items">`;
             
             // Render items for this category
