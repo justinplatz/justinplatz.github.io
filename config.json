@@ -417,6 +417,12 @@
         "favorite": false
       },
       {
+        "title": "Colonist.io - Catan inspired",
+        "appStoreId": "6444831129",
+        "category": "Games",
+        "favorite": false
+      },
+      {
         "title": "NYT Games: Wordle & Crossword",
         "appStoreId": "307569751",
         "category": "Games",
@@ -451,6 +457,12 @@
         "appStoreId": "915056765",
         "category": "Essentials",
         "favorite": true
+      },
+      {
+        "title": "Withings",
+        "appStoreId": "542701020",
+        "category": "Essentials",
+        "favorite": false
       }
     ]
   }
