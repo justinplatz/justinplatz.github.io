@@ -68,6 +68,14 @@
   "shelf": {
     "books": [
       {
+        "title": "Nexus",
+        "author": "Yuval Noah Harari",
+        "year": 2026,
+        "rating": 5,
+        "favorite": false,
+        "olid": "OL51102784M"
+      },
+      {
         "title": "Project Hail Mary",
         "author": "Andy Weir",
         "year": 2026,
