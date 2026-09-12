@@ -68,6 +68,14 @@
   "shelf": {
     "books": [
       {
+        "title": "Cribsheet",
+        "author": "Emily Oster",
+        "year": 2026,
+        "rating": 5,
+        "favorite": false,
+        "olid": "OL28258193M"
+      },
+      {
         "title": "Nexus",
         "author": "Yuval Noah Harari",
         "year": 2026,
