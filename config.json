@@ -68,6 +68,14 @@
   "shelf": {
     "books": [
       {
+        "title": "Obviously Awesome",
+        "author": "April Dunford",
+        "year": 2026,
+        "rating": 5,
+        "favorite": true,
+        "olid": "OL28266221M"
+      },
+      {
         "title": "Cribsheet",
         "author": "Emily Oster",
         "year": 2026,
